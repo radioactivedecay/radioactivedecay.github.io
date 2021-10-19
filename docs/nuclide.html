@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nuclide &mdash; radioactivedecay 0.4.5 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="utils" href="utils.html" />
+    <link rel="prev" title="inventory" href="inventory.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> radioactivedecay
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting.html">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory.html">Theory and Computation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="decaydata.html">decaydata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory.html">inventory</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">nuclide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">radioactivedecay</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="api.html">API</a> &raquo;</li>
+      <li>nuclide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/nuclide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-radioactivedecay.nuclide">
+<span id="nuclide"></span><h1>nuclide<a class="headerlink" href="#module-radioactivedecay.nuclide" title="Permalink to this headline"></a></h1>
+<p>The nuclide module defines the <code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> class. Each <code class="docutils literal notranslate"><span class="pre">Nuclide</span></code>
+instance represents one nuclide, and can be contructed from a nuclide
+string or <cite>zzzaaassss</cite> canonical id. The class properties provide an
+easy way of extracting atomic number and mass information, as well as a
+clean name string. Furthermore, additional methods provide an access
+point for mass data of nuclides, and the decay data of radionuclides,
+if present in a specified dataset. The default decay dataset used if
+none is supplied to the constructor is rd.DEFAULTDATA.</p>
+<p>The code examples shown in the docstrings assume the
+<code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> package has been imported as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">radioactivedecay</span> <span class="k">as</span> <span class="nn">rd</span>
+</pre></div>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.nuclide.</span></span><span class="sig-name descname"><span class="pre">Nuclide</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">input_nuclide:</span> <span class="pre">Union[str,</span> <span class="pre">int],</span> <span class="pre">decay_data:</span> <span class="pre">radioactivedecay.decaydata.DecayData</span> <span class="pre">=</span> <span class="pre">Decay</span> <span class="pre">dataset:</span> <span class="pre">icrp107_ame2020_nubase2020,</span> <span class="pre">contains</span> <span class="pre">SymPy</span> <span class="pre">data:</span> <span class="pre">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide" title="Permalink to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> instances serve as name and atomic number/mass parsing
+objects for any nuclide or element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_nuclide</strong> (<em>str</em><em> or </em><em>int</em>) – Input value for instantiation. Can be nuclide string in name
+format (with or without hyphen), or canonical id (zzzaaassss).</p></li>
+<li><p><strong>decay_data</strong> (<a class="reference internal" href="decaydata.html#radioactivedecay.decaydata.DecayData" title="radioactivedecay.decaydata.DecayData"><em>DecayData</em></a><em>, </em><em>optional</em>) – Decay dataset (default is the ICRP-107 dataset).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.nuclide">
+<span class="sig-name descname"><span class="pre">nuclide</span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.nuclide" title="Permalink to this definition"></a></dt>
+<dd><p>Nuclide name string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.Z">
+<span class="sig-name descname"><span class="pre">Z</span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.Z" title="Permalink to this definition"></a></dt>
+<dd><p>Atomic number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.A">
+<span class="sig-name descname"><span class="pre">A</span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.A" title="Permalink to this definition"></a></dt>
+<dd><p>Atomic mass number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.id" title="Permalink to this definition"></a></dt>
+<dd><p>Canonical nuclide id, in zzzaaassss form. Ground state is 0000,
+first excited state (“m”) is 0001, second (“n”) is 0002, etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.decay_data">
+<span class="sig-name descname"><span class="pre">decay_data</span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.decay_data" title="Permalink to this definition"></a></dt>
+<dd><p>Decay dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="decaydata.html#radioactivedecay.decaydata.DecayData" title="radioactivedecay.decaydata.DecayData">DecayData</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.atomic_mass">
+<span class="sig-name descname"><span class="pre">atomic_mass</span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.atomic_mass" title="Permalink to this definition"></a></dt>
+<dd><p>Atomic weight of the nuclide, in g/mol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.prog">
+<span class="sig-name descname"><span class="pre">prog</span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.prog" title="Permalink to this definition"></a></dt>
+<dd><p>List of direct progeny of this nuclide.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.bfs">
+<span class="sig-name descname"><span class="pre">bfs</span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.bfs" title="Permalink to this definition"></a></dt>
+<dd><p>List of branching fractions to direct progeny of this nuclide.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.modes">
+<span class="sig-name descname"><span class="pre">modes</span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.modes" title="Permalink to this definition"></a></dt>
+<dd><p>List of modes to direct progeny of this nuclide.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="s1">&#39;K-40&#39;</span><span class="p">)</span>
+<span class="go">Nuclide: K-40</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="s1">&#39;K40&#39;</span><span class="p">)</span>
+<span class="go">Nuclide: K-40</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="mi">190400000</span><span class="p">)</span>
+<span class="go">Nuclide: K-40</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="mi">280560001</span><span class="p">)</span>
+<span class="go">Nuclide: Ni-56m</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.branching_fractions">
+<span class="sig-name descname"><span class="pre">branching_fractions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.branching_fractions" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the branching fractions to the direct progeny of a
+radionuclide.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of branching fractions.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">K40</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="s1">&#39;K-40&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">K40</span><span class="o">.</span><span class="n">branching_fractions</span><span class="p">()</span>
+<span class="go">[0.8914, 0.1086]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.decay_modes">
+<span class="sig-name descname"><span class="pre">decay_modes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.decay_modes" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the decay modes for a radionuclide, as defined in the
+decay dataset. Note: the decay mode strings returned are not
+lists of all the different radiation types emitted during the
+parent to progeny decay processes. They are the labels defined
+in the decay dataset to classify the parent to progeny decay
+type (e.g. ‘α’, ‘β-’ or ‘IT’).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of decay modes.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">K40</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="s1">&#39;K-40&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">K40</span><span class="o">.</span><span class="n">decay_modes</span><span class="p">()</span>
+<span class="go">[&#39;β-&#39;, &#39;β+ &amp; EC&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.half_life">
+<span class="sig-name descname"><span class="pre">half_life</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'s'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.half_life" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the half-life of a nuclide as a float in your chosen
+units, or as a human-readable string with appropriate units.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>units</strong> (<em>str</em><em>, </em><em>optional</em>) – Units for half-life. Options are ‘ps’, ‘ns’, ‘μs’, ‘us’,
+‘ms’, ‘s’, ‘m’, ‘h’, ‘d’, ‘y’, ‘ky’, ‘My’, ‘By’, ‘Gy’,
+‘Ty’, ‘Py’, and common spelling variations. Default is ‘s’,
+i.e. seconds. Use ‘readable’ to get a string of the
+half-life in human-readable units.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Radionuclide half-life.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float or str</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">K40</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="s1">&#39;K-40&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">K40</span><span class="o">.</span><span class="n">half_life</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="go">1251000000.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Fe56</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="s1">&#39;Fe-56&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Fe56</span><span class="o">.</span><span class="n">half_life</span><span class="p">(</span><span class="s1">&#39;readable&#39;</span><span class="p">)</span>
+<span class="go">&#39;stable&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.parse_name">
+<span class="sig-name descname"><span class="pre">parse_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_nuclide</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.parse_name" title="Permalink to this definition"></a></dt>
+<dd><p>Parse input and set atomic data attributes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label_pos</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">matplotlib.figure.Figure</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">matplotlib.axes._axes.Axes</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs_draw</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs_edge_labels</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">matplotlib.figure.Figure</span><span class="p"><span class="pre">,</span> </span><span class="pre">matplotlib.axes._axes.Axes</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.plot" title="Permalink to this definition"></a></dt>
+<dd><p>Plots a diagram of the decay chain of a radionuclide. Then
+creates a NetworkX DiGraph and plot of it using NetworkX’s
+Matplotlib-based plotting functionality.</p>
+<p>Some of the NetworkX default plotting parameters are changed to
+produce nice decay chain diagrams. However, users retain
+control over these parameters via kwargs_draw and
+kwargs_edge_labels. For more information on the various
+NetworkX plotting parameters, refer to its <a class="reference external" href="https://networkx.org/documentation/stable/reference/drawing.html">documentation</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label_pos</strong> (<em>float</em><em>, </em><em>optional</em>) – Position of labels along edges. Default is 0.5. If you find
+that edge labels are overlapping in the decay chain
+diagram, try increasing this parameter to e.g. 0.66.</p></li>
+<li><p><strong>fig</strong> (<em>None</em><em> or </em><em>matplotlib.figure.Figure</em><em>, </em><em>optional</em>) – matplotlib figure object to use, or None makes
+<code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> create one (default is None).</p></li>
+<li><p><strong>axes</strong> (<em>None</em><em> or </em><em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – matplotlib axes object to use, or None makes
+<code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> create one (default is None).</p></li>
+<li><p><strong>**kwargs_draw</strong> – Keyword arguments for networkx.draw().</p></li>
+<li><p><strong>optional</strong> – Keyword arguments for networkx.draw().</p></li>
+<li><p><strong>**kwargs_edge_labels</strong> – Keyword arguments for networkx.draw_networkx_edge_labels().</p></li>
+<li><p><strong>optional</strong> – Keyword arguments for networkx.draw_networkx_edge_labels().</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>matplotlib.figure.Figure</em>) – matplotlib figure object used to plot the decay chain.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em>) – matplotlib axes object used to plot the decay chain.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.progeny">
+<span class="sig-name descname"><span class="pre">progeny</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.progeny" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the direct progeny of a radionuclide.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of the direct progeny of the radionuclide, ordered by
+decreasing branching fraction.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">K40</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="s1">&#39;K-40&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">K40</span><span class="o">.</span><span class="n">progeny</span><span class="p">()</span>
+<span class="go">[&#39;Ca-40&#39;, &#39;Ar-40&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="inventory.html" class="btn btn-neutral float-left" title="inventory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="utils.html" class="btn btn-neutral float-right" title="utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, JAEA.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

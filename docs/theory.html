@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theory and Computation &mdash; radioactivedecay 0.4.5 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API" href="api.html" />
+    <link rel="prev" title="Plotting" href="plotting.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> radioactivedecay
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting.html">Plotting</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Theory and Computation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#solution-to-the-decay-chain-differential-equations">Solution to the decay chain differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementation-in-radioactivedecay">Implementation in radioactivedecay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notes-on-computation-and-numerical-precision">Notes on computation and numerical precision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">radioactivedecay</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Theory and Computation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/theory.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="theory-and-computation">
+<h1>Theory and Computation<a class="headerlink" href="#theory-and-computation" title="Permalink to this headline"></a></h1>
+<section id="solution-to-the-decay-chain-differential-equations">
+<h2>Solution to the decay chain differential equations<a class="headerlink" href="#solution-to-the-decay-chain-differential-equations" title="Permalink to this headline"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> calculates an analytical solution to the decay chain
+differential equations using the method outlined by Amaku et al. <a class="reference internal" href="overview.html#refs"><span class="std std-ref">[1]</span></a>.</p>
+<p>Consider a system of <span class="math notranslate nohighlight">\(n\)</span> radionuclides, where the vector
+<span class="math notranslate nohighlight">\(\mathbf{N}(t)\)</span> has elements <span class="math notranslate nohighlight">\(N_{i}(t)\)</span> representing the number
+of atoms of radionuclide <span class="math notranslate nohighlight">\(i\)</span> at time <span class="math notranslate nohighlight">\(t\)</span>. The radioactive decay
+chain differential equations can be expressed using matrix notation as</p>
+<div class="math notranslate nohighlight">
+\[\frac{\mathrm{d}\mathbf{N}}{\mathrm{d}t} = \varLambda \mathbf{N}.\]</div>
+<p><span class="math notranslate nohighlight">\(\varLambda\)</span> is a lower triangular matrix whose elements are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\varLambda_{ij} =
+\begin{cases}
+0 &amp;&amp; \text{for }  i &lt; j,\\
+-\lambda_{j} &amp;&amp; \text{for }  i = j,\\
+b_{ji}\lambda_{j} &amp;&amp; \text{for }  i &gt; j,
+\end{cases}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda_{j}\)</span> is the decay constant of radionuclide <span class="math notranslate nohighlight">\(j\)</span>,
+and <span class="math notranslate nohighlight">\(b_{ji}\)</span> is the branching fraction from radionuclide <span class="math notranslate nohighlight">\(j\)</span> to
+<span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\varLambda\)</span> is a diagonalizable matrix so its eigendecomposition can be
+used to rewrite the matrix differential equation as</p>
+<div class="math notranslate nohighlight">
+\[\frac{\mathrm{d}\mathbf{N}}{\mathrm{d}t} = C \varLambda_d C^{-1} \mathbf{N}.\]</div>
+<p>Here <span class="math notranslate nohighlight">\(\varLambda_d\)</span> is a diagonal matrix whose elements along the
+diagonal are the negative decay constants
+(<span class="math notranslate nohighlight">\(\varLambda_{dii} = -\lambda_{i}\)</span>, these are the eigenvalues of
+<span class="math notranslate nohighlight">\(\varLambda\)</span>). Matrix <span class="math notranslate nohighlight">\(C\)</span> and its inverse <span class="math notranslate nohighlight">\(C^{-1}\)</span> are both
+lower triangular matrices. The column vectors of <span class="math notranslate nohighlight">\(C\)</span> are the eigenvectors
+of <span class="math notranslate nohighlight">\(\varLambda\)</span>. Amaku et al. showed the elements of <span class="math notranslate nohighlight">\(C\)</span> can be
+calculated as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}C_{ij} =
+\begin{cases}
+0 &amp;&amp; \text{for }  i &lt; j,\\
+1 &amp;&amp; \text{for }  i = j,\\
+\frac{\sum_{k=j}^{i-1}\varLambda_{ik}C_{kj}}{\varLambda_{jj} - \varLambda_{ii}} &amp;&amp; \text{for }  i &gt; j.
+\end{cases}\end{split}\]</div>
+<p>The elements of the inverse matrix <span class="math notranslate nohighlight">\(C^{-1}\)</span> can then be calculated as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}C^{-1}_{ij} =
+\begin{cases}
+0 &amp;&amp; \text{for }  i &lt; j,\\
+1 &amp;&amp; \text{for }  i = j,\\
+-\sum_{k=j}^{i-1} C_{ik} C^{-1}_{kj} &amp;&amp; \text{for }  i &gt; j.
+\end{cases}\end{split}\]</div>
+<p>The analytical solution to the matrix differential equation given the intial
+condition <span class="math notranslate nohighlight">\(\mathbf{N}(t=0)=\mathbf{N}(0)\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{N}(t) = C e^{\varLambda_{d} t} C^{-1} \mathbf{N}(0).\]</div>
+<p>This is the equation that is calculated by <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> upon each call
+to <code class="docutils literal notranslate"><span class="pre">decay()</span></code>. <span class="math notranslate nohighlight">\(e^{\varLambda_{d} t}\)</span> is the matrix exponential of
+<span class="math notranslate nohighlight">\(\varLambda_{d} t\)</span>. It is a diagonal matrix with elements
+<span class="math notranslate nohighlight">\(e^{\varLambda_{d} t}_{ii} = e^{-\lambda_i t}\)</span>.</p>
+<p>The final equations that are needed are for converting between various
+quantities. Converting between mass (<span class="math notranslate nohighlight">\(\mathbf{M}\)</span>, in grams) and
+number of atoms (<span class="math notranslate nohighlight">\(\mathbf{N}\)</span>) uses the vector of atomic masses
+(<span class="math notranslate nohighlight">\(\mathbf{M_u}\)</span>) and the Avogadro constant (<span class="math notranslate nohighlight">\(N_a\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[M_i =  \frac{M_{ui} N_i}{N_a}.\]</div>
+<p>Converting between activity (<span class="math notranslate nohighlight">\(\mathbf{A}\)</span>) and number of atoms
+(<span class="math notranslate nohighlight">\(\mathbf{N}\)</span>) uses the vector of decay constants
+(<span class="math notranslate nohighlight">\(\mathbf{\lambda}\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[A_i = \lambda_i N_i.\]</div>
+</section>
+<section id="implementation-in-radioactivedecay">
+<h2>Implementation in radioactivedecay<a class="headerlink" href="#implementation-in-radioactivedecay" title="Permalink to this headline"></a></h2>
+<p>As matrices <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(C^{-1}\)</span> are independent of time, they can be
+pre-calculated and imported into <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> as part of a radioactive
+decay dataset.  <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(C^{-1}\)</span>  are pre-calculated for the
+ICRP-107 <a class="reference internal" href="overview.html#refs"><span class="std std-ref">[2]</span></a> dataset in
+<a class="reference external" href="https://github.com/alexmalins/radioactivedecay/notebooks/tree/main/icrp107_dataset/icrp107_dataset.ipynb">this Jupter notebook</a>
+held in the GitHub repository.</p>
+<p>Note that <span class="math notranslate nohighlight">\(C\)</span>, <span class="math notranslate nohighlight">\(C^{-1}\)</span> and <span class="math notranslate nohighlight">\(e^{\varLambda_{d} t}\)</span> are sparse
+matrices. Storing the matrices in a sparse matrix format greatly reduces the
+amount of memory that they occupy and the computational expense for the matrix
+multiplications in each decay calculation.</p>
+</section>
+<section id="notes-on-computation-and-numerical-precision">
+<h2>Notes on computation and numerical precision<a class="headerlink" href="#notes-on-computation-and-numerical-precision" title="Permalink to this headline"></a></h2>
+<p>Numerical issues can arise when using double-precision floating-point numbers
+to compute decays for some chains <a class="reference internal" href="overview.html#refs"><span class="std std-ref">[3]</span></a>. For example, the Es-254
+decay chain contains U-238 (half-life 4.468 billion years) and Po-214
+(half-life 164.3 microseconds), which is a 20 orders of magnitude difference in
+half-life. Round-off errors and loss of significance can occur causing
+unphysical results, e.g.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;Es-254&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">decay</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span><span class="o">.</span><span class="n">activities</span><span class="p">()</span>
+<span class="go">{&#39;At-218&#39;: -8.24439035981494e-30, &#39;Bi-210&#39;: 2.5308844932098316e-26,</span>
+<span class="go"> &#39;Bi-214&#39;: -4.256549745172888e-26, &#39;Bk-250&#39;: 0.0,</span>
+<span class="go"> &#39;Cf-250&#39;: 0.0, &#39;Cm-246&#39;: 8.802967479989175e-21,</span>
+<span class="go"> &#39;Es-254&#39;: 1.0, &#39;Fm-254&#39;: 0.0,</span>
+<span class="go"> &#39;Hg-206&#39;: -3.4696439711117526e-34, &#39;Pa-234&#39;: 2.330729590281097e-29,</span>
+<span class="go"> &#39;Pa-234m&#39;: -1.5696690930108473e-26, &#39;Pb-206&#39;: 0.0,</span>
+<span class="go"> &#39;Pb-210&#39;: 2.673060958594837e-26, &#39;Pb-214&#39;: -7.310828272597407e-27,</span>
+<span class="go"> &#39;Po-210&#39;: -1.048466176320909e-27, &#39;Po-214&#39;: 2.3260114484256133e-26,</span>
+<span class="go"> &#39;Po-218&#39;: -1.1433437709020225e-26, &#39;Pu-242&#39;: 1.3827905917787723e-22,</span>
+<span class="go"> &#39;Ra-226&#39;: -1.0811575068833228e-26, &#39;Rn-218&#39;: -1.618765025703667e-33,</span>
+<span class="go"> &#39;Rn-222&#39;: -1.581593359682259e-26, &#39;Th-230&#39;: -1.2628442466252288e-26,</span>
+<span class="go"> &#39;Th-234&#39;: -2.6140879622245746e-27, &#39;Tl-206&#39;: -4.332210492987691e-34,</span>
+<span class="go"> &#39;Tl-210&#39;: 2.2028710112960294e-31, &#39;U-234&#39;: -1.0389580591195201e-26,</span>
+<span class="go"> &#39;U-238&#39;: -8.466705440297454e-27}</span>
+</pre></div>
+</div>
+<p>All the progeny of Es-254 should have an activity of exactly zero for this
+calculation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> thus offers a decay calculation mode using SymPy
+<a class="reference internal" href="overview.html#refs"><span class="std std-ref">[4]</span></a> arbitrary precision computation routines for when high
+numerical precision is needed:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">InventoryHP</span><span class="p">({</span><span class="s1">&#39;Es-254&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">activities</span><span class="p">()</span>
+<span class="go">{&#39;At-218&#39;: 0.0, &#39;Bi-210&#39;: 0.0,</span>
+<span class="go"> &#39;Bi-214&#39;: 0.0, &#39;Bk-250&#39;: 0.0,</span>
+<span class="go"> &#39;Cf-250&#39;: 0.0, &#39;Cm-246&#39;: 0.0,</span>
+<span class="go"> &#39;Es-254&#39;: 1.0, &#39;Fm-254&#39;: 0.0,</span>
+<span class="go"> &#39;Hg-206&#39;: 0.0, &#39;Pa-234&#39;: 0.0,</span>
+<span class="go"> &#39;Pa-234m&#39;: 0.0, &#39;Pb-206&#39;: 0.0,</span>
+<span class="go"> &#39;Pb-210&#39;: 0.0, &#39;Pb-214&#39;: 0.0,</span>
+<span class="go"> &#39;Po-210&#39;: 0.0, &#39;Po-214&#39;: 0.0,</span>
+<span class="go"> &#39;Po-218&#39;: 0.0, &#39;Pu-242&#39;: 0.0,</span>
+<span class="go"> &#39;Ra-226&#39;: 0.0, &#39;Rn-218&#39;: 0.0,</span>
+<span class="go"> &#39;Rn-222&#39;: 0.0, &#39;Th-230&#39;: 0.0,</span>
+<span class="go"> &#39;Th-234&#39;: 0.0, &#39;Tl-206&#39;: 0.0,</span>
+<span class="go"> &#39;Tl-210&#39;: 0.0, &#39;U-234&#39;: 0.0,</span>
+<span class="go"> &#39;U-238&#39;: 0.0}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">InventoryHP</span></code> class <code class="docutils literal notranslate"><span class="pre">decay()</span></code> method carries exact SymPy expressions
+through decay calculations as far as is practicable. At the final step, the
+decayed activity for each radionuclide is evaluated to high numerical precision
+and cast to a double-precision float to return the decayed <code class="docutils literal notranslate"><span class="pre">Inventory</span></code>.</p>
+<p>In practice using SymPy to exactly evaluate the exponential terms in the above
+analytical solution to the radionuclide decay equations can be very time
+consuming. Therefore by default the exponential terms are evaluated numerically
+to 320 significant figures of precision mid-decay calculation. Empirically this
+was found to give results for a range of test decay calculations, i.e. using a
+higher number of significant figures offered no improvement in the numerical
+accuracy of the results after the outputs are cast to double-precision floats.
+You can also select your own number of significant figures for the calculation
+by setting the <code class="docutils literal notranslate"><span class="pre">InventoryHP.sig_fig</span></code> attribute of the <code class="docutils literal notranslate"><span class="pre">InventoryHP</span></code>
+instance.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>M Amaku, PR Pascholati &amp; VR Vanin, Comp. Phys. Comm. 181, 21-23 (2010). DOI: <a class="reference external" href="https://doi.org/10.1016/j.cpc.2009.08.011">10.1016/j.cpc.2009.08.011</a></p></li>
+<li><p>ICRP Publication 107: Nuclear Decay Data for Dosimetric Calculations. Ann. ICRP 38 (3), 1-96 (2008). <a class="reference external" href="https://journals.sagepub.com/doi/pdf/10.1177/ANIB_38_3">PDF</a></p></li>
+<li><p>RI Balkin et al. Atomic Energy 123, 406-411 (2018). <a class="reference external" href="https://doi.org/10.1007/s10512-018-0360-2">10.1007/s10512-018-0360-2</a></p></li>
+<li><p>A Meurer et al. PeerJ Comp. Sci. 3, e103 (2017). DOI: <a class="reference external" href="https://doi.org/10.7717/peerj-cs.103">10.7717/peerj-cs.103</a></p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plotting.html" class="btn btn-neutral float-left" title="Plotting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, JAEA.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

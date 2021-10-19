@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; radioactivedecay 0.4.5 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="Welcome to radioactivedecay’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> radioactivedecay
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#queries">Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting.html">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory.html">Theory and Computation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">radioactivedecay</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> is a Python package for radioactive decay calculations.
+It contains functions to define inventories of radionuclides, perform
+decay calculations, and output decay data for radionuclides and decay chains.</p>
+<p>The original goal was to create a light-weight Python package for radioactive
+decay calculations, with full support for branching decays, multi-step decay
+chains, and metastable states. By default <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> uses decay data
+from ICRP Publication 107 <a class="reference internal" href="#refs"><span class="std std-ref">[1]</span></a> and atomic mass data from the
+Atomic Mass Data Center (AME2020 and Nubase 2020 evaluations)
+<a class="reference internal" href="#refs"><span class="std std-ref">[2]</span></a>, <a class="reference internal" href="#refs"><span class="std std-ref">[3]</span></a> and <a class="reference internal" href="#refs"><span class="std std-ref">[4]</span></a>. It solves the radioactive
+decay differential equations analytically using basic linear algebra operations
+<a class="reference internal" href="#refs"><span class="std std-ref">[5]</span></a>.</p>
+<p>In order to use <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code>, you will need Python 3.6+ with the
+Matplotlib, NetworkX, NumPy, SciPy and SymPy packages installed. The code is
+platform independent and has been tested on Windows, MacOS and Linux systems.</p>
+</section>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h2>
+<p>Install <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> using <code class="docutils literal notranslate"><span class="pre">pip</span></code> by:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install radioactivedecay
+</pre></div>
+</div>
+<p>or using <code class="docutils literal notranslate"><span class="pre">conda</span></code> by:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda install -c conda-forge radioactivedecay
+</pre></div>
+</div>
+<p>Either command will attempt to install the dependencies (Matplotlib, NetworkX,
+NumPy, SciPy &amp; SymPy) if they are not already present in the environment.</p>
+<p>Import the <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> package and decay a simple inventory using:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">radioactivedecay</span> <span class="k">as</span> <span class="nn">rd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv_t0</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;H-3&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv_t1</span> <span class="o">=</span> <span class="n">inv_t0</span><span class="o">.</span><span class="n">decay</span><span class="p">(</span><span class="mf">12.32</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv_t1</span><span class="o">.</span><span class="n">activities</span><span class="p">()</span>
+<span class="go">{&#39;H-3&#39;: 5.0}</span>
+</pre></div>
+</div>
+<p>Here we created an inventory of 10.0 Bq of tritium (<sup>3</sup>H) and decayed
+it for 12.32 years. The activity reduced by a factor of two, i.e. to 5.0 Bq,
+as 12.32 years is the half-life of tritium.</p>
+<p>Additional options for inputs and outputs include masses, moles and numbers of
+atoms. Use the <code class="docutils literal notranslate"><span class="pre">units</span></code> argument to the <code class="docutils literal notranslate"><span class="pre">Inventory()</span></code> constructor, and the
+<code class="docutils literal notranslate"><span class="pre">masses()</span></code>, <code class="docutils literal notranslate"><span class="pre">moles()</span></code>, <code class="docutils literal notranslate"><span class="pre">numbers()</span></code>, <code class="docutils literal notranslate"><span class="pre">mass_fractions()</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">mole_fractions()</span></code> methods to obtain results.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv_mass_t0</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;H-3&#39;</span><span class="p">:</span> <span class="mf">3.2</span><span class="p">},</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv_mass_t1</span> <span class="o">=</span> <span class="n">inv_mass_t0</span><span class="o">.</span><span class="n">decay</span><span class="p">(</span><span class="mf">12.32</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv_mass_t1</span><span class="o">.</span><span class="n">masses</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="go">{&#39;H-3&#39;: 1.6000000000000003, &#39;He-3&#39;: 1.5999894116584246}</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv_mol_t0</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;C-14&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span> <span class="s1">&#39;mol&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv_mol_t1</span> <span class="o">=</span> <span class="n">inv_mol_t0</span><span class="o">.</span><span class="n">decay</span><span class="p">(</span><span class="mf">3000.0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv_mol_t1</span><span class="o">.</span><span class="n">moles</span><span class="p">(</span><span class="s1">&#39;mol&#39;</span><span class="p">)</span>
+<span class="go">{&#39;C-14&#39;: 0.6943255713073281, &#39;N-14&#39;: 0.3056744286926719}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv_mol_t1</span><span class="o">.</span><span class="n">numbers</span><span class="p">()</span>
+<span class="go">{&#39;C-14&#39;: 4.181326323680147e+23, &#39;N-14&#39;: 1.840814436319853e+23}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv_mole_t1</span><span class="o">.</span><span class="n">mol_fractions</span><span class="p">()</span>
+<span class="go">{&#39;C-14&#39;: 0.6943255713073281, &#39;N-14&#39;: 0.3056744286926719}</span>
+</pre></div>
+</div>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> method to show the decay of the inventory over time:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv_t0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/H-3_decay.png"><img alt="_images/H-3_decay.png" src="_images/H-3_decay.png" style="width: 450px;" /></a>
+<p>The graph shows the decay of H-3 over a 100 year period.</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">Radionuclide</span></code> class to fetch decay data about a particular
+radionuclide and to draw diagrams of its decay chain:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Radionuclide</span><span class="p">(</span><span class="s1">&#39;H-3&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">half_life</span><span class="p">(</span><span class="s1">&#39;readable&#39;</span><span class="p">)</span>
+<span class="go">&#39;12.32 y&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">progeny</span><span class="p">()</span>
+<span class="go">[&#39;He-3&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">decay_modes</span><span class="p">()</span>
+<span class="go">[&#39;β-&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">branching_fractions</span><span class="p">()</span>
+<span class="go">[1.0]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/H-3_chain.png"><img alt="_images/H-3_chain.png" src="_images/H-3_chain.png" style="width: 100px;" /></a>
+</section>
+<section id="how-it-works">
+<h2>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> calculates an analytical solution to the decay chain
+differential equations using matrix and vector multiplications. It implements
+the method described in ref. <a class="reference internal" href="#refs"><span class="std std-ref">[5]</span></a>.  See the
+<a class="reference external" href="https://alexmalins.com/radioactivedecay/theory.html">theory docpage</a> for
+more details. It calls NumPy <a class="reference internal" href="#refs"><span class="std std-ref">[6]</span></a> and SciPy <a class="reference internal" href="#refs"><span class="std std-ref">[7]</span></a> for
+the matrix operations. There is also a high numerical precision decay
+calculation mode based on SymPy <a class="reference internal" href="#refs"><span class="std std-ref">[8]</span></a> routines.</p>
+<p>The <a class="reference external" href="https://github.com/alexmalins/radioactivedecay/tree/main/notebooks">notebooks directory</a>
+in the GitHub repository contains some Jupyter Notebooks for creating the
+<a class="reference external" href="https://github.com/alexmalins/radioactivedecay/tree/main/notebooks/icrp107_dataset/icrp107_dataset.ipynb">ICRP-107 decay dataset</a>
+for <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code>, and cross-checks against <a class="reference external" href="https://github.com/alexmalins/radioactivedecay/tree/main/notebooks/comparisons/pyne/rd_pyne_truncated_compare.ipynb">PyNE</a>
+<a class="reference internal" href="#refs"><span class="std std-ref">[9]</span></a> and <a class="reference external" href="https://github.com/alexmalins/radioactivedecay/tree/main/notebooks/comparisons/radiological_toolbox/radiological_toolbox_compare.ipynb">Radiological Toolbox</a>
+<a class="reference internal" href="#refs"><span class="std std-ref">[10]</span></a>.</p>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline"></a></h2>
+<p>At present <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> has the following limitations:</p>
+<ul class="simple">
+<li><p>It does not model neutronics, so cannot calculate radioactivity produced
+from neutron-nuclear reactions inducing radioactivity or fission.</p></li>
+<li><p>It cannot model temporal sources of external radioactivity input or removal
+from an inventory over time.</p></li>
+<li><p>Care is needed when decaying backwards in time, i.e. supplying a negative
+argument to the <code class="docutils literal notranslate"><span class="pre">Inventory.decay()</span></code> method, as this can result in numerical
+instabilities and nonsensical results. The high precision
+<code class="docutils literal notranslate"><span class="pre">InventoryHP.decay()</span></code> is more robust to these instabilities, but not immune
+from them.</p></li>
+</ul>
+<p>There are also some limitations associated with the ICRP-107 decay dataset:</p>
+<ul class="simple">
+<li><p>ICRP-107 does not contain data on branching fractions for radionuclides
+produced from spontaneous fission decays. Thus the <code class="docutils literal notranslate"><span class="pre">decay()</span></code> methods do not
+calculate activities for spontaneous fission progeny.</p></li>
+<li><p>Decay data is quoted in ICRP-107 with up to 5 significant figures of
+precision. The results of decay calculations will therefore in theory never
+be more precise than this level of precision.</p></li>
+<li><p>Uncertainties are not quoted for the radioactive decay data in ICRP-107.
+Uncertainties will vary substantially between radionuclides. They will depend
+on how well each radionuclide has been researched in the past. In many cases
+these uncertainties will be more significant for the results of decay
+calculations than the previous point about the quoted precision of the
+ICRP-107 decay data.</p></li>
+<li><p>There are a few instances where minor decay pathways were not included in
+ICRP-107, e.g. the decay pathways for At-219-&gt; Rn-219 (β ~3%), Es-250 -&gt;
+Bk-246 (α ~1.5%), and U-228 -&gt; Pa-228 (ε ~2.5%). For more
+details see refs. <a class="reference internal" href="#refs"><span class="std std-ref">[11]</span></a> and <a class="reference internal" href="#refs"><span class="std std-ref">[12]</span></a> on the creation of
+the ICRP-107 dataset.</p></li>
+</ul>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> is open source software released under the <a class="reference external" href="https://github.com/alexmalins/radioactivedecay/blob/master/LICENSE">MIT</a> licence.</p>
+<p>The default decay data used by <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> is ICRP-107 <a class="reference internal" href="#refs"><span class="std std-ref">[1]</span></a>, which
+is Copyright © A. Endo and K.F. Eckerman (2008). See <a class="reference external" href="https://github.com/alexmalins/radioactivedecay/blob/master/LICENSE.ICRP-07">LICENSE.ICRP-07</a>
+for more details.</p>
+<p>The default atomic mass data is based on the Atomic Mass Data Center (<a class="reference external" href="https://www-nds.iaea.org/amdc/">AMDC</a>) AME2020 <a class="reference internal" href="#refs"><span class="std std-ref">[2]</span></a>,
+<a class="reference internal" href="#refs"><span class="std std-ref">[3]</span></a> and Nubase2020 <a class="reference internal" href="#refs"><span class="std std-ref">[4]</span></a> evaluations. See
+<a class="reference external" href="https://github.com/alexmalins/radioactivedecay/blob/master/LICENSE.AMDC">LICENSE.AMDC</a> for
+more details.</p>
+</section>
+<section id="contributors">
+<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline"></a></h2>
+<p>List of contributors to <code class="docutils literal notranslate"><span class="pre">radioactivedeay</span></code>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://alexmalins.com">Alex Malins</a></p></li>
+<li><p><a class="reference external" href="https://github.com/lemointm">Thom Lemoine</a></p></li>
+</ul>
+</section>
+<section id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline"></a></h2>
+<p>Users are welcome to fix bugs, add new features or make feature requests.
+Please read the <a class="reference external" href="https://github.com/alexmalins/radioactivedecay/blob/master/CONTRIBUTING.md">contributor guidelines</a>
+and open a pull request or issue on the
+<a class="reference external" href="https://github.com/alexmalins/radioactivedecay">GitHub repository</a>.</p>
+</section>
+<section id="queries">
+<h2>Queries<a class="headerlink" href="#queries" title="Permalink to this headline"></a></h2>
+<p>If you have any questions or queries about the functionality and use of this
+package, you are welcome to <a class="reference external" href="mailto:radioactivedecay&#37;&#52;&#48;REMOVETHISalexmalins&#46;com">email</a> the lead contributor
+(Alex Malins) for support.</p>
+</section>
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline"></a></h2>
+<p>Special thanks to:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ccse.jaea.go.jp/index_eng.html">Center for Computational Science &amp; e-Systems, JAEA</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Rolleroo">Kenny McKee</a></p></li>
+<li><p><a class="reference external" href="https://github.com/danieldjewell">Daniel Jewell</a></p></li>
+<li><p><a class="reference external" href="https://epassaro.github.io/">Ezequiel Pássaro</a></p></li>
+<li><p><a class="reference external" href="https://github.com/shyamd">Shyam Dwaraknath</a></p></li>
+<li><p><a class="reference external" href="https://wkerzendorf.github.io/">Wolfgang Kerzendorf</a></p></li>
+<li><p><a class="reference external" href="https://hratliff.com/">Hunter Ratliff</a></p></li>
+<li><p><a class="reference external" href="https://github.com/jvavrek">Jayson Vavrek</a></p></li>
+</ul>
+<p>for suggestions, support and assistance to this project.</p>
+<p>Thanks also to:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/bjodah">Björn Dahlgren</a> (creator of the batemaneq
+Python package <a class="reference internal" href="#refs"><span class="std std-ref">[13]</span></a>)</p></li>
+<li><p><a class="reference external" href="https://github.com/scopatz">Anthony Scopatz</a> and the PyNE project
+<a class="reference internal" href="#refs"><span class="std std-ref">[9]</span></a></p></li>
+<li><p><a class="reference external" href="https://github.com/jtmorrell">Jonathan Morrell</a> (creator of the <a class="reference external" href="https://github.com/jtmorrell/npat">NPAT</a> and <a class="reference external" href="https://github.com/jtmorrell/npat">Curie</a> packages)</p></li>
+</ul>
+<p>for their work on open source radioactive decay calculation software.</p>
+</section>
+<section id="references">
+<span id="refs"></span><h2>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>ICRP Publication 107: Nuclear Decay Data for Dosimetric Calculations. Ann. ICRP 38 (3), 1-96 (2008). <a class="reference external" href="https://journals.sagepub.com/doi/pdf/10.1177/ANIB_38_3">PDF</a></p></li>
+<li><p>W.J. Huang et al. Chinese Phys. C 45, 030002 (2021). DOI: <a class="reference external" href="https://doi.org/10.1088/1674-1137/abddb0">10.1088/1674-1137/abddb0</a></p></li>
+<li><p>Meng Wang et al. Chinese Phys. C 45, 030003 (2021). DOI: <a class="reference external" href="https://doi.org/10.1088/1674-1137/abddaf">10.1088/1674-1137/abddaf</a></p></li>
+<li><p>F.G. Kondev et al. Chinese Phys. C 45, 030001 (2021). DOI: <a class="reference external" href="https://doi.org/10.1088/1674-1137/abddae">10.1088/1674-1137/abddae</a></p></li>
+<li><p>M Amaku, PR Pascholati &amp; VR Vanin, Comp. Phys. Comm. 181, 21-23 (2010). DOI: <a class="reference external" href="https://doi.org/10.1016/j.cpc.2009.08.011">10.1016/j.cpc.2009.08.011</a></p></li>
+<li><p>CR Harris et al. Nat. 585, 357-362 (2020). DOI: <a class="reference external" href="https://doi.org/10.1038/s41586-020-2649-2">10.1038/s41586-020-2649-2</a></p></li>
+<li><p>P Virtanen et al. Nat. Methods 17, 261-272 (2020). DOI: <a class="reference external" href="https://doi.org/10.1038/s41592-019-0686-2">10.1038/s41592-019-0686-2</a></p></li>
+<li><p>A Meurer et al. PeerJ Comp. Sci. 3, e103 (2017). DOI: <a class="reference external" href="https://doi.org/10.7717/peerj-cs.103">10.7717/peerj-cs.103</a></p></li>
+<li><p>PyNE: The Nuclear Engineering Toolkit. <a class="reference external" href="https://pyne.io/">https://pyne.io/</a></p></li>
+<li><p>KF Eckerman, AL Sjoreen &amp; C Sun, Radiological Toolbox, Oak Ridge National Laboratory. <a class="reference external" href="https://www.ornl.gov/crpk/software">https://www.ornl.gov/crpk/software</a></p></li>
+<li><p>A Endo, Y Yamaguchi &amp; KF Eckerman, JAERI 1347 (2005). DOI: <a class="reference external" href="https://doi.org/10.11484/jaeri-1347">10.11484/jaeri-1347</a></p></li>
+<li><p>A Endo &amp; KF Eckerman, JAEA-Data/Code 2007-021 (2007). DOI: <a class="reference external" href="https://doi.org/10.11484/jaea-data-code-2007-021">10.11484/jaea-data-code-2007-021</a></p></li>
+<li><p>B Dahlgren, batemaneq:  a C++ implementation of the Bateman equation, and a Python binding thereof. <a class="reference external" href="https://github.com/bjodah/batemaneq">https://github.com/bjodah/batemaneq</a></p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to radioactivedecay’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, JAEA.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
