@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutorial &mdash; radioactivedecay 0.4.6 documentation</title>
+  <title>Tutorial &mdash; radioactivedecay 0.4.7 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
             <a href="index.html" class="icon icon-home"> radioactivedecay
           </a>
               <div class="version">
-                0.4.6
+                0.4.7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -46,13 +46,13 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#importing-the-package-in-python">Importing the package in Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#creating-inventories-of-radionuclides">Creating inventories of radionuclides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-inventories-of-nuclides">Creating inventories of nuclides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#radioactive-decay-calculations">Radioactive decay calculations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#high-numerical-precision-radioactive-decay-calculations">High numerical precision radioactive decay calculations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#calculating-total-number-of-decays">Calculating total number of decays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nuclide-name-formatting-and-metastable-states">Nuclide name formatting and metastable states</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fetching-atomic-and-decay-data">Fetching atomic and decay data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#adding-and-removing-radionuclides-from-inventories">Adding and removing radionuclides from inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-and-removing-nuclides-from-inventories">Adding and removing nuclides from inventories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#inventory-arithmetic">Inventory arithmetic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#multiplication-and-division-on-inventories">Multiplication and division on inventories</a></li>
 </ul>
@@ -95,18 +95,18 @@
 </pre></div>
 </div>
 </section>
-<section id="creating-inventories-of-radionuclides">
-<h2>Creating inventories of radionuclides<a class="headerlink" href="#creating-inventories-of-radionuclides" title="Permalink to this headline"></a></h2>
-<p>Create an inventory of radionuclides and associated activities as follows:</p>
+<section id="creating-inventories-of-nuclides">
+<h2>Creating inventories of nuclides<a class="headerlink" href="#creating-inventories-of-nuclides" title="Permalink to this headline"></a></h2>
+<p>Create an inventory of nuclides as follows:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv_t0</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;U-238&#39;</span><span class="p">:</span> <span class="mf">99.274</span><span class="p">,</span> <span class="s1">&#39;U-235&#39;</span><span class="p">:</span> <span class="mf">0.720</span><span class="p">,</span> <span class="s1">&#39;U-234&#39;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">},</span> <span class="s1">&#39;mol&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This is an inventory of natural uranium.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> class keeps track of the number of atoms
-of each nuclide. The following commands can be used to convert the contents
-(the nuclides and their respective number of atoms) into activities, numbers,
-masses, or abundances, as well as return the decay data set associated with an
-inventory:</p>
+<p>This is an inventory of natural uranium. The amounts of each nuclide were
+specified in moles.</p>
+<p>Within the code, the <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> class keeps track of the number of atoms of
+each nuclide it contains. The following commands can be used to show the
+contents in terms of activities, numbers of atoms, moles, masses, or
+abundances:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv_t0</span><span class="o">.</span><span class="n">activities</span><span class="p">(</span><span class="s1">&#39;MBq&#39;</span><span class="p">)</span>
 <span class="go">{&#39;U-234&#39;: 269.4016050086039, &#39;U-235&#39;: 13.528246506057048, &#39;U-238&#39;: 293.90300567125}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv_t0</span><span class="o">.</span><span class="n">nuclides</span>
@@ -125,8 +125,8 @@ inventory:</p>
 <span class="go">Inventory activities (Bq): {&#39;U-234&#39;: 269401605.0086039, &#39;U-235&#39;: 13528246.506057048, &#39;U-238&#39;: 293903005.67125}, decay dataset: icrp107_ame2020_nubase2020</span>
 </pre></div>
 </div>
-<p>By default the input dictionary to <code class="docutils literal notranslate"><span class="pre">Inventory()</span></code> is assumed to contain
-activities in Bq. The user can easily specify different units:</p>
+<p>By default the dictionary passed to the <code class="docutils literal notranslate"><span class="pre">Inventory()</span></code> constructor is assumed
+to contain activities in Bq. The user can easily specify different units:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize an inventory using activities:</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;C-14&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span> <span class="s1">&#39;H-3&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">})</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">inv</span><span class="o">.</span><span class="n">activities</span><span class="p">(</span><span class="s1">&#39;Bq&#39;</span><span class="p">)</span>
@@ -248,8 +248,8 @@ in zzzaaammmm format, where the leftmost digits are the atomic number of radon,
 the next three digits are its atomic mass number, and the last four are for
 specifing its metastability. For nuclides with atomic mass numbers less than 100,
 zeroes must be included as placeholders (ex. aaa = 003 for H-3).</p>
-<p>Metastable states of radionuclides can be inputted by appending 'm', 'n',
-etc. to the nuclide string, or 0001, 0002, etc. to the id, for first, second…
+<p>Metastable states of nuclides can be inputted by appending 'm', 'n', etc.
+to the nuclide string, or 0001, 0002, etc. to the id, for first, second…
 metastable states, respectively:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># using nuclide strings:</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;Ir-192m&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
@@ -357,9 +357,9 @@ data in ICRP-107, which is the default dataset in <code class="docutils literal 
 </pre></div>
 </div>
 </section>
-<section id="adding-and-removing-radionuclides-from-inventories">
-<h2>Adding and removing radionuclides from inventories<a class="headerlink" href="#adding-and-removing-radionuclides-from-inventories" title="Permalink to this headline"></a></h2>
-<p>It is easy to add radionuclides to an <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> using the <code class="docutils literal notranslate"><span class="pre">add()</span></code> method:</p>
+<section id="adding-and-removing-nuclides-from-inventories">
+<h2>Adding and removing nuclides from inventories<a class="headerlink" href="#adding-and-removing-nuclides-from-inventories" title="Permalink to this headline"></a></h2>
+<p>It is easy to add nuclides to an <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> using the <code class="docutils literal notranslate"><span class="pre">add()</span></code> method:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;H-3&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;Be-10&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">activities</span><span class="p">()</span>
 <span class="go">{&#39;Be-10&#39;: 2.0, &#39;H-3&#39;: 1.0}</span>
@@ -368,15 +368,14 @@ data in ICRP-107, which is the default dataset in <code class="docutils literal 
 <span class="go">{&#39;Be-10&#39;: 2.0, &#39;C-14&#39;: 3.0, &#39;H-3&#39;: 1.0, &#39;K-40&#39;: 4.0}</span>
 </pre></div>
 </div>
-<p>Similarly, subtract radionuclides from an <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> using the
-<code class="docutils literal notranslate"><span class="pre">subtract()</span></code> method:</p>
+<p>Similarly, subtract nuclides from an <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> using the <code class="docutils literal notranslate"><span class="pre">subtract()</span></code>
+method:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">subtract</span><span class="p">({</span><span class="s1">&#39;Be-10&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;K-40&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">activities</span><span class="p">()</span>
 <span class="go">{&#39;Be-10&#39;: 1.0, &#39;C-14&#39;: 3.0, &#39;H-3&#39;: 1.0, &#39;K-40&#39;: 2.0}</span>
 </pre></div>
 </div>
-<p>Likewise use <code class="docutils literal notranslate"><span class="pre">remove()</span></code> to erase one or more radionuclide from an
-<code class="docutils literal notranslate"><span class="pre">Inventory</span></code>:</p>
+<p>Likewise use <code class="docutils literal notranslate"><span class="pre">remove()</span></code> to erase one or more nuclide from an <code class="docutils literal notranslate"><span class="pre">Inventory</span></code>:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;H-3&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">activities</span><span class="p">()</span>
 <span class="go">{&#39;Be-10&#39;: 1.0, &#39;C-14&#39;: 3.0, &#39;K-40&#39;: 2.0}</span>
@@ -395,13 +394,13 @@ for inputs other than activities, and mixing input types is allowed:</p>
 <span class="go">{&#39;C-14&#39;: 1.8233790683016682, &#39;H-3&#39;: 2.3177330463306007}</span>
 </pre></div>
 </div>
-<p>You can also supply <code class="docutils literal notranslate"><span class="pre">Radionuclide</span></code> objects instead of strings to the
+<p>You can also supply <code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> objects instead of strings to the
 <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> constructor, and the <code class="docutils literal notranslate"><span class="pre">add()</span></code> and <code class="docutils literal notranslate"><span class="pre">remove()</span></code> methods:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">H3</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Radionuclide</span><span class="p">(</span><span class="s1">&#39;H-3&#39;</span><span class="p">)</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">H3</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="s1">&#39;H-3&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="n">H3</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">activities</span><span class="p">()</span>
 <span class="go">{&#39;H-3&#39;: 1.0}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Be10</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Radionuclide</span><span class="p">(</span><span class="s1">&#39;Be-10&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Be10</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="s1">&#39;Be-10&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">add</span><span class="p">({</span><span class="n">Be10</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">activities</span><span class="p">()</span>
 <span class="go">{&#39;Be-10&#39;: 2.0, &#39;H-3&#39;: 1.0}</span>
@@ -410,9 +409,9 @@ for inputs other than activities, and mixing input types is allowed:</p>
 <span class="go">{&#39;Be-10&#39;: 2.0}</span>
 </pre></div>
 </div>
-<p>Note if the decay dataset of the <code class="docutils literal notranslate"><span class="pre">Radionuclide</span></code> instance is different to that
-of the <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> instance, the former will be ignored and the existing
-decay dataset of the <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> will be used instead.</p>
+<p>Note if the decay dataset of the <code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> instance is different to that of
+the <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> instance, the former will be ignored and the existing decay
+dataset of the <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> will be used instead.</p>
 </section>
 <section id="inventory-arithmetic">
 <h2>Inventory arithmetic<a class="headerlink" href="#inventory-arithmetic" title="Permalink to this headline"></a></h2>
@@ -434,8 +433,8 @@ inventory:</p>
 </section>
 <section id="multiplication-and-division-on-inventories">
 <h2>Multiplication and division on inventories<a class="headerlink" href="#multiplication-and-division-on-inventories" title="Permalink to this headline"></a></h2>
-<p>You can multiply or divide the activities of all radionuclides in an inventory
-by a constant as follows:</p>
+<p>You can multiply or divide the amounts of all nuclides in an inventory by a
+constant as follows:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;Sr-90&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;Cs-137&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span> <span class="s1">&#39;num&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">inv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">numbers</span><span class="p">()</span>

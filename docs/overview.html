@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Overview &mdash; radioactivedecay 0.4.6 documentation</title>
+  <title>Overview &mdash; radioactivedecay 0.4.7 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
             <a href="index.html" class="icon icon-home"> radioactivedecay
           </a>
               <div class="version">
-                0.4.6
+                0.4.7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -153,9 +153,9 @@ atoms. Use the <code class="docutils literal notranslate"><span class="pre">unit
 </div>
 <a class="reference internal image-reference" href="_images/H-3_decay.png"><img alt="_images/H-3_decay.png" src="_images/H-3_decay.png" style="width: 450px;" /></a>
 <p>The graph shows the decay of H-3 over a 100 year period.</p>
-<p>Use the <code class="docutils literal notranslate"><span class="pre">Radionuclide</span></code> class to fetch decay data about a particular
-radionuclide and to draw diagrams of its decay chain:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Radionuclide</span><span class="p">(</span><span class="s1">&#39;H-3&#39;</span><span class="p">)</span>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> class to fetch decay data about a particular radionuclide
+and to draw diagrams of its decay chain:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="s1">&#39;H-3&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">half_life</span><span class="p">(</span><span class="s1">&#39;readable&#39;</span><span class="p">)</span>
 <span class="go">&#39;12.32 y&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">progeny</span><span class="p">()</span>
