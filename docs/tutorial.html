@@ -276,25 +276,25 @@ and decay data for radionuclides. They are built similarly to inventories:</p>
 </pre></div>
 </div>
 <p>The atomic data for a nuclide can be accessed through the <code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> object’s
-<code class="docutils literal notranslate"><span class="pre">Z</span></code>, <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">atomic_mass</span></code> methods:</p>
+<code class="docutils literal notranslate"><span class="pre">Z</span></code>, <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">atomic_mass</span></code> methods:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="s1">&#39;K-40&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">Z</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">Z</span>  <span class="c1"># proton number</span>
 <span class="go">19</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">A</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">A</span>  <span class="c1"># nucleon number</span>
 <span class="go">40</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">atomic_mass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">atomic_mass</span>  <span class="c1"># atomic mass in g/mol</span>
 <span class="go">39.963998165</span>
 </pre></div>
 </div>
-<p>Additionally, the canonical id of  nuclide, in zzzaaammmm format, can be retrieved
-using the <code class="docutils literal notranslate"><span class="pre">id</span></code> method:</p>
+<p>Additionally, the canonical id of a nuclide, in zzzaaammmm format, can be
+retrieved using the <code class="docutils literal notranslate"><span class="pre">id</span></code> method:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="s1">&#39;Co-58m&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">id</span>
 <span class="go">270580001</span>
 </pre></div>
 </div>
-<p>Decay data for radionuclides can also be accessed using <code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> objects. For
-example, to get the half-life of iodine-123:</p>
+<p>Decay data for radionuclides can also be accessed using <code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> objects.
+For example, to get the half-life of iodine-123:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="s1">&#39;I123&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">half_life</span><span class="p">()</span>
 <span class="go">47772.0</span>
