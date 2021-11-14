@@ -153,8 +153,8 @@ atoms. Use the <code class="docutils literal notranslate"><span class="pre">unit
 </div>
 <a class="reference internal image-reference" href="_images/H-3_decay.png"><img alt="_images/H-3_decay.png" src="_images/H-3_decay.png" style="width: 450px;" /></a>
 <p>The graph shows the decay of H-3 over a 100 year period.</p>
-<p>Use the <code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> class to fetch decay data about a particular radionuclide
-and to draw diagrams of its decay chain:</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> class to fetch decay and atomic data about a particular
+nuclide and to draw diagrams of its decay chain:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="s1">&#39;H-3&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">half_life</span><span class="p">(</span><span class="s1">&#39;readable&#39;</span><span class="p">)</span>
 <span class="go">&#39;12.32 y&#39;</span>
@@ -164,6 +164,12 @@ and to draw diagrams of its decay chain:</p>
 <span class="go">[&#39;β-&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">branching_fractions</span><span class="p">()</span>
 <span class="go">[1.0]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">Z</span>  <span class="c1"># proton number</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">A</span>  <span class="c1"># nucleon number</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">atomic_mass</span>  <span class="c1"># atomic mass in g/mol</span>
+<span class="go">3.01604928132</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -237,6 +243,7 @@ more details.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://alexmalins.com">Alex Malins</a></p></li>
 <li><p><a class="reference external" href="https://github.com/lemointm">Thom Lemoine</a></p></li>
+<li><p><a class="reference external" href="https://bgameiro.me/">Bernardo Gameiro</a></p></li>
 </ul>
 </section>
 <section id="contributing">
