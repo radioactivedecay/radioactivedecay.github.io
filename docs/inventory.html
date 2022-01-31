@@ -96,7 +96,7 @@ as <cite>rd</cite>:</p>
 </div>
 <dl class="py class">
 <dt class="sig sig-object py" id="radioactivedecay.inventory.Inventory">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.inventory.</span></span><span class="sig-name descname"><span class="pre">Inventory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contents:</span> <span class="pre">Dict[Union[str,</span> <span class="pre">int,</span> <span class="pre">radioactivedecay.nuclide.Nuclide],</span> <span class="pre">float],</span> <span class="pre">units:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'Bq',</span> <span class="pre">check:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">decay_data:</span> <span class="pre">radioactivedecay.decaydata.DecayData</span> <span class="pre">=</span> <span class="pre">Decay</span> <span class="pre">dataset:</span> <span class="pre">icrp107_ame2020_nubase2020,</span> <span class="pre">contains</span> <span class="pre">SymPy</span> <span class="pre">data:</span> <span class="pre">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.inventory.Inventory" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.inventory.</span></span><span class="sig-name descname"><span class="pre">Inventory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contents:</span> <span class="pre">typing.Dict[typing.Union[str,</span> <span class="pre">int,</span> <span class="pre">radioactivedecay.nuclide.Nuclide],</span> <span class="pre">float],</span> <span class="pre">units:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'Bq',</span> <span class="pre">check:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">decay_data:</span> <span class="pre">radioactivedecay.decaydata.DecayData</span> <span class="pre">=</span> <span class="pre">Decay</span> <span class="pre">dataset:</span> <span class="pre">icrp107_ame2020_nubase2020,</span> <span class="pre">contains</span> <span class="pre">SymPy</span> <span class="pre">data:</span> <span class="pre">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.inventory.Inventory" title="Permalink to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">Inventory</span></code> instances store nuclides and associated quantities (numbers of atoms) in the
 contents dictionary. Each instance is associated with a decay dataset.</p>
 <dl class="field-list simple">
@@ -143,28 +143,6 @@ values. Nuclides are sorted alphabetically in this dictionary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="decaydata.html#radioactivedecay.decaydata.DecayMatrices" title="radioactivedecay.decaydata.DecayMatrices">DecayMatrices</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="radioactivedecay.inventory.Inventory.quantity_converter">
-<span class="sig-name descname"><span class="pre">quantity_converter</span></span><a class="headerlink" href="#radioactivedecay.inventory.Inventory.quantity_converter" title="Permalink to this definition"></a></dt>
-<dd><p>Float/SciPy version of a convertor between different quantities.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>QuantityConverter</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="radioactivedecay.inventory.Inventory.unit_converter">
-<span class="sig-name descname"><span class="pre">unit_converter</span></span><a class="headerlink" href="#radioactivedecay.inventory.Inventory.unit_converter" title="Permalink to this definition"></a></dt>
-<dd><p>Float version of a convertor for within different units.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>UnitConverterFloat</p>
 </dd>
 </dl>
 </dd></dl>
@@ -572,7 +550,7 @@ default).</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.inventory.</span></span><span class="sig-name descname"><span class="pre">InventoryHP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contents:</span> <span class="pre">Dict[Union[str,</span> <span class="pre">int,</span> <span class="pre">radioactivedecay.nuclide.Nuclide],</span> <span class="pre">float],</span> <span class="pre">units:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'Bq',</span> <span class="pre">check:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">decay_data:</span> <span class="pre">radioactivedecay.decaydata.DecayData</span> <span class="pre">=</span> <span class="pre">Decay</span> <span class="pre">dataset:</span> <span class="pre">icrp107_ame2020_nubase2020,</span> <span class="pre">contains</span> <span class="pre">SymPy</span> <span class="pre">data:</span> <span class="pre">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.inventory.</span></span><span class="sig-name descname"><span class="pre">InventoryHP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contents:</span> <span class="pre">typing.Dict[typing.Union[str,</span> <span class="pre">int,</span> <span class="pre">radioactivedecay.nuclide.Nuclide],</span> <span class="pre">float],</span> <span class="pre">units:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'Bq',</span> <span class="pre">check:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">decay_data:</span> <span class="pre">radioactivedecay.decaydata.DecayData</span> <span class="pre">=</span> <span class="pre">Decay</span> <span class="pre">dataset:</span> <span class="pre">icrp107_ame2020_nubase2020,</span> <span class="pre">contains</span> <span class="pre">SymPy</span> <span class="pre">data:</span> <span class="pre">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP" title="Permalink to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">InventoryHP</span></code> instances store a dictionary of nuclides and associated numbers of atoms, and a
 <code class="docutils literal notranslate"><span class="pre">DecayData</span></code> instance of radioactive decay data. Uses SymPy high precision arithmetic for all
 calculations.</p>
@@ -638,20 +616,9 @@ values. Nuclides are sorted alphabetically in this dictionary.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.quantity_converter">
-<span class="sig-name descname"><span class="pre">quantity_converter</span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.quantity_converter" title="Permalink to this definition"></a></dt>
-<dd><p>Float/SciPy version of a convertor between different quantities.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>QuantityConverterSympy</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.unit_converter">
 <span class="sig-name descname"><span class="pre">unit_converter</span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.unit_converter" title="Permalink to this definition"></a></dt>
-<dd><p>Float version of a convertor for within different units.</p>
+<dd><p>SymPy version of a convertor for within different units.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>UnitConverterSympy</p>
