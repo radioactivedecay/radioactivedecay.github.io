@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>inventory &mdash; radioactivedecay 0.4.8 documentation</title>
+  <title>inventory &mdash; radioactivedecay 0.4.9 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
             <a href="index.html" class="icon icon-home"> radioactivedecay
           </a>
               <div class="version">
-                0.4.8
+                0.4.9
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -49,7 +49,11 @@
 <li class="toctree-l1"><a class="reference internal" href="theory.html">Theory and Computation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="decaydata.html">decaydata</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">inventory</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">inventory</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Inventory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inventoryhp">InventoryHP</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="nuclide.html">nuclide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utils.html">utils</a></li>
 </ul>
@@ -83,22 +87,25 @@
              
   <section id="module-radioactivedecay.inventory">
 <span id="inventory"></span><h1>inventory<a class="headerlink" href="#module-radioactivedecay.inventory" title="Permalink to this headline"></a></h1>
-<p>The inventory module defines the <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> class. An <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> instance contains one or
-more nuclides each with an associated amount (number of atoms). The decay of the nuclide(s) in an
-<code class="docutils literal notranslate"><span class="pre">Inventory</span></code> can be calculated by using the <code class="docutils literal notranslate"><span class="pre">decay()</span></code> method (normal double-precision
-floating-point operations). The corresponding <code class="docutils literal notranslate"><span class="pre">InventoryHP</span></code> class performs decay calculations
-with SymPy high numerical precision operations. A <code class="docutils literal notranslate"><span class="pre">DecayData</span></code> dataset is associated with
-<code class="docutils literal notranslate"><span class="pre">Inventory</span></code> and <code class="docutils literal notranslate"><span class="pre">InventoryHP</span></code> instances (default is rd.DEFAULTDATA).</p>
+<p>The inventory module defines the <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> and <code class="docutils literal notranslate"><span class="pre">InventoryHP</span></code> classes. Instances of these
+classes contain one or more nuclides each with an associated amount (number of atoms). The decay
+of the nuclide(s) can be calculated by using the <code class="docutils literal notranslate"><span class="pre">decay()</span></code> method. The <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> class
+performs calculations using double-precision floats. The <code class="docutils literal notranslate"><span class="pre">InventoryHP</span></code> class performs
+calculations using SymPy high numerical precision operations. A <code class="docutils literal notranslate"><span class="pre">DecayData</span></code> dataset is associated
+with <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> and <code class="docutils literal notranslate"><span class="pre">InventoryHP</span></code> instances (default is rd.DEFAULTDATA).</p>
 <p>The docstring code examples assume that <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> has been imported
-as <cite>rd</cite>:</p>
+as <code class="docutils literal notranslate"><span class="pre">rd</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">radioactivedecay</span> <span class="k">as</span> <span class="nn">rd</span>
 </pre></div>
 </div>
+<section id="id1">
+<h2>Inventory<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="radioactivedecay.inventory.Inventory">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.inventory.</span></span><span class="sig-name descname"><span class="pre">Inventory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contents:</span> <span class="pre">typing.Dict[typing.Union[str,</span> <span class="pre">int,</span> <span class="pre">radioactivedecay.nuclide.Nuclide],</span> <span class="pre">float],</span> <span class="pre">units:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'Bq',</span> <span class="pre">check:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">decay_data:</span> <span class="pre">radioactivedecay.decaydata.DecayData</span> <span class="pre">=</span> <span class="pre">Decay</span> <span class="pre">dataset:</span> <span class="pre">icrp107_ame2020_nubase2020,</span> <span class="pre">contains</span> <span class="pre">SymPy</span> <span class="pre">data:</span> <span class="pre">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.inventory.Inventory" title="Permalink to this definition"></a></dt>
-<dd><p><code class="docutils literal notranslate"><span class="pre">Inventory</span></code> instances store nuclides and associated quantities (numbers of atoms) in the
-contents dictionary. Each instance is associated with a decay dataset.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.inventory.</span></span><span class="sig-name descname"><span class="pre">Inventory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contents:</span> <span class="pre">typing.Dict[typing.Union[str,</span> <span class="pre">int,</span> <span class="pre">radioactivedecay.nuclide.Nuclide],</span> <span class="pre">typing.Union[float,</span> <span class="pre">sympy.core.expr.Expr]],</span> <span class="pre">units:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'Bq',</span> <span class="pre">check:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">decay_data:</span> <span class="pre">radioactivedecay.decaydata.DecayData</span> <span class="pre">=</span> <span class="pre">Decay</span> <span class="pre">dataset:</span> <span class="pre">icrp107_ame2020_nubase2020,</span> <span class="pre">contains</span> <span class="pre">SymPy</span> <span class="pre">data:</span> <span class="pre">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.inventory.Inventory" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">radioactivedecay.inventory.AbstractInventory</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Inventory</span></code> instances store nuclides and associated quantities (numbers of atoms) in the
+contents dictionary. A decay dataset is associated with each instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -142,7 +149,7 @@ values. Nuclides are sorted alphabetically in this dictionary.</p>
 <dd><p>Float/SciPy version of the DecayMatrices associated with the decay dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="decaydata.html#radioactivedecay.decaydata.DecayMatrices" title="radioactivedecay.decaydata.DecayMatrices">DecayMatrices</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="decaydata.html#radioactivedecay.decaydata.DecayMatricesScipy" title="radioactivedecay.decaydata.DecayMatricesScipy">DecayMatricesScipy</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -548,10 +555,14 @@ default).</p></li>
 
 </dd></dl>
 
+</section>
+<section id="inventoryhp">
+<h2>InventoryHP<a class="headerlink" href="#inventoryhp" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.inventory.</span></span><span class="sig-name descname"><span class="pre">InventoryHP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contents:</span> <span class="pre">typing.Dict[typing.Union[str,</span> <span class="pre">int,</span> <span class="pre">radioactivedecay.nuclide.Nuclide],</span> <span class="pre">float],</span> <span class="pre">units:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'Bq',</span> <span class="pre">check:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">decay_data:</span> <span class="pre">radioactivedecay.decaydata.DecayData</span> <span class="pre">=</span> <span class="pre">Decay</span> <span class="pre">dataset:</span> <span class="pre">icrp107_ame2020_nubase2020,</span> <span class="pre">contains</span> <span class="pre">SymPy</span> <span class="pre">data:</span> <span class="pre">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP" title="Permalink to this definition"></a></dt>
-<dd><p><code class="docutils literal notranslate"><span class="pre">InventoryHP</span></code> instances store a dictionary of nuclides and associated numbers of atoms, and a
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">radioactivedecay.inventory.AbstractInventory</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">InventoryHP</span></code> instances store a dictionary of nuclides and associated numbers of atoms, and a
 <code class="docutils literal notranslate"><span class="pre">DecayData</span></code> instance of radioactive decay data. Uses SymPy high precision arithmetic for all
 calculations.</p>
 <dl class="field-list simple">
@@ -561,7 +572,8 @@ calculations.</p>
 objects as keys and quantities as values.</p></li>
 <li><p><strong>units</strong> (<em>str</em><em>, </em><em>optional</em>) – Units of the values in the contents dictionary e.g. ‘Bq’, ‘kBq’, ‘Ci’, ‘g’, ‘mol’,
 ‘num’… (default is ‘Bq’).</p></li>
-<li><p><strong>check</strong> (<em>bool</em><em>, </em><em>optional</em>) – Check for the validity of contents (default is True).</p></li>
+<li><p><strong>check</strong> (<em>bool</em><em>, </em><em>optional</em>) – Check for the validity of contents and that the supplied decay dataset contains SymPy data
+(default is True).</p></li>
 <li><p><strong>data</strong> (<a class="reference internal" href="decaydata.html#radioactivedecay.decaydata.DecayData" title="radioactivedecay.decaydata.DecayData"><em>DecayData</em></a><em>, </em><em>optional</em>) – Decay dataset (default is the ICRP-107 dataset).</p></li>
 <li><p><strong>sympy_contents</strong> (<em>dict</em><em>, </em><em>optional</em>) – Version of the contents dictionary with SymPy expressions as values. Setting this requires
 that data (the decay dataset) contains SymPy data. <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> will create
@@ -598,7 +610,7 @@ values. Nuclides are sorted alphabetically in this dictionary.</p>
 <dd><p>SymPy DecayMatrices instance associated with the decay dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="decaydata.html#radioactivedecay.decaydata.DecayMatrices" title="radioactivedecay.decaydata.DecayMatrices">DecayMatrices</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="decaydata.html#radioactivedecay.decaydata.DecayMatricesSympy" title="radioactivedecay.decaydata.DecayMatricesSympy">DecayMatricesSympy</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -647,6 +659,65 @@ InventoryHP instance.</p>
 Deafult is ‘Bq’.</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.activity_fractions">
+<span class="sig-name descname"><span class="pre">activity_fractions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.activity_fractions" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a dictionary containing the activity fraction of each nuclide within the inventory.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;Tc-99m&#39;</span><span class="p">:</span> <span class="mf">2.3</span><span class="p">,</span> <span class="s1">&#39;I-123&#39;</span><span class="p">:</span> <span class="mf">5.8</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">activity_fractions</span><span class="p">()</span>
+<span class="go">{&#39;I-123&#39;: 0.7160493827160493, &#39;Tc-99m&#39;: 0.2839506172839506}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">add_contents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="nuclide.html#radioactivedecay.nuclide.Nuclide" title="radioactivedecay.nuclide.Nuclide"><span class="pre">radioactivedecay.nuclide.Nuclide</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Bq'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.add" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a dictionary of nuclides and associated quantities (numbers/activities/masses/moles)
+to the inventory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>add_contents</strong> (<em>dict</em>) – Dictionary containing nuclide strings, canonical ids or Nuclide objects as keys and the
+amount of each nuclide (with specified units) as values which are added to the
+Inventory.</p></li>
+<li><p><strong>units</strong> (<em>str</em><em>, </em><em>optional</em>) – Units of the values in the dictionary (e.g. ‘Bq’, ‘Ci’, ‘g’, ‘mol’, ‘num’; ‘Bq’ is the
+default).</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;H-3&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">add</span><span class="p">({</span><span class="s1">&#39;C-14&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">},</span> <span class="s1">&#39;kBq&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">add</span><span class="p">({</span><span class="mi">190400000</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">activities</span><span class="p">()</span>
+<span class="go">{&#39;K-40&#39;: 20.0, &#39;C-14&#39;: 2000.0, &#39;H-3&#39;: 1.0}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.branching_fractions">
+<span class="sig-name descname"><span class="pre">branching_fractions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.branching_fractions" title="Permalink to this definition"></a></dt>
+<dd><p>Returns dictionary with the branching fractions of the direct progeny of the nuclides
+in the inventory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Dictionary with nuclide strings as keys and lists of the branching fractions to
+the direct progeny of each nuclide as values.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;C-14&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;K-40&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">branching_fractions</span><span class="p">()</span>
+<span class="go">{&#39;C-14&#39;: [1.0], &#39;K-40&#39;: [0.8914, 0.1086])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -726,6 +797,70 @@ these time units.</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.decay_modes">
+<span class="sig-name descname"><span class="pre">decay_modes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.decay_modes" title="Permalink to this definition"></a></dt>
+<dd><p>Returns dictionary with the decay modes of the direct progeny of the nuclides in the
+inventory. Note: the decay mode strings returned are not lists of all the different
+radiation types emitted during the parent to progeny decay processes. They are the labels
+defined in the decay dataset to classify the decay type (e.g. ‘α’, ‘β-’ or ‘IT’).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Dictionary with nuclide strings as keys and lists of the decay modes of the parent
+nuclide</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;C-14&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;K-40&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">decay_modes</span><span class="p">()</span>
+<span class="go">{&#39;C-14&#39;: [&#39;β-&#39;], &#39;K-40&#39;: [&#39;β-&#39;, &#39;β+ &amp; EC&#39;])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.half_lives">
+<span class="sig-name descname"><span class="pre">half_lives</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'s'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.half_lives" title="Permalink to this definition"></a></dt>
+<dd><p>Returns dictionary of half-lives of the nuclides in the inventory in your chosen time
+units, or as a human-readable string with appropriate units.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>units</strong> (<em>str</em><em>, </em><em>optional</em>) – Units for half-life. Options are ‘ps’, ‘ns’, ‘μs’, ‘us’, ‘ms’, ‘s’, ‘m’, ‘h’, ‘d’, ‘y’,
+‘ky’, ‘My’, ‘By’, ‘Gy’, ‘Ty’, ‘Py’, and common spelling variations. Default is ‘s’, i.e.
+seconds. Use ‘readable’ to get strings of the half-lives in human-readable units.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dictionary with nuclide strings as keys and half-life floats or human-readable
+half-life strings as values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;C-14&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;K-40&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">half_lives</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="go">{&#39;C-14&#39;: 5700.0, &#39;K-40&#39;: 1251000000.0}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">half_lives</span><span class="p">(</span><span class="s1">&#39;readable&#39;</span><span class="p">)</span>
+<span class="go">{&#39;C-14&#39;: &#39;5.70 ky&#39;, &#39;K-40&#39;: &#39;1.251 By&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.mass_fractions">
+<span class="sig-name descname"><span class="pre">mass_fractions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.mass_fractions" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a dictionary containing the mass fraction of each nuclide within the inventory.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;Tc-99m&#39;</span><span class="p">:</span> <span class="mf">2.3</span><span class="p">,</span> <span class="s1">&#39;I-123&#39;</span><span class="p">:</span> <span class="mf">5.8</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mass_fractions</span><span class="p">()</span>
+<span class="go">{&#39;I-123&#39;: 0.8736297770616593, &#39;Tc-99m&#39;: 0.12637022293834066}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.masses">
 <span class="sig-name descname"><span class="pre">masses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'g'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.masses" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a dictionary containing the mass of each nuclide (as floats) within this InventoryHP
@@ -739,6 +874,17 @@ Deafult is ‘g’.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.mole_fractions">
+<span class="sig-name descname"><span class="pre">mole_fractions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.mole_fractions" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a dictionary containing the mole fraction of each nuclide within the inventory.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;Tc-99m&#39;</span><span class="p">:</span> <span class="mf">2.3</span><span class="p">,</span> <span class="s1">&#39;I-123&#39;</span><span class="p">:</span> <span class="mf">5.8</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mole_fractions</span><span class="p">()</span>
+<span class="go">{&#39;I-123&#39;: 0.8476385041932588, &#39;Tc-99m&#39;: 0.15236149580674116}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.moles">
 <span class="sig-name descname"><span class="pre">moles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mol'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.moles" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a dictionary containing the number of atoms of each nuclide (as floats) within this
@@ -749,6 +895,17 @@ InventoryHP instance.</p>
 Deafult is ‘mol’.</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.nuclides">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nuclides</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.nuclides" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a list of the nuclides in the inventory.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;Tc-99m&#39;</span><span class="p">:</span> <span class="mf">2.3</span><span class="p">,</span> <span class="s1">&#39;I-123&#39;</span><span class="p">:</span> <span class="mf">5.8</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nuclides</span>
+<span class="go">[&#39;I-123&#39;, &#39;Tc-99m&#39;]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -767,7 +924,7 @@ InventoryHP instance.</p>
 <dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.plot">
 <span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xunits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yunits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Bq'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'dataset'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npoints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">51</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">matplotlib.figure.Figure</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">matplotlib.axes._axes.Axes</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">matplotlib.figure.Figure</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">matplotlib.axes._axes.Axes</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.plot" title="Permalink to this definition"></a></dt>
 <dd><p>Plots a decay graph using high precision decay calculations. Only difference from normal
-precision decay plot (<code class="docutils literal notranslate"><span class="pre">Inventory.plot()</span></code>) is default npoints=51</p>
+precision decay plot (<code class="docutils literal notranslate"><span class="pre">Inventory.plot()</span></code>) is default npoints=51.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -813,8 +970,78 @@ is None).</p></li>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.progeny">
+<span class="sig-name descname"><span class="pre">progeny</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.progeny" title="Permalink to this definition"></a></dt>
+<dd><p>Returns dictionary with the direct progeny of the nuclides in the inventory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Dictionary with nuclide strings as keys and lists of the direct progeny of each
+nuclide, ordered by decreasing branching fraction, as values.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;C-14&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;K-40&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">progeny</span><span class="p">()</span>
+<span class="go">{&#39;C-14&#39;: [&#39;N-14&#39;], &#39;K-40&#39;: [&#39;Ca-40&#39;, &#39;Ar-40&#39;])</span>
+</pre></div>
+</div>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delete</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="nuclide.html#radioactivedecay.nuclide.Nuclide" title="radioactivedecay.nuclide.Nuclide"><span class="pre">radioactivedecay.nuclide.Nuclide</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="nuclide.html#radioactivedecay.nuclide.Nuclide" title="radioactivedecay.nuclide.Nuclide"><span class="pre">radioactivedecay.nuclide.Nuclide</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.remove" title="Permalink to this definition"></a></dt>
+<dd><p>Removes nuclide(s) from the inventory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>delete</strong> (<em>str</em><em> or </em><em>int</em><em> or </em><a class="reference internal" href="nuclide.html#radioactivedecay.nuclide.Nuclide" title="radioactivedecay.nuclide.Nuclide"><em>Nuclide</em></a><em> or </em><em>list</em>) – Nuclide string, canonical id, Nuclide object or list of nuclide strings, canonical ids
+or Nuclide objects to delete from the Inventory object.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;Be-10&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;C-14&#39;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="s1">&#39;H-3&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;K-40&#39;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;H-3&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">activities</span><span class="p">()</span>
+<span class="go">{&#39;Be-10&#39;: 2.0, &#39;C-14&#39;: 3.0, &#39;K-40&#39;: 4.0}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">remove</span><span class="p">([</span><span class="s1">&#39;Be-10&#39;</span><span class="p">,</span> <span class="s1">&#39;K-40&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">activities</span><span class="p">()</span>
+<span class="go">{&#39;C-14&#39;: 3.0}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.subtract">
+<span class="sig-name descname"><span class="pre">subtract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sub_contents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="nuclide.html#radioactivedecay.nuclide.Nuclide" title="radioactivedecay.nuclide.Nuclide"><span class="pre">radioactivedecay.nuclide.Nuclide</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Bq'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.subtract" title="Permalink to this definition"></a></dt>
+<dd><p>Subtracts a dictionary of nuclides and associated numbers/activities/masses
+from the inventory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sub_contents</strong> (<em>dict</em>) – Dictionary containing nuclide strings or Nuclide objects as keys
+and the amount of each nuclide (with specified units) as values
+which are subtracted from the Inventory.</p></li>
+<li><p><strong>units</strong> (<em>str</em><em>, </em><em>optional</em>) – Units of the values in the dictionary (e.g. ‘Bq’, ‘Ci’, ‘g’, ‘mol’, ‘num’; ‘Bq’ is the
+default).</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;K-40&#39;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span> <span class="s1">&#39;C-14&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;H-3&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">subtract</span><span class="p">({</span><span class="s1">&#39;H-3&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">subtract</span><span class="p">({</span><span class="mi">190400000</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">activities</span><span class="p">()</span>
+<span class="go">{&#39;C-14&#39;: 2.0, &#39;H-3&#39;: 0.0}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 </section>
 
 

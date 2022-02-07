@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>decaydata &mdash; radioactivedecay 0.4.8 documentation</title>
+  <title>decaydata &mdash; radioactivedecay 0.4.9 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
             <a href="index.html" class="icon icon-home"> radioactivedecay
           </a>
               <div class="version">
-                0.4.8
+                0.4.9
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -50,6 +50,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">decaydata</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#constants">Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">DecayData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decaymatricesscipy">DecayMatricesScipy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decaymatricessympy">DecayMatricesSympy</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="inventory.html">inventory</a></li>
@@ -86,14 +89,14 @@
              
   <section id="module-radioactivedecay.decaydata">
 <span id="decaydata"></span><h1>decaydata<a class="headerlink" href="#module-radioactivedecay.decaydata" title="Permalink to this headline"></a></h1>
-<p>The decaydata module defines the <code class="docutils literal notranslate"><span class="pre">DecayData</span></code>, <code class="docutils literal notranslate"><span class="pre">DecayMatrices</span></code> and <code class="docutils literal notranslate"><span class="pre">DecayMatricesSympy</span></code>
-classes. <code class="docutils literal notranslate"><span class="pre">DecayMatrices</span></code> and <code class="docutils literal notranslate"><span class="pre">DecayMatricesSympy</span></code> instances store data used for decay
+<p>The decaydata module defines the <code class="docutils literal notranslate"><span class="pre">DecayData</span></code>, <code class="docutils literal notranslate"><span class="pre">DecayMatricesScipy</span></code> and <code class="docutils literal notranslate"><span class="pre">DecayMatricesSympy</span></code>
+classes. <code class="docutils literal notranslate"><span class="pre">DecayMatricesScipy</span></code> and <code class="docutils literal notranslate"><span class="pre">DecayMatricesSympy</span></code> instances store data used for decay
 calculations and other inventory transformations (using double-precision floating point and SymPy
-arbitrary precision numbers, respectively). <code class="docutils literal notranslate"><span class="pre">DecayData</span></code> instances store <code class="docutils literal notranslate"><span class="pre">DecayMatrices</span></code>,
+arbitrary precision numbers, respectively). <code class="docutils literal notranslate"><span class="pre">DecayData</span></code> instances store <code class="docutils literal notranslate"><span class="pre">DecayMatricesScipy</span></code>,
 <code class="docutils literal notranslate"><span class="pre">DecayMatricesSympy</span></code> and unit converter objects, along with other decay data for reporting to
 users (this data is not used for calculations).</p>
 <p>The docstring code examples assume that <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> has been imported
-as <cite>rd</cite>:</p>
+as <code class="docutils literal notranslate"><span class="pre">rd</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">radioactivedecay</span> <span class="k">as</span> <span class="nn">rd</span>
 </pre></div>
 </div>
@@ -104,9 +107,12 @@ as <cite>rd</cite>:</p>
 decay data and AME2020 and Nubase2020 for atomic mass data.</p>
 </dd>
 </dl>
+</section>
+<section id="id1">
+<h2>DecayData<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayData">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.decaydata.</span></span><span class="sig-name descname"><span class="pre">DecayData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bfs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">float_year_conv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hldata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nuclides</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progeny</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scipy_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#radioactivedecay.decaydata.DecayMatrices" title="radioactivedecay.decaydata.DecayMatrices"><span class="pre">radioactivedecay.decaydata.DecayMatrices</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sympy_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#radioactivedecay.decaydata.DecayMatricesSympy" title="radioactivedecay.decaydata.DecayMatricesSympy"><span class="pre">radioactivedecay.decaydata.DecayMatricesSympy</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sympy_year_conv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">sympy.core.expr.Expr</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.decaydata.</span></span><span class="sig-name descname"><span class="pre">DecayData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bfs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">float_year_conv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hldata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nuclides</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progeny</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scipy_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#radioactivedecay.decaydata.DecayMatricesScipy" title="radioactivedecay.decaydata.DecayMatricesScipy"><span class="pre">radioactivedecay.decaydata.DecayMatricesScipy</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sympy_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#radioactivedecay.decaydata.DecayMatricesSympy" title="radioactivedecay.decaydata.DecayMatricesSympy"><span class="pre">radioactivedecay.decaydata.DecayMatricesSympy</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sympy_year_conv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">sympy.core.expr.Expr</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData" title="Permalink to this definition"></a></dt>
 <dd><p>Instances of DecayData store a complete radioactive decay dataset. It stores data for decay
 calculations and inventory transformations using DecayMatrices attributes. Other decay data
 which are reported to users but not used incalculations are stored in other instance
@@ -122,7 +128,7 @@ strings.</p></li>
 <li><p><strong>modes</strong> (<em>numpy.ndarray</em>) – NumPy array of lists with decay mode data.</p></li>
 <li><p><strong>nuclides</strong> (<em>numpy.ndarray</em>) – NumPy array of nuclides in the dataset (string format is ‘H-3’, etc.).</p></li>
 <li><p><strong>progeny</strong> (<em>numpy.ndarray</em>) – NumPy array of lists with direct progeny data.</p></li>
-<li><p><strong>scipy_data</strong> (<a class="reference internal" href="#radioactivedecay.decaydata.DecayMatrices" title="radioactivedecay.decaydata.DecayMatrices"><em>DecayMatrices</em></a>) – Dataset of double precision decay matrices (SciPy/NumPy objects).</p></li>
+<li><p><strong>scipy_data</strong> (<a class="reference internal" href="#radioactivedecay.decaydata.DecayMatricesScipy" title="radioactivedecay.decaydata.DecayMatricesScipy"><em>DecayMatricesScipy</em></a>) – Dataset of double precision decay matrices (SciPy/NumPy objects).</p></li>
 <li><p><strong>sympy_data</strong> (<em>None</em><em> or </em><a class="reference internal" href="#radioactivedecay.decaydata.DecayMatricesSympy" title="radioactivedecay.decaydata.DecayMatricesSympy"><em>DecayMatricesSympy</em></a>) – Dataset of arbitrary-precision decay matrices (SymPy objects). Or None if SymPy
 functionality is not used. Default is None.</p></li>
 <li><p><strong>sympy_year_conv</strong> (<em>None</em><em> or </em><em>Expr</em>) – Number of days in one year for SymPy time unit conversions.</p></li>
@@ -219,31 +225,19 @@ strings.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayData.scipy_data">
-<span class="sig-name descname"><span class="pre">scipy_data</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData.scipy_data" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayData._scipy_data">
+<span class="sig-name descname"><span class="pre">_scipy_data</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData._scipy_data" title="Permalink to this definition"></a></dt>
 <dd><p>Dataset of double precision decay matrices (SciPy/NumPy objects).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#radioactivedecay.decaydata.DecayMatrices" title="radioactivedecay.decaydata.DecayMatrices">DecayMatrices</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#radioactivedecay.decaydata.DecayMatricesScipy" title="radioactivedecay.decaydata.DecayMatricesScipy">DecayMatricesScipy</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayData.sympy_data">
-<span class="sig-name descname"><span class="pre">sympy_data</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData.sympy_data" title="Permalink to this definition"></a></dt>
-<dd><p>Dataset of arbitrary-precision decay matrices (SymPy objects). Or None if this functionality
-is not used.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>None or <a class="reference internal" href="#radioactivedecay.decaydata.DecayMatricesSympy" title="radioactivedecay.decaydata.DecayMatricesSympy">DecayMatricesSympy</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayData.sympy_year_conv">
-<span class="sig-name descname"><span class="pre">sympy_year_conv</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData.sympy_year_conv" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayData._sympy_year_conv">
+<span class="sig-name descname"><span class="pre">_sympy_year_conv</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData._sympy_year_conv" title="Permalink to this definition"></a></dt>
 <dd><p>Number of days in one year for SymPy time unit conversions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -341,13 +335,31 @@ seconds. Use ‘readable’ to get a string of the half-life in human-readable u
 </div>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayData.sympy_data">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sympy_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#radioactivedecay.decaydata.DecayMatricesSympy" title="radioactivedecay.decaydata.DecayMatricesSympy"><span class="pre">radioactivedecay.decaydata.DecayMatricesSympy</span></a></em><a class="headerlink" href="#radioactivedecay.decaydata.DecayData.sympy_data" title="Permalink to this definition"></a></dt>
+<dd><p>Property to return DecayMatricesSympy instance if it exists, or raise an error if the
+dataset does not contain SymPy data.</p>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayData.sympy_year_conv">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sympy_year_conv</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">sympy.core.expr.Expr</span></em><a class="headerlink" href="#radioactivedecay.decaydata.DecayData.sympy_year_conv" title="Permalink to this definition"></a></dt>
+<dd><p>Property to return SymPy number of days in one year if it exists, or raise an error if the
+dataset does not contain SymPy data.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="decaymatricesscipy">
+<h2>DecayMatricesScipy<a class="headerlink" href="#decaymatricesscipy" title="Permalink to this headline"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatrices">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.decaydata.</span></span><span class="sig-name descname"><span class="pre">DecayMatrices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atomic_masses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_consts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix_c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">scipy.sparse.csr.csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix_c_inv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">scipy.sparse.csr.csr_matrix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatrices" title="Permalink to this definition"></a></dt>
-<dd><p>Instances of DecayMatrices store vectors with fundamental decay/atomic data and matrices used
-for decay calculations.</p>
+<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatricesScipy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.decaydata.</span></span><span class="sig-name descname"><span class="pre">DecayMatricesScipy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atomic_masses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">sympy.matrices.dense.MutableDenseMatrix</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_consts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">sympy.matrices.dense.MutableDenseMatrix</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix_c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">scipy.sparse.csr.csr_matrix</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">sympy.matrices.dense.MutableDenseMatrix</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix_c_inv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">scipy.sparse.csr.csr_matrix</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">sympy.matrices.dense.MutableDenseMatrix</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesScipy" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">radioactivedecay.decaydata.DecayMatrices</span></code></p>
+<p>Version of DecayMatrices with data for SciPy double-precision floating point decay
+calculations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -359,8 +371,8 @@ for decay calculations.</p>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatrices.atomic_masses">
-<span class="sig-name descname"><span class="pre">atomic_masses</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatrices.atomic_masses" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatricesScipy.atomic_masses">
+<span class="sig-name descname"><span class="pre">atomic_masses</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesScipy.atomic_masses" title="Permalink to this definition"></a></dt>
 <dd><p>Column vector of the atomic masses (in g/mol).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -370,8 +382,8 @@ for decay calculations.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatrices.decay_consts">
-<span class="sig-name descname"><span class="pre">decay_consts</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatrices.decay_consts" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatricesScipy.decay_consts">
+<span class="sig-name descname"><span class="pre">decay_consts</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesScipy.decay_consts" title="Permalink to this definition"></a></dt>
 <dd><p>Column vector of the decay constants (in s<sup>-1</sup>).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -381,8 +393,8 @@ for decay calculations.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatrices.ln2">
-<span class="sig-name descname"><span class="pre">ln2</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatrices.ln2" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatricesScipy.ln2">
+<span class="sig-name descname"><span class="pre">ln2</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesScipy.ln2" title="Permalink to this definition"></a></dt>
 <dd><p>Constant natural logarithm of 2.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -392,8 +404,8 @@ for decay calculations.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatrices.matrix_c">
-<span class="sig-name descname"><span class="pre">matrix_c</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatrices.matrix_c" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatricesScipy.matrix_c">
+<span class="sig-name descname"><span class="pre">matrix_c</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesScipy.matrix_c" title="Permalink to this definition"></a></dt>
 <dd><p>A precalculated sparse lower triangular matrix used in decay calculations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -403,8 +415,8 @@ for decay calculations.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatrices.matrix_c_inv">
-<span class="sig-name descname"><span class="pre">matrix_c_inv</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatrices.matrix_c_inv" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatricesScipy.matrix_c_inv">
+<span class="sig-name descname"><span class="pre">matrix_c_inv</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesScipy.matrix_c_inv" title="Permalink to this definition"></a></dt>
 <dd><p>The inverse of matrix_c, also used in decay calculations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -414,8 +426,8 @@ for decay calculations.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatrices.matrix_e">
-<span class="sig-name descname"><span class="pre">matrix_e</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatrices.matrix_e" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatricesScipy.matrix_e">
+<span class="sig-name descname"><span class="pre">matrix_e</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesScipy.matrix_e" title="Permalink to this definition"></a></dt>
 <dd><p>The matrix exponential that is used in radioactive decay calculations. It is a diagonal
 matrix that is pre-allocted for performance reasons.</p>
 <dl class="field-list simple">
@@ -426,8 +438,8 @@ matrix that is pre-allocted for performance reasons.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatrices.vector_n0">
-<span class="sig-name descname"><span class="pre">vector_n0</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatrices.vector_n0" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatricesScipy.vector_n0">
+<span class="sig-name descname"><span class="pre">vector_n0</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesScipy.vector_n0" title="Permalink to this definition"></a></dt>
 <dd><p>Column vector for the number of atoms of each nuclide. It is pre-allocted here to improve
 the performance of decay calculations.</p>
 <dl class="field-list simple">
@@ -439,10 +451,14 @@ the performance of decay calculations.</p>
 
 </dd></dl>
 
+</section>
+<section id="decaymatricessympy">
+<h2>DecayMatricesSympy<a class="headerlink" href="#decaymatricessympy" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="radioactivedecay.decaydata.DecayMatricesSympy">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.decaydata.</span></span><span class="sig-name descname"><span class="pre">DecayMatricesSympy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atomic_masses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_consts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix_c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">scipy.sparse.csr.csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix_c_inv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">scipy.sparse.csr.csr_matrix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesSympy" title="Permalink to this definition"></a></dt>
-<dd><p>Version of DecayMatrices using SymPy arbitrary precision operations.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.decaydata.</span></span><span class="sig-name descname"><span class="pre">DecayMatricesSympy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atomic_masses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">sympy.matrices.dense.MutableDenseMatrix</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_consts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">sympy.matrices.dense.MutableDenseMatrix</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix_c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">scipy.sparse.csr.csr_matrix</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">sympy.matrices.dense.MutableDenseMatrix</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix_c_inv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">scipy.sparse.csr.csr_matrix</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">sympy.matrices.dense.MutableDenseMatrix</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesSympy" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">radioactivedecay.decaydata.DecayMatrices</span></code></p>
+<p>Version of DecayMatrices with data for SymPy arbitrary precision decay calculations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -532,31 +548,6 @@ the performance of decay calculations.</p>
 </dl>
 </dd></dl>
 
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="radioactivedecay.decaydata.load_dataset">
-<span class="sig-prename descclassname"><span class="pre">radioactivedecay.decaydata.</span></span><span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_sympy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#radioactivedecay.decaydata.DecayData" title="radioactivedecay.decaydata.DecayData"><span class="pre">radioactivedecay.decaydata.DecayData</span></a></span></span><a class="headerlink" href="#radioactivedecay.decaydata.load_dataset" title="Permalink to this definition"></a></dt>
-<dd><p>Load a decay dataset, either from a set of data files within a sub-packaged of
-<code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code>, or by specifying a local directory containing the data files.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dataset_name</strong> (<em>str</em>) – Name of the decay dataset (or sub-package directory name).</p></li>
-<li><p><strong>dir_path</strong> (<em>None</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – Path to the directory containing the decay dataset files. Use None to load data that are
-bundled as a sub-package of <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> (dataset_name should match the
-sub-package name in this case). Default is None.</p></li>
-<li><p><strong>load_sympy</strong> (<em>bool</em><em>, </em><em>optional</em>) – Load SymPy version of the decay data for arbitrary-precision decay calculations. Default is
-False.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A decay dataset used by <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code>.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#radioactivedecay.decaydata.DecayData" title="radioactivedecay.decaydata.DecayData">DecayData</a></p>
-</dd>
-</dl>
 </dd></dl>
 
 </section>
