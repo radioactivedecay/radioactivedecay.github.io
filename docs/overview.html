@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Overview &mdash; radioactivedecay 0.4.9 documentation</title>
+  <title>Overview &mdash; radioactivedecay 0.4.10 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
             <a href="index.html" class="icon icon-home"> radioactivedecay
           </a>
               <div class="version">
-                0.4.9
+                0.4.10
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -102,8 +102,9 @@ Atomic Mass Data Center (AME2020 and Nubase 2020 evaluations)
 decay differential equations analytically using basic linear algebra operations
 <a class="reference internal" href="#refs"><span class="std std-ref">[5]</span></a>.</p>
 <p>In order to use <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code>, you will need Python 3.6+ with the
-Matplotlib, NetworkX, NumPy, SciPy and SymPy packages installed. The code is
-platform independent and has been tested on Windows, MacOS and Linux systems.</p>
+Matplotlib, NetworkX, NumPy, SciPy, Setuptools and SymPy packages installed.
+The code is platform independent and has been tested on Windows, MacOS and
+Linux systems.</p>
 </section>
 <section id="quick-start">
 <h2>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h2>
@@ -116,7 +117,8 @@ platform independent and has been tested on Windows, MacOS and Linux systems.</p
 </pre></div>
 </div>
 <p>Either command will attempt to install the dependencies (Matplotlib, NetworkX,
-NumPy, SciPy &amp; SymPy) if they are not already present in the environment.</p>
+NumPy, SciPy, Setuptooks &amp; SymPy) if they are not already present in the
+environment.</p>
 <p>Import the <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> package and decay a simple inventory using:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">radioactivedecay</span> <span class="k">as</span> <span class="nn">rd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv_t0</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;H-3&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span>
@@ -273,6 +275,7 @@ on GitHub</a>.</p>
 <li><p><a class="reference external" href="https://wkerzendorf.github.io/">Wolfgang Kerzendorf</a></p></li>
 <li><p><a class="reference external" href="https://hratliff.com/">Hunter Ratliff</a></p></li>
 <li><p><a class="reference external" href="https://github.com/jvavrek">Jayson Vavrek</a></p></li>
+<li><p><a class="reference external" href="https://github.com/radioactivedecay-github">radioactivedecay-github</a></p></li>
 </ul>
 <p>for suggestions, support and assistance to this project.</p>
 <p>Thanks also to:</p>
