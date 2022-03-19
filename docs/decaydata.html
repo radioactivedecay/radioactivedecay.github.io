@@ -107,6 +107,31 @@ as <code class="docutils literal notranslate"><span class="pre">rd</span></code>
 decay data and AME2020 and Nubase2020 for atomic mass data.</p>
 </dd>
 </dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="radioactivedecay.decaydata.load_dataset">
+<span class="sig-prename descclassname"><span class="pre">radioactivedecay.decaydata.</span></span><span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_sympy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#radioactivedecay.decaydata.DecayData" title="radioactivedecay.decaydata.DecayData"><span class="pre">radioactivedecay.decaydata.DecayData</span></a></span></span><a class="headerlink" href="#radioactivedecay.decaydata.load_dataset" title="Permalink to this definition"></a></dt>
+<dd><p>Load a decay dataset, either from a set of data files packaged within <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code>,
+or by specifying a local directory containing the data files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_name</strong> (<em>str</em>) – Name of the decay dataset (or sub-package directory name).</p></li>
+<li><p><strong>dir_path</strong> (<em>None</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – Path to the directory containing the decay dataset files. Use None to load data that are
+bundled as a sub-package of <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> (dataset_name should match the
+sub-package name in this case). Default is None.</p></li>
+<li><p><strong>load_sympy</strong> (<em>bool</em><em>, </em><em>optional</em>) – Load SymPy version of the decay data for arbitrary-precision decay calculations. Default is
+False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A decay dataset used by <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#radioactivedecay.decaydata.DecayData" title="radioactivedecay.decaydata.DecayData">DecayData</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="id1">
 <h2>DecayData<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h2>
