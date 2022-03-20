@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>inventory &mdash; radioactivedecay 0.4.10 documentation</title>
+  <title>inventory &mdash; radioactivedecay 0.4.11 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
             <a href="index.html" class="icon icon-home"> radioactivedecay
           </a>
               <div class="version">
-                0.4.10
+                0.4.11
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -448,7 +448,8 @@ spelling variations of these time units.</p></li>
 <li><p><strong>xmin</strong> (<em>float</em><em>, </em><em>optional</em>) – Minimum decay time on x-axis (default is 0.0 for linear x-axis, 0.1 for log x-axis).</p></li>
 <li><p><strong>xscale</strong> (<em>str</em><em>, </em><em>optional</em>) – The time axis scale type to apply (‘linear’ or ‘log’, default is ‘linear’).</p></li>
 <li><p><strong>yscale</strong> (<em>str</em><em>, </em><em>optional</em>) – The y-axis scale type to apply (‘linear’ or ‘log’, default is ‘linear’).</p></li>
-<li><p><strong>ymin</strong> (<em>float</em><em>, </em><em>optional</em>) – Minimum value for the y-axis (default is 0.0 for linear y-axis, 0.1 for log y-axis).</p></li>
+<li><p><strong>ymin</strong> (<em>float</em><em>, </em><em>optional</em>) – Minimum value for the y-axis (default is 0.0 for <code class="docutils literal notranslate"><span class="pre">yscale='linear'</span></code>, or 0.95x the
+minimum quantity that occurs over the decay period for <code class="docutils literal notranslate"><span class="pre">yscale='log'</span></code>).</p></li>
 <li><p><strong>ymax</strong> (<em>None</em><em> or </em><em>float</em><em>, </em><em>optional</em>) – Maximum value for the y-axis. Default is None, which sets the limit to 1.05x the
 maximum quantity that occurs over the decay period.</p></li>
 <li><p><strong>yunits</strong> (<em>str</em><em>, </em><em>optional</em>) – Units to display on the y-axis e.g. ‘Bq’, ‘kBq’, ‘Ci’, ‘g’, ‘mol’, ‘num’,
@@ -458,9 +459,9 @@ you want to choose specific nuclide decay curves shown on the graph, either by
 supplying a string (to show one nuclide) or a list of strings (to show multiple).
 Default is ‘all’, which displays all nuclides present upon decay of the inventory.</p></li>
 <li><p><strong>order</strong> (<em>str</em><em>, </em><em>optional</em>) – Order to display the nuclide decay curves on the graph if you do not specify the
-order via the display parameter. Default order is by “dataset”, which follows the order
+order via the display parameter. Default order is by ‘dataset’, which follows the order
 of the nuclides in the decay dataset (highest to lowest nuclides in the decay
-chains). Use “alphabetical” if you want the nuclides to be ordered alphabetically.</p></li>
+chains). Use ‘alphabetical’ if you want the nuclides to be ordered alphabetically.</p></li>
 <li><p><strong>npoints</strong> (<em>None</em><em> or </em><em>int</em><em>, </em><em>optional</em>) – Number of time points used to plot graph (default is 501 for normal precision decay
 calculations, or 51 for high precision decay calculations).</p></li>
 <li><p><strong>fig</strong> (<em>None</em><em> or </em><em>matplotlib.figure.Figure</em><em>, </em><em>optional</em>) – matplotlib figure object to use, or None makes <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> create one (default
@@ -935,19 +936,20 @@ spelling variations of these time units.</p></li>
 <li><p><strong>xmin</strong> (<em>float</em><em>, </em><em>optional</em>) – Minimum decay time on x-axis (default is 0.0 for linear x-axis, 0.1 for log x-axis).</p></li>
 <li><p><strong>xscale</strong> (<em>str</em><em>, </em><em>optional</em>) – The time axis scale type to apply (‘linear’ or ‘log’, default is ‘linear’).</p></li>
 <li><p><strong>yscale</strong> (<em>str</em><em>, </em><em>optional</em>) – The y-axis scale type to apply (‘linear’ or ‘log’, default is ‘linear’).</p></li>
-<li><p><strong>ymin</strong> (<em>float</em><em>, </em><em>optional</em>) – Minimum value for the y-axis (default is 0.0 for linear y-axis, 0.1 for log y-axis).</p></li>
+<li><p><strong>ymin</strong> (<em>float</em><em>, </em><em>optional</em>) – Minimum value for the y-axis (default is 0.0 for <code class="docutils literal notranslate"><span class="pre">yscale='linear'</span></code>, or 0.95x the
+minimum quantity that occurs over the decay period for <code class="docutils literal notranslate"><span class="pre">yscale='log'</span></code>).</p></li>
 <li><p><strong>ymax</strong> (<em>None</em><em> or </em><em>float</em><em>, </em><em>optional</em>) – Maximum value for the y-axis. Default is None, which sets the limit to 1.05x the
 maximum quantity that occurs over the decay period.</p></li>
 <li><p><strong>yunits</strong> (<em>str</em><em>, </em><em>optional</em>) – Units to display on the y-axis e.g. ‘Bq’, ‘kBq’, ‘Ci’, ‘g’, ‘mol’, ‘num’,
-‘mass_frac’, ‘mol_frac’. Default is ‘Bq’.</p></li>
+‘activity_frac’, ‘mass_frac’, ‘mol_frac’. Default is ‘Bq’.</p></li>
 <li><p><strong>display</strong> (<em>str</em><em> or </em><em>list</em><em>, </em><em>optional</em>) – Only display the nuclides within this list on the graph. Use this parameter when
 you want to choose specific nuclide decay curves shown on the graph, either by
 supplying a string (to show one nuclide) or a list of strings (to show multiple).
 Default is ‘all’, which displays all nuclides present upon decay of the inventory.</p></li>
 <li><p><strong>order</strong> (<em>str</em><em>, </em><em>optional</em>) – Order to display the nuclide decay curves on the graph if you do not specify the
-order via the display parameter. Default order is by “dataset”, which follows the order
+order via the display parameter. Default order is by ‘dataset’, which follows the order
 of the nuclides in the decay dataset (highest to lowest nuclides in the decay
-chains). Use “alphabetical” if you want the nuclides to be ordered alphabetically.</p></li>
+chains). Use ‘alphabetical’ if you want the nuclides to be ordered alphabetically.</p></li>
 <li><p><strong>npoints</strong> (<em>None</em><em> or </em><em>int</em><em>, </em><em>optional</em>) – Number of time points used to plot graph. Default is 51.</p></li>
 <li><p><strong>fig</strong> (<em>None</em><em> or </em><em>matplotlib.figure.Figure</em><em>, </em><em>optional</em>) – matplotlib figure object to use, or None makes <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> create one (default
 is None).</p></li>
