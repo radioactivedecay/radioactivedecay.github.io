@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>utils &mdash; radioactivedecay 0.4.12 documentation</title>
+  <title>utils &mdash; radioactivedecay 0.4.13 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -29,7 +29,7 @@
             <a href="index.html" class="icon icon-home"> radioactivedecay
           </a>
               <div class="version">
-                0.4.12
+                0.4.13
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -222,6 +222,17 @@ atomic metastable state.</p></li>
 <span class="go">35</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="radioactivedecay.utils.get_metastable_chars">
+<span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">get_metastable_chars</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.utils.get_metastable_chars" title="Permalink to this definition"></a></dt>
+<dd><p>Returns list of allowed metastable state characters. Currently up to sixth metastable state is
+supported, based on the existence of sixth metastable state isomers in NUBASE2020, e.g.
+Lu-174x.</p>
+<p>Note metastable state chars are “m”, “n”, “p”, “q”, “r”, “x” for the first to sixth metastable
+state, respectively, i.e. “o” is not a metastable state char, nor letters between “r” and “x”.
+See NUBASE2020 paper (F.G. Kondev et al 2021 Chinese Phys. C 45 030001) for more details.</p>
 </dd></dl>
 
 <dl class="py function">
