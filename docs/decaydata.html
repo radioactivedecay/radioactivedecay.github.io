@@ -365,6 +365,11 @@ seconds. Use ‘readable’ to get a string of the half-life in human-readable u
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sympy_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#radioactivedecay.decaydata.DecayMatricesSympy" title="radioactivedecay.decaydata.DecayMatricesSympy"><span class="pre">radioactivedecay.decaydata.DecayMatricesSympy</span></a></em><a class="headerlink" href="#radioactivedecay.decaydata.DecayData.sympy_data" title="Permalink to this definition"></a></dt>
 <dd><p>Property to return DecayMatricesSympy instance if it exists, or raise an error if the
 dataset does not contain SymPy data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the DecayData instance does not contain any SymPy decay data.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py property">
@@ -372,6 +377,11 @@ dataset does not contain SymPy data.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sympy_year_conv</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">sympy.core.expr.Expr</span></em><a class="headerlink" href="#radioactivedecay.decaydata.DecayData.sympy_year_conv" title="Permalink to this definition"></a></dt>
 <dd><p>Property to return SymPy number of days in one year if it exists, or raise an error if the
 dataset does not contain SymPy data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the DecayData instance does not contain any SymPy decay data.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

@@ -88,6 +88,20 @@ as <code class="docutils literal notranslate"><span class="pre">rd</span></code>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">radioactivedecay</span> <span class="k">as</span> <span class="nn">rd</span>
 </pre></div>
 </div>
+<dl class="py exception">
+<dt class="sig sig-object py" id="radioactivedecay.utils.NuclideStrError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">NuclideStrError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nuclide</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.utils.NuclideStrError" title="Permalink to this definition"></a></dt>
+<dd><p>Custom exception class for invalid nuclide strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nuclide</strong> (<em>str</em>) – Nuclide string.</p></li>
+<li><p><strong>additional_message</strong> (<em>str</em>) – Message with additional error context.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="radioactivedecay.utils.Z_to_elem">
 <span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">Z_to_elem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#radioactivedecay.utils.Z_to_elem" title="Permalink to this definition"></a></dt>
@@ -161,6 +175,9 @@ and energy state.</p>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>int</p>
 </dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the input energy state is invalid.</p>
+</dd>
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rd</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">build_id</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
@@ -189,6 +206,9 @@ atomic metastable state.</p></li>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the input atomic number is invalid.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -314,6 +334,9 @@ function works for both radioactive and stable nuclides.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#radioactivedecay.utils.NuclideStrError" title="radioactivedecay.utils.NuclideStrError"><strong>NuclideStrError</strong></a> – If the input nuclide string is invalid.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
