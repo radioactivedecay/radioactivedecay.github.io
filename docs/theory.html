@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Theory and Computation &mdash; radioactivedecay 0.4.13 documentation</title>
+  <title>Theory and Computation &mdash; radioactivedecay 0.4.14 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -31,7 +32,7 @@
             <a href="index.html" class="icon icon-home"> radioactivedecay
           </a>
               <div class="version">
-                0.4.13
+                0.4.14
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -82,9 +83,9 @@
            <div itemprop="articleBody">
              
   <section id="theory-and-computation">
-<h1>Theory and Computation<a class="headerlink" href="#theory-and-computation" title="Permalink to this headline"></a></h1>
+<h1>Theory and Computation<a class="headerlink" href="#theory-and-computation" title="Permalink to this heading"></a></h1>
 <section id="solution-to-the-decay-chain-differential-equations">
-<h2>Solution to the decay chain differential equations<a class="headerlink" href="#solution-to-the-decay-chain-differential-equations" title="Permalink to this headline"></a></h2>
+<h2>Solution to the decay chain differential equations<a class="headerlink" href="#solution-to-the-decay-chain-differential-equations" title="Permalink to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> calculates an analytical solution to the decay chain
 differential equations using the method outlined by Amaku et al. <a class="reference internal" href="overview.html#refs"><span class="std std-ref">[1]</span></a>.</p>
 <p>Consider a system of <span class="math notranslate nohighlight">\(n\)</span> radionuclides, where the vector
@@ -151,7 +152,7 @@ number of atoms (<span class="math notranslate nohighlight">\(\mathbf{N}\)</span
 \[A_i = \lambda_i N_i.\]</div>
 </section>
 <section id="implementation-in-radioactivedecay">
-<h2>Implementation in radioactivedecay<a class="headerlink" href="#implementation-in-radioactivedecay" title="Permalink to this headline"></a></h2>
+<h2>Implementation in radioactivedecay<a class="headerlink" href="#implementation-in-radioactivedecay" title="Permalink to this heading"></a></h2>
 <p>As matrices <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(C^{-1}\)</span> are independent of time, they can be
 pre-calculated and imported into <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> as part of a radioactive
 decay dataset.  <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(C^{-1}\)</span>  are pre-calculated for the
@@ -163,7 +164,7 @@ amount of memory that they occupy and the computational expense for the matrix
 multiplications in each decay calculation.</p>
 </section>
 <section id="notes-on-computation-and-numerical-precision">
-<h2>Notes on computation and numerical precision<a class="headerlink" href="#notes-on-computation-and-numerical-precision" title="Permalink to this headline"></a></h2>
+<h2>Notes on computation and numerical precision<a class="headerlink" href="#notes-on-computation-and-numerical-precision" title="Permalink to this heading"></a></h2>
 <p>Numerical issues can arise when using double-precision floating-point numbers
 to compute decays for some chains <a class="reference internal" href="overview.html#refs"><span class="std std-ref">[3]</span></a>. For example, the Es-254
 decay chain contains U-238 (half-life 4.468 billion years) and Po-214
@@ -227,7 +228,7 @@ by setting the <code class="docutils literal notranslate"><span class="pre">Inve
 instance.</p>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>M Amaku, PR Pascholati &amp; VR Vanin, Comp. Phys. Comm. 181, 21-23 (2010). DOI: <a class="reference external" href="https://doi.org/10.1016/j.cpc.2009.08.011">10.1016/j.cpc.2009.08.011</a></p></li>
 <li><p>ICRP Publication 107: Nuclear Decay Data for Dosimetric Calculations. Ann. ICRP 38 (3), 1-96 (2008). <a class="reference external" href="https://journals.sagepub.com/doi/pdf/10.1177/ANIB_38_3">PDF</a></p></li>

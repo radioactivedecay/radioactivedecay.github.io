@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Overview &mdash; radioactivedecay 0.4.13 documentation</title>
+  <title>Overview &mdash; radioactivedecay 0.4.14 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -30,7 +31,7 @@
             <a href="index.html" class="icon icon-home"> radioactivedecay
           </a>
               <div class="version">
-                0.4.13
+                0.4.14
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -88,9 +89,9 @@
            <div itemprop="articleBody">
              
   <section id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h1>
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> is a Python package for radioactive decay calculations.
 It contains functions to define inventories of radionuclides, perform
 decay calculations, and output decay data for radionuclides and decay chains.</p>
@@ -108,7 +109,7 @@ The code is platform independent and has been tested on Windows, MacOS and
 Linux systems.</p>
 </section>
 <section id="quick-start">
-<h2>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h2>
+<h2>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this heading"></a></h2>
 <p>Install <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> using <code class="docutils literal notranslate"><span class="pre">pip</span></code> by:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install radioactivedecay
 </pre></div>
@@ -179,7 +180,7 @@ nuclide and to draw diagrams of its decay chain:</p>
 <a class="reference internal image-reference" href="_images/H-3_chain.png"><img alt="_images/H-3_chain.png" src="_images/H-3_chain.png" style="width: 100px;" /></a>
 </section>
 <section id="how-it-works">
-<h2>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline"></a></h2>
+<h2>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> calculates an analytical solution to the decay chain
 differential equations using matrix and vector multiplications. It implements
 the method described in ref. <a class="reference internal" href="#refs"><span class="std std-ref">[5]</span></a>.  See the
@@ -196,7 +197,7 @@ Notebooks with cross-checks of decay calculation results against
 <a class="reference internal" href="#refs"><span class="std std-ref">[10]</span></a> are held in the <a class="reference external" href="https://github.com/radioactivedecay/comparisons">comparisons repo</a>.</p>
 </section>
 <section id="limitations">
-<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline"></a></h2>
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading"></a></h2>
 <p>At present <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> has the following limitations:</p>
 <ul class="simple">
 <li><p>It does not model neutronics, so cannot calculate radioactivity produced
@@ -231,7 +232,7 @@ the ICRP-107 dataset.</p></li>
 </ul>
 </section>
 <section id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline"></a></h2>
+<h2>License<a class="headerlink" href="#license" title="Permalink to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> is open source software released under the <a class="reference external" href="https://github.com/radioactivedecay/radioactivedecay/blob/master/LICENSE">MIT</a> licence.</p>
 <p>The default decay data used by <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> is ICRP-107 <a class="reference internal" href="#refs"><span class="std std-ref">[1]</span></a>, which
 is Copyright © A. Endo and K.F. Eckerman (2008). See <a class="reference external" href="https://github.com/radioactivedecay/radioactivedecay/blob/master/LICENSE.ICRP-07">LICENSE.ICRP-07</a>
@@ -242,7 +243,7 @@ for more details.</p>
 more details.</p>
 </section>
 <section id="citation">
-<h2>Citation<a class="headerlink" href="#citation" title="Permalink to this headline"></a></h2>
+<h2>Citation<a class="headerlink" href="#citation" title="Permalink to this heading"></a></h2>
 <p>If you find this package useful for your research, please consider citing the
 paper on <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> published in the
 <a class="reference external" href="https://doi.org/10.21105/joss.03318">Journal of Open Source Software</a>:</p>
@@ -253,7 +254,7 @@ calculations. <em>Journal of Open Source Software</em>, <strong>7</strong> (71),
 </div></blockquote>
 </section>
 <section id="contributors">
-<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline"></a></h2>
+<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this heading"></a></h2>
 <p>List of contributors to <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code>:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://alexmalins.com">Alex Malins</a></p></li>
@@ -262,19 +263,19 @@ calculations. <em>Journal of Open Source Software</em>, <strong>7</strong> (71),
 </ul>
 </section>
 <section id="contributing">
-<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline"></a></h2>
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading"></a></h2>
 <p>Users are welcome to fix bugs, add new features or make feature requests.
 Please read the <a class="reference external" href="https://github.com/radioactivedecay/radioactivedecay/blob/master/CONTRIBUTING.md">contributor guidelines</a>
 and open a pull request or issue on the
 <a class="reference external" href="https://github.com/radioactivedecay/radioactivedecay">GitHub repository</a>.</p>
 </section>
 <section id="queries-and-suggestions">
-<h2>Queries and suggestions<a class="headerlink" href="#queries-and-suggestions" title="Permalink to this headline"></a></h2>
+<h2>Queries and suggestions<a class="headerlink" href="#queries-and-suggestions" title="Permalink to this heading"></a></h2>
 <p>If you have any questions or suggestions, please post on the <a class="reference external" href="https://github.com/radioactivedecay/radioactivedecay/discussions">Discussions page
 on GitHub</a>.</p>
 </section>
 <section id="acknowledgements">
-<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline"></a></h2>
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading"></a></h2>
 <p>Special thanks to:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://ccse.jaea.go.jp/index_eng.html">Center for Computational Science &amp; e-Systems, JAEA</a></p></li>
@@ -308,7 +309,7 @@ collaborators (creators of <a class="reference external" href="https://bitbucket
 <p>for their work on open source radioactive decay calculation software.</p>
 </section>
 <section id="references">
-<span id="refs"></span><h2>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h2>
+<span id="refs"></span><h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>ICRP Publication 107: Nuclear Decay Data for Dosimetric Calculations. Ann. ICRP 38 (3), 1-96 (2008). <a class="reference external" href="https://journals.sagepub.com/doi/pdf/10.1177/ANIB_38_3">PDF</a></p></li>
 <li><p>WJ Huang et al. Chinese Phys. C 45, 030002 (2021). DOI: <a class="reference external" href="https://doi.org/10.1088/1674-1137/abddb0">10.1088/1674-1137/abddb0</a></p></li>
