@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>decaydata &mdash; radioactivedecay 0.4.15 documentation</title>
+  <title>decaydata &mdash; radioactivedecay 0.4.16 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,6 +16,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -31,7 +32,7 @@
             <a href="index.html" class="icon icon-home"> radioactivedecay
           </a>
               <div class="version">
-                0.4.15
+                0.4.16
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -51,9 +52,19 @@
 <li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">decaydata</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#constants">Constants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">DecayData</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#decaymatricesscipy">DecayMatricesScipy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#decaymatricessympy">DecayMatricesSympy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radioactivedecay.decaydata.load_dataset"><code class="docutils literal notranslate"><span class="pre">load_dataset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">DecayData</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#radioactivedecay.decaydata.DecayData"><code class="docutils literal notranslate"><span class="pre">DecayData</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#decaymatricesscipy">DecayMatricesScipy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#radioactivedecay.decaydata.DecayMatricesScipy"><code class="docutils literal notranslate"><span class="pre">DecayMatricesScipy</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#decaymatricessympy">DecayMatricesSympy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#radioactivedecay.decaydata.DecayMatricesSympy"><code class="docutils literal notranslate"><span class="pre">DecayMatricesSympy</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="inventory.html">inventory</a></li>
@@ -108,6 +119,7 @@ as <code class="docutils literal notranslate"><span class="pre">rd</span></code>
 decay data and AME2020 and Nubase2020 for atomic mass data.</p>
 </dd>
 </dl>
+</section>
 <dl class="py function">
 <dt class="sig sig-object py" id="radioactivedecay.decaydata.load_dataset">
 <span class="sig-prename descclassname"><span class="pre">radioactivedecay.decaydata.</span></span><span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_sympy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#radioactivedecay.decaydata.DecayData" title="radioactivedecay.decaydata.DecayData"><span class="pre">DecayData</span></a></span></span><a class="headerlink" href="#radioactivedecay.decaydata.load_dataset" title="Permalink to this definition"></a></dt>
@@ -133,7 +145,6 @@ False.</p></li>
 </dl>
 </dd></dl>
 
-</section>
 <section id="id1">
 <h2>DecayData<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
 <dl class="py class">

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>utils &mdash; radioactivedecay 0.4.15 documentation</title>
+  <title>utils &mdash; radioactivedecay 0.4.16 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,6 +16,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -30,7 +31,7 @@
             <a href="index.html" class="icon icon-home"> radioactivedecay
           </a>
               <div class="version">
-                0.4.15
+                0.4.16
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -51,7 +52,21 @@
 <li class="toctree-l2"><a class="reference internal" href="decaydata.html">decaydata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="inventory.html">inventory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nuclide.html">nuclide</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">utils</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#radioactivedecay.utils.NuclideStrError"><code class="docutils literal notranslate"><span class="pre">NuclideStrError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radioactivedecay.utils.Z_to_elem"><code class="docutils literal notranslate"><span class="pre">Z_to_elem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radioactivedecay.utils.add_dictionaries"><code class="docutils literal notranslate"><span class="pre">add_dictionaries()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radioactivedecay.utils.build_id"><code class="docutils literal notranslate"><span class="pre">build_id()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radioactivedecay.utils.build_nuclide_string"><code class="docutils literal notranslate"><span class="pre">build_nuclide_string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radioactivedecay.utils.elem_to_Z"><code class="docutils literal notranslate"><span class="pre">elem_to_Z()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radioactivedecay.utils.get_metastable_chars"><code class="docutils literal notranslate"><span class="pre">get_metastable_chars()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radioactivedecay.utils.parse_id"><code class="docutils literal notranslate"><span class="pre">parse_id()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radioactivedecay.utils.parse_nuclide"><code class="docutils literal notranslate"><span class="pre">parse_nuclide()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radioactivedecay.utils.parse_nuclide_str"><code class="docutils literal notranslate"><span class="pre">parse_nuclide_str()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radioactivedecay.utils.sort_dictionary_alphabetically"><code class="docutils literal notranslate"><span class="pre">sort_dictionary_alphabetically()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radioactivedecay.utils.sort_list_according_to_dataset"><code class="docutils literal notranslate"><span class="pre">sort_list_according_to_dataset()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
