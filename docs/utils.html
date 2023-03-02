@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>utils &mdash; radioactivedecay 0.4.16 documentation</title>
@@ -28,14 +28,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> radioactivedecay
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            radioactivedecay
           </a>
               <div class="version">
                 0.4.16
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -84,9 +88,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="api.html">API</a> &raquo;</li>
-      <li>utils</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">API</a></li>
+      <li class="breadcrumb-item active">utils</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/utils.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -109,7 +113,7 @@ as <code class="docutils literal notranslate"><span class="pre">rd</span></code>
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">NuclideStrError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nuclide</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.utils.NuclideStrError" title="Permalink to this definition"></a></dt>
 <dd><p>Custom exception class for invalid nuclide strings.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>nuclide</strong> (<em>str</em>) – Nuclide string.</p></li>
 <li><p><strong>additional_message</strong> (<em>str</em>) – Message with additional error context.</p></li>
@@ -123,13 +127,13 @@ as <code class="docutils literal notranslate"><span class="pre">rd</span></code>
 <span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">Z_to_elem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#radioactivedecay.utils.Z_to_elem" title="Permalink to this definition"></a></dt>
 <dd><p>Converts atomic number to element symbol.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Z</strong> (<em>int</em>) – Atomic number.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Element string.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -148,18 +152,18 @@ as <code class="docutils literal notranslate"><span class="pre">rd</span></code>
 <dd><p>Adds together two dictionaries of nuclide strings and associated quantities. Supports both
 floats or SymPy quantities.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>dict_a</strong> (<em>dict</em>) – First dictionary containing nuclide strings as keys and quantitites as values.</p></li>
 <li><p><strong>dict_b</strong> (<em>dict</em>) – Second dictionary containing nuclide strings as keys and quantitites as values.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Combined dictionary containing the nuclides in both dict_a and dict_b, where the
 quantities have been added together when a nuclide is present in both input
 dictionaries.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
@@ -178,20 +182,20 @@ dictionaries.</p>
 <dd><p>Builds a canonical nuclide id from atomic number, atomic mass, and
 and energy state.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Z</strong> (<em>int</em>) – Atomic number.</p></li>
 <li><p><strong>A</strong> (<em>int</em>) – Atomic mass.</p></li>
 <li><p><strong>state</strong> (<em>str</em>) – energy state.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Canonical nuclide id.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>ValueError</strong> – If the input energy state is invalid.</p>
 </dd>
 </dl>
@@ -209,7 +213,7 @@ and energy state.</p>
 <span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">build_nuclide_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#radioactivedecay.utils.build_nuclide_string" title="Permalink to this definition"></a></dt>
 <dd><p>Builds a nuclide string from given atomic mass and number.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Z</strong> (<em>int</em>) – Atomic number.</p></li>
 <li><p><strong>A</strong> (<em>int</em>) – Atomic mass.</p></li>
@@ -217,13 +221,13 @@ and energy state.</p>
 atomic metastable state.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Nuclide string built in symbol - mass number format.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>ValueError</strong> – If the input atomic number is invalid.</p>
 </dd>
 </dl>
@@ -241,13 +245,13 @@ atomic metastable state.</p></li>
 <span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">elem_to_Z</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sym</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#radioactivedecay.utils.elem_to_Z" title="Permalink to this definition"></a></dt>
 <dd><p>Converts element symbol to atomic number.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>sym</strong> (<em>str</em>) – Element string.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Atomic number.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
 </dd>
 </dl>
@@ -277,13 +281,13 @@ See NUBASE2020 paper (F.G. Kondev et al 2021 Chinese Phys. C 45 030001) for more
 <dd><p>Parses a nuclide canonical id in zzzaaammmm format into symbol -
 mass number format.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>input_id</strong> (<em>int</em>) – Nuclide in canonical id format.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Nuclide string parsed in symbol - mass number format.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -303,20 +307,20 @@ mass number format.</p>
 format and checks whether the nuclide is contained in the decay
 dataset.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input_nuclide</strong> (<em>str</em><em> or </em><em>int</em>) – Nuclide name string or canonical id in zzzaaammmm format.</p></li>
 <li><p><strong>nuclides</strong> (<em>numpy.ndarray</em>) – List of all the nuclides in the decay dataset.</p></li>
 <li><p><strong>dataset_name</strong> (<em>str</em>) – Name of the decay dataset.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Nuclide string parsed in symbol - mass number format.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>ValueError</strong> – If the input nuclide string or id is invalid or the nuclide is
     not contained in the decay dataset.</p></li>
@@ -342,16 +346,16 @@ dataset.</p>
 <dd><p>Parses a nuclide string from e.g. ‘241Pu’ or ‘Pu241’ format to ‘Pu-241’ format. Note this
 function works for both radioactive and stable nuclides.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>nuclide</strong> (<em>str</em>) – Nuclide string.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Nuclide string parsed in symbol - mass number format.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#radioactivedecay.utils.NuclideStrError" title="radioactivedecay.utils.NuclideStrError"><strong>NuclideStrError</strong></a> – If the input nuclide string is invalid.</p>
 </dd>
 </dl>
@@ -369,14 +373,14 @@ function works for both radioactive and stable nuclides.</p>
 <span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">sort_dictionary_alphabetically</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_inv_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.utils.sort_dictionary_alphabetically" title="Permalink to this definition"></a></dt>
 <dd><p>Sorts a dictionary alphabetically by its keys.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>input_inv_dict</strong> (<em>dict</em>) – Dictionary containing nuclide strings or Nuclide objects as keys and numbers
 as values.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Inventory dictionary which has been sorted by the nuclides alphabetically.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
@@ -392,17 +396,17 @@ as values.</p>
 <span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">sort_list_according_to_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.utils.sort_list_according_to_dataset" title="Permalink to this definition"></a></dt>
 <dd><p>Sorts a list of nuclides based on their order of appearence in the decay dataset.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input_list</strong> (<em>list</em>) – List of nuclide strings to be sorted.</p></li>
 <li><p><strong>key_dict</strong> (<em>dict</em>) – Dictionary from the decay dataset with nuclide strings as keys and their position
 (integers) in the decay dataset.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Sorted nuclide list.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>

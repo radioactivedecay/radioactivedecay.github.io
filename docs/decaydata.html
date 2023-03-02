@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>decaydata &mdash; radioactivedecay 0.4.16 documentation</title>
@@ -29,14 +29,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> radioactivedecay
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            radioactivedecay
           </a>
               <div class="version">
                 0.4.16
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -87,9 +91,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="api.html">API</a> &raquo;</li>
-      <li>decaydata</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">API</a></li>
+      <li class="breadcrumb-item active">decaydata</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/decaydata.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -126,7 +130,7 @@ decay data and AME2020 and Nubase2020 for atomic mass data.</p>
 <dd><p>Load a decay dataset, either from a set of data files packaged within <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code>,
 or by specifying a local directory containing the data files.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>dataset_name</strong> (<em>str</em>) – Name of the decay dataset (or sub-package directory name).</p></li>
 <li><p><strong>dir_path</strong> (<em>None</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – Path to the directory containing the decay dataset files. Use None to load data that are
@@ -136,10 +140,10 @@ sub-package name in this case). Default is None.</p></li>
 False.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A decay dataset used by <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code>.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#radioactivedecay.decaydata.DecayData" title="radioactivedecay.decaydata.DecayData">DecayData</a></p>
 </dd>
 </dl>
@@ -155,7 +159,7 @@ calculations and inventory transformations using DecayMatrices attributes. Other
 which are reported to users but not used incalculations are stored in other instance
 attributes.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>dataset_name</strong> (<em>str</em>) – Name of the decay dataset.</p></li>
 <li><p><strong>bfs</strong> (<em>numpy.ndarray</em>) – NumPy array of lists with branching fraction data.</p></li>
@@ -177,7 +181,7 @@ functionality is not used. Default is None.</p></li>
 <span class="sig-name descname"><span class="pre">bfs</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData.bfs" title="Permalink to this definition"></a></dt>
 <dd><p>NumPy array of lists with branching fraction data.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>numpy.ndarray</p>
 </dd>
 </dl>
@@ -188,7 +192,7 @@ functionality is not used. Default is None.</p></li>
 <span class="sig-name descname"><span class="pre">dataset_name</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData.dataset_name" title="Permalink to this definition"></a></dt>
 <dd><p>Name of the decay dataset.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -199,7 +203,7 @@ functionality is not used. Default is None.</p></li>
 <span class="sig-name descname"><span class="pre">float_year_conv</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData.float_year_conv" title="Permalink to this definition"></a></dt>
 <dd><p>Number of days in one year for float time unit conversions.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
@@ -211,7 +215,7 @@ functionality is not used. Default is None.</p></li>
 <dd><p>List of tuples containing half-life floats, time unit strings and readable format half-life
 strings.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>numpy.ndarray</p>
 </dd>
 </dl>
@@ -222,7 +226,7 @@ strings.</p>
 <span class="sig-name descname"><span class="pre">modes</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData.modes" title="Permalink to this definition"></a></dt>
 <dd><p>NumPy array of lists with decay mode data.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>numpy.ndarray</p>
 </dd>
 </dl>
@@ -233,7 +237,7 @@ strings.</p>
 <span class="sig-name descname"><span class="pre">nuclides</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData.nuclides" title="Permalink to this definition"></a></dt>
 <dd><p>NumPy array of nuclides in the dataset (string format is ‘H-3’, etc.).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>numpy.ndarray</p>
 </dd>
 </dl>
@@ -244,7 +248,7 @@ strings.</p>
 <span class="sig-name descname"><span class="pre">nuclide_dict</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData.nuclide_dict" title="Permalink to this definition"></a></dt>
 <dd><p>Dictionary containing nuclide strings as keys and positions in the matrices as values.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
@@ -255,7 +259,7 @@ strings.</p>
 <span class="sig-name descname"><span class="pre">progeny</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData.progeny" title="Permalink to this definition"></a></dt>
 <dd><p>NumPy array of lists with direct progeny data.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>numpy.ndarray</p>
 </dd>
 </dl>
@@ -266,7 +270,7 @@ strings.</p>
 <span class="sig-name descname"><span class="pre">_scipy_data</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData._scipy_data" title="Permalink to this definition"></a></dt>
 <dd><p>Dataset of double precision decay matrices (SciPy/NumPy objects).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#radioactivedecay.decaydata.DecayMatricesScipy" title="radioactivedecay.decaydata.DecayMatricesScipy">DecayMatricesScipy</a></p>
 </dd>
 </dl>
@@ -277,7 +281,7 @@ strings.</p>
 <span class="sig-name descname"><span class="pre">_sympy_year_conv</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData._sympy_year_conv" title="Permalink to this definition"></a></dt>
 <dd><p>Number of days in one year for SymPy time unit conversions.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>None or Expr</p>
 </dd>
 </dl>
@@ -288,16 +292,16 @@ strings.</p>
 <span class="sig-name descname"><span class="pre">branching_fraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progeny</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayData.branching_fraction" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the branching fraction for parent to progeny (if it exists).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>parent</strong> (<em>str</em>) – Nuclide string of the parent.</p></li>
 <li><p><strong>progeny</strong> (<em>str</em>) – Nuclide string of the progeny (can be stable or radioactive nuclide).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Branching fraction (or zero if progeny is not actually a direct progeny of parent).</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
@@ -316,16 +320,16 @@ mode string returned is not a list of all the different radiation types emitted 
 decay process between parent and progeny. It is the label defined in the decay dataset to
 classify the decay type (e.g. ‘α’, ‘β-’ or ‘IT’).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>parent</strong> (<em>str</em>) – Nuclide string of the parent.</p></li>
 <li><p><strong>progeny</strong> (<em>str</em>) – Nuclide string of the progeny.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Decay mode (or ‘’ if progeny is not actually a direct progeny of the parent).</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -342,7 +346,7 @@ classify the decay type (e.g. ‘α’, ‘β-’ or ‘IT’).</p>
 <dd><p>Returns the half-life of the nuclide as a float in your chosen units, or as
 a human-readable string with appropriate units.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>nuclide</strong> (<em>str</em>) – Nuclide string.</p></li>
 <li><p><strong>units</strong> (<em>str</em><em>, </em><em>optional</em>) – Units for half-life. Options are ‘ps’, ‘ns’, ‘μs’, ‘us’, ‘ms’, ‘s’, ‘m’, ‘h’, ‘d’, ‘y’,
@@ -350,10 +354,10 @@ a human-readable string with appropriate units.</p>
 seconds. Use ‘readable’ to get a string of the half-life in human-readable units.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Nuclide half-life.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float or str</p>
 </dd>
 </dl>
@@ -378,7 +382,7 @@ seconds. Use ‘readable’ to get a string of the half-life in human-readable u
 <dd><p>Property to return DecayMatricesSympy instance if it exists, or raise an error if the
 dataset does not contain SymPy data.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ValueError</strong> – If the DecayData instance does not contain any SymPy decay data.</p>
 </dd>
 </dl>
@@ -390,7 +394,7 @@ dataset does not contain SymPy data.</p>
 <dd><p>Property to return SymPy number of days in one year if it exists, or raise an error if the
 dataset does not contain SymPy data.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ValueError</strong> – If the DecayData instance does not contain any SymPy decay data.</p>
 </dd>
 </dl>
@@ -408,7 +412,7 @@ dataset does not contain SymPy data.</p>
 <p>Version of DecayMatrices with data for SciPy double-precision floating point decay
 calculations.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>atomic_masses</strong> (<em>numpy.ndarray</em>) – Column vector of the atomic masses (in g/mol).</p></li>
 <li><p><strong>decay_consts</strong> (<em>numpy.ndarray</em>) – Column vector of the decay constants (in s<sup>-1</sup>).</p></li>
@@ -422,7 +426,7 @@ calculations.</p>
 <span class="sig-name descname"><span class="pre">atomic_masses</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesScipy.atomic_masses" title="Permalink to this definition"></a></dt>
 <dd><p>Column vector of the atomic masses (in g/mol).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>numpy.ndarray</p>
 </dd>
 </dl>
@@ -433,7 +437,7 @@ calculations.</p>
 <span class="sig-name descname"><span class="pre">decay_consts</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesScipy.decay_consts" title="Permalink to this definition"></a></dt>
 <dd><p>Column vector of the decay constants (in s<sup>-1</sup>).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>numpy.ndarray</p>
 </dd>
 </dl>
@@ -444,7 +448,7 @@ calculations.</p>
 <span class="sig-name descname"><span class="pre">ln2</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesScipy.ln2" title="Permalink to this definition"></a></dt>
 <dd><p>Constant natural logarithm of 2.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
@@ -455,7 +459,7 @@ calculations.</p>
 <span class="sig-name descname"><span class="pre">matrix_c</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesScipy.matrix_c" title="Permalink to this definition"></a></dt>
 <dd><p>A precalculated sparse lower triangular matrix used in decay calculations.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>scipy.sparse.csr.csr_matrix</p>
 </dd>
 </dl>
@@ -466,7 +470,7 @@ calculations.</p>
 <span class="sig-name descname"><span class="pre">matrix_c_inv</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesScipy.matrix_c_inv" title="Permalink to this definition"></a></dt>
 <dd><p>The inverse of matrix_c, also used in decay calculations.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>scipy.sparse.csr.csr_matrix</p>
 </dd>
 </dl>
@@ -478,7 +482,7 @@ calculations.</p>
 <dd><p>The matrix exponential that is used in radioactive decay calculations. It is a diagonal
 matrix that is pre-allocted for performance reasons.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>scipy.sparse.csr.csr_matrix</p>
 </dd>
 </dl>
@@ -490,7 +494,7 @@ matrix that is pre-allocted for performance reasons.</p>
 <dd><p>Column vector for the number of atoms of each nuclide. It is pre-allocted here to improve
 the performance of decay calculations.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>numpy.ndarray</p>
 </dd>
 </dl>
@@ -507,7 +511,7 @@ the performance of decay calculations.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DecayMatrices</span></code></p>
 <p>Version of DecayMatrices with data for SymPy arbitrary precision decay calculations.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>atomic_masses</strong> (<em>sympy.matrices.dense.MutableDenseMatrix</em>) – Column vector of the atomic masses (in g/mol).</p></li>
 <li><p><strong>decay_consts</strong> (<em>sympy.matrices.dense.MutableDenseMatrix</em>) – Column vector of the decay constants (in s<sup>-1</sup>).</p></li>
@@ -521,7 +525,7 @@ the performance of decay calculations.</p>
 <span class="sig-name descname"><span class="pre">atomic_masses</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesSympy.atomic_masses" title="Permalink to this definition"></a></dt>
 <dd><p>Column vector of the atomic masses (in g/mol).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>sympy.matrices.dense.MutableDenseMatrix</p>
 </dd>
 </dl>
@@ -532,7 +536,7 @@ the performance of decay calculations.</p>
 <span class="sig-name descname"><span class="pre">decay_consts</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesSympy.decay_consts" title="Permalink to this definition"></a></dt>
 <dd><p>Column vector of the decay constants (in s<sup>-1</sup>).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>sympy.matrices.dense.MutableDenseMatrix</p>
 </dd>
 </dl>
@@ -543,7 +547,7 @@ the performance of decay calculations.</p>
 <span class="sig-name descname"><span class="pre">ln2</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesSympy.ln2" title="Permalink to this definition"></a></dt>
 <dd><p>Constant natural logarithm of 2.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>sympy.log</p>
 </dd>
 </dl>
@@ -554,7 +558,7 @@ the performance of decay calculations.</p>
 <span class="sig-name descname"><span class="pre">matrix_c</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesSympy.matrix_c" title="Permalink to this definition"></a></dt>
 <dd><p>A precalculated sparse lower triangular matrix used in decay calculations.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>sympy.matrices.sparse.MutableSparseMatrix</p>
 </dd>
 </dl>
@@ -565,7 +569,7 @@ the performance of decay calculations.</p>
 <span class="sig-name descname"><span class="pre">matrix_c_inv</span></span><a class="headerlink" href="#radioactivedecay.decaydata.DecayMatricesSympy.matrix_c_inv" title="Permalink to this definition"></a></dt>
 <dd><p>The inverse of matrix_c, also used in decay calculations.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>sympy.matrices.sparse.MutableSparseMatrix</p>
 </dd>
 </dl>
@@ -577,7 +581,7 @@ the performance of decay calculations.</p>
 <dd><p>The matrix exponential that is used in radioactive decay calculations. It is a diagonal
 matrix that is pre-allocted for performance reasons.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>sympy.matrices.sparse.MutableSparseMatrix</p>
 </dd>
 </dl>
@@ -589,7 +593,7 @@ matrix that is pre-allocted for performance reasons.</p>
 <dd><p>Column vector for the number of atoms of each nuclide. It is pre-allocted here to improve
 the performance of decay calculations.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>sympy.matrices.dense.MutableDenseMatrix</p>
 </dd>
 </dl>

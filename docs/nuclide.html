@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>nuclide &mdash; radioactivedecay 0.4.16 documentation</title>
@@ -29,14 +29,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> radioactivedecay
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            radioactivedecay
           </a>
               <div class="version">
                 0.4.16
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -77,9 +81,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="api.html">API</a> &raquo;</li>
-      <li>nuclide</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">API</a></li>
+      <li class="breadcrumb-item active">nuclide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/nuclide.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -112,7 +116,7 @@ as <code class="docutils literal notranslate"><span class="pre">rd</span></code>
 <dd><p><code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> instances serve as name and atomic number/mass parsing
 objects for any nuclide or element.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>nuclide</strong> (<em>str</em><em> or </em><em>int</em>) – Specify the nuclide with either a name string (e.g. ‘H-3’, ‘H3’ or ‘3H’) or a canonical id
 (zzzaaassss format).</p></li>
@@ -125,7 +129,7 @@ objects for any nuclide or element.</p>
 <span class="sig-name descname"><span class="pre">nuclide</span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.nuclide" title="Permalink to this definition"></a></dt>
 <dd><p>Nuclide name string.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -136,7 +140,7 @@ objects for any nuclide or element.</p>
 <span class="sig-name descname"><span class="pre">decay_data</span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.decay_data" title="Permalink to this definition"></a></dt>
 <dd><p>Decay dataset.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="decaydata.html#radioactivedecay.decaydata.DecayData" title="radioactivedecay.decaydata.DecayData">DecayData</a></p>
 </dd>
 </dl>
@@ -158,10 +162,10 @@ objects for any nuclide or element.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">A</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.A" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the mass number of the nuclide.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Mass number of the nuclide.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
 </dd>
 </dl>
@@ -178,10 +182,10 @@ objects for any nuclide or element.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Z</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.Z" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the atomic number of the nuclide.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Atomic number of the nuclide.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
 </dd>
 </dl>
@@ -198,10 +202,10 @@ objects for any nuclide or element.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">atomic_mass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.atomic_mass" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the atomic mass of the nuclide, in g/mol.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Atomic mass of the nuclide in g/mol.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>float</p>
 </dd>
 </dl>
@@ -222,10 +226,10 @@ objects for any nuclide or element.</p>
 <dd><p>Returns the branching fractions to the direct progeny of a
 radionuclide.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List of branching fractions.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list</p>
 </dd>
 </dl>
@@ -247,10 +251,10 @@ parent to progeny decay processes. They are the labels defined
 in the decay dataset to classify the parent to progeny decay
 type (e.g. ‘α’, ‘β-’ or ‘IT’).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List of decay modes.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list</p>
 </dd>
 </dl>
@@ -268,17 +272,17 @@ type (e.g. ‘α’, ‘β-’ or ‘IT’).</p>
 <dd><p>Returns the half-life of a nuclide as a float in your chosen
 units, or as a human-readable string with appropriate units.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>units</strong> (<em>str</em><em>, </em><em>optional</em>) – Units for half-life. Options are ‘ps’, ‘ns’, ‘μs’, ‘us’,
 ‘ms’, ‘s’, ‘m’, ‘h’, ‘d’, ‘y’, ‘ky’, ‘My’, ‘By’, ‘Gy’,
 ‘Ty’, ‘Py’, and common spelling variations. Default is ‘s’,
 i.e. seconds. Use ‘readable’ to get a string of the
 half-life in human-readable units.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Half-life of the nuclide.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float or str</p>
 </dd>
 </dl>
@@ -301,10 +305,10 @@ half-life in human-readable units.</p>
 <dd><p>Returns the canonical nuclide id, in zzzaaassss form. Ground state is 0000, first excited
 state (“m”) is 0001, second (“n”) is 0002, etc.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Canonical id of the nuclide.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
 </dd>
 </dl>
@@ -331,7 +335,7 @@ control over these parameters via kwargs_draw and
 kwargs_edge_labels. For more information on the various
 NetworkX plotting parameters, refer to its <a class="reference external" href="https://networkx.org/documentation/stable/reference/drawing.html">documentation</a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>label_pos</strong> (<em>float</em><em>, </em><em>optional</em>) – Position of labels along edges. Default is 0.5. If you find
 that edge labels are overlapping in the decay chain
@@ -346,7 +350,7 @@ diagram, try increasing this parameter to e.g. 0.66.</p></li>
 <li><p><strong>optional</strong> – Keyword arguments for networkx.draw_networkx_edge_labels().</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>fig</strong> (<em>matplotlib.figure.Figure</em>) – matplotlib figure object used to plot the decay chain.</p></li>
 <li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em>) – matplotlib axes object used to plot the decay chain.</p></li>
@@ -361,10 +365,10 @@ diagram, try increasing this parameter to e.g. 0.66.</p></li>
 <span class="sig-name descname"><span class="pre">progeny</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.progeny" title="Permalink to this definition"></a></dt>
 <dd><p>Returns list of the direct progeny of the nuclide.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List of the direct progeny of the nuclide, ordered by decreasing branching fraction.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list</p>
 </dd>
 </dl>
@@ -382,10 +386,10 @@ diagram, try increasing this parameter to e.g. 0.66.</p></li>
 <dd><p>Returns the metastable state character, i.e. ‘’ for ground state, ‘m’ for first metastable
 state, ‘n’ for second metastable state, etc..</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Metastable state character.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Installation &mdash; radioactivedecay 0.4.16 documentation</title>
@@ -29,14 +29,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> radioactivedecay
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            radioactivedecay
           </a>
               <div class="version">
                 0.4.16
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -71,8 +75,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Installation</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -98,11 +102,11 @@ installed from <a class="reference external" href="https://www.python.org/">pyth
 <h2>Installation<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
 <p>The easiest ways to install <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> are via the <a class="reference external" href="https://pypi.org/project/radioactivedecay/">Python Package
 Index</a> using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install radioactivedecay
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>radioactivedecay
 </pre></div>
 </div>
 <p>or via <a class="reference external" href="https://anaconda.org/conda-forge/radioactivedecay">conda-forge</a>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda install -c conda-forge radioactivedecay
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>radioactivedecay
 </pre></div>
 </div>
 <p>Either command will attempt to install the dependencies (Matplotlib, NetworkX,
@@ -110,7 +114,7 @@ NumPy, SciPy, Setuptools &amp; SymPy) if they are not already present in the
 environment.</p>
 <p>It is also possible to clone the GitHub <a class="reference external" href="https://github.com/radioactivedecay/radioactivedecay">repository</a> and install from within the
 <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> directory using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install -e .
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </pre></div>
 </div>
 </section>
@@ -118,23 +122,23 @@ environment.</p>
 <h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> includes code tests using the unittest framework. To run
 the tests, first git clone the repository from <a class="reference external" href="https://github.com/radioactivedecay/radioactivedecay">GitHub</a>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/radioactivedecay/radioactivedecay.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/radioactivedecay/radioactivedecay.git
 </pre></div>
 </div>
 <p>then execute:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> radioactivedecay
-$ python -m unittest discover
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>radioactivedecay
+$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover
 </pre></div>
 </div>
 </section>
 <section id="uninstallation">
 <h2>Uninstallation<a class="headerlink" href="#uninstallation" title="Permalink to this heading"></a></h2>
 <p>You can uninstall <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> by:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip uninstall radioactivedecay
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>uninstall<span class="w"> </span>radioactivedecay
 </pre></div>
 </div>
 <p>or if installed originally via <code class="docutils literal notranslate"><span class="pre">conda</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda uninstall radioactivedecay
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>uninstall<span class="w"> </span>radioactivedecay
 </pre></div>
 </div>
 </section>
