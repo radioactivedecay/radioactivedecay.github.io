@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fileio &mdash; radioactivedecay 0.4.20 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="inventory" href="inventory.html" />
+    <link rel="prev" title="decaydata" href="decaydata.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            radioactivedecay
+          </a>
+              <div class="version">
+                0.4.20
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting.html">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory.html">Theory and Computation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="decaydata.html">decaydata</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">fileio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#radioactivedecay.fileio.read_csv"><code class="docutils literal notranslate"><span class="pre">read_csv()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="inventory.html">inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nuclide.html">nuclide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">radioactivedecay</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">API</a></li>
+      <li class="breadcrumb-item active">fileio</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/fileio.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-radioactivedecay.fileio">
+<span id="fileio"></span><h1>fileio<a class="headerlink" href="#module-radioactivedecay.fileio" title="Permalink to this heading"></a></h1>
+<p>The fileio module contains functions to create inventory instances by reading nuclide quantities
+from a file.</p>
+<p>The docstring code examples assume that <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> has been imported
+as <code class="docutils literal notranslate"><span class="pre">rd</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">radioactivedecay</span> <span class="k">as</span> <span class="nn">rd</span>
+</pre></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="radioactivedecay.fileio.read_csv">
+<span class="sig-prename descclassname"><span class="pre">radioactivedecay.fileio.</span></span><span class="sig-name descname"><span class="pre">read_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inventory_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Inventory'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="decaydata.html#radioactivedecay.decaydata.DecayData" title="radioactivedecay.decaydata.DecayData"><span class="pre">DecayData</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">','</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_rows</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="inventory.html#radioactivedecay.inventory.Inventory" title="radioactivedecay.inventory.Inventory"><span class="pre">Inventory</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="inventory.html#radioactivedecay.inventory.InventoryHP" title="radioactivedecay.inventory.InventoryHP"><span class="pre">InventoryHP</span></a></span></span><a class="headerlink" href="#radioactivedecay.fileio.read_csv" title="Permalink to this definition"></a></dt>
+<dd><p>Create an inventory by reading from a CSV file.</p>
+<p>The CSV file must contain at least two columns. The first column must contain nuclide strings /
+canonical ids. The second column must contain the quantities of each nuclide.</p>
+<p>Optionally a third column may be included specifying the units of each nuclide’s quantity. If a
+unit is present on a row, it overrides the units set in the function parameter (i.e. <code class="docutils literal notranslate"><span class="pre">units</span></code>
+is ignored for that row).</p>
+<p>A header row is not required. If the CSV file contains a header, you should ignore it using the
+<code class="docutils literal notranslate"><span class="pre">skip_rows</span></code> parameter.</p>
+<p>Example valid CSV file (no units - ‘Bq’ will be inferred by inventory constructor default):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>H-3,1.0
+C-14,2.0
+</pre></div>
+</div>
+<p>Example with tab separators (TSV format) and units specified:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>H-3 3.0 Bq
+He-3    17.0   mol
+C-14    5.0 Ci
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> (<em>str</em><em> or </em><em>pathlib.Path</em>) – Name or path of the file to read in.</p></li>
+<li><p><strong>inventory_type</strong> (<em>str</em><em>, </em><em>optional</em>) – The type of inventory you want to create. Either “Inventory” (default) for a normal
+precision (SciPy) inventory, or “InventoryHP” for a high precision (SymPy) inventory.</p></li>
+<li><p><strong>units</strong> (<em>None</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – The units of all the nuclide quantities in the file. If a unit is specified on a row of the
+file in the third column, that unit will override this one. If <code class="docutils literal notranslate"><span class="pre">units</span> <span class="pre">=</span> <span class="pre">None</span></code> is
+specified (default) and there is no unit on the row, the default of the inventory
+constructor will be used (currently ‘Bq’).</p></li>
+<li><p><strong>decay_data</strong> (<em>None</em><em> or </em><a class="reference internal" href="decaydata.html#radioactivedecay.decaydata.DecayData" title="radioactivedecay.decaydata.DecayData"><em>DecayData</em></a><em>, </em><em>optional</em>) – The decay dataset to create the inventory with. If None is specified (default), the default
+of the inventory constructor will be used (which currently is the ICRP-107 dataset).</p></li>
+<li><p><strong>delimiter</strong> (<em>str</em><em>, </em><em>optional</em>) – The delimiter used to separate items in the file. Default is comma (“,”, CSV format).
+Ex. if <code class="docutils literal notranslate"><span class="pre">delimiter</span> <span class="pre">=</span> <span class="pre">&quot;</span>&#160; <span class="pre">&quot;</span></code> (tab) will attempt to read a TSV file.</p></li>
+<li><p><strong>skip_rows</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of rows to ignore at the start of the file. Default is 0. Use this parameter
+to ignore a header row if the file has one (e.g. <code class="docutils literal notranslate"><span class="pre">nuclide,quantity,unit</span></code>).</p></li>
+<li><p><strong>encoding</strong> (<em>str</em><em>, </em><em>optional</em>) – Encoding of the file. Default is ‘utf-8’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the file or function parameters are invalid in some way: e.g. i) if a row does not
+    contain 2 (nuclide string/canonical id &amp; quantity) or 3 values (if including unit), or ii)
+    skip_rows means end of file is reached, or iii) invalid <code class="docutils literal notranslate"><span class="pre">inventory_type</span></code> specified.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="decaydata.html" class="btn btn-neutral float-left" title="decaydata" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="inventory.html" class="btn btn-neutral float-right" title="inventory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, JAEA.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

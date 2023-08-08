@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutorial &mdash; radioactivedecay 0.4.19 documentation</title>
+  <title>Tutorial &mdash; radioactivedecay 0.4.20 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             radioactivedecay
           </a>
               <div class="version">
-                0.4.19
+                0.4.20
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -145,6 +145,23 @@ to contain activities in Bq. The user can easily specify different units:</p>
 <span class="p">{</span><span class="s1">&#39;U-234&#39;</span><span class="p">:</span> <span class="mf">1.3420556696283726e-10</span><span class="p">,</span> <span class="s1">&#39;U-235&#39;</span><span class="p">:</span> <span class="mf">9.360075764027427e-14</span><span class="p">,</span> <span class="s1">&#39;U-238&#39;</span><span class="p">:</span> <span class="mf">9.832129719300668e-15</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">inv</span><span class="o">.</span><span class="n">numbers</span><span class="p">()</span>
 <span class="p">{</span><span class="s1">&#39;U-234&#39;</span><span class="p">:</span> <span class="mf">1500.0</span><span class="p">,</span> <span class="s1">&#39;U-235&#39;</span><span class="p">:</span> <span class="mf">3000.0</span><span class="p">,</span> <span class="s1">&#39;U-238&#39;</span><span class="p">:</span> <span class="mf">2000.0</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>It is also possible to create an inventory by reading directly from a CSV-type
+file via the <code class="docutils literal notranslate"><span class="pre">rd.read_csv()</span></code> function. The file’s first column should contain
+the nuclides, and the second column the amount of each nuclide.</p>
+<p>An optional third column can be provided with the unit, which can differ for
+each nuclide. This makes it possible to load an inventory from mixed activity,
+moles or mass units for each nuclide.</p>
+<p>Example CSV file, saved as e.g. <code class="docutils literal notranslate"><span class="pre">example_file.csv</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nuclide|amount|units
+C-14|5.0|Ci
+H-3|0.2|g
+He-3|1|mol
+</pre></div>
+</div>
+<p>Read command - <code class="docutils literal notranslate"><span class="pre">skip_rows=1</span></code> is required to ignore the header row:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;example_file.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="n">skip_rows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
