@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fileio &mdash; radioactivedecay 0.4.20 documentation</title>
+  <title>fileio &mdash; radioactivedecay 0.4.21 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             radioactivedecay
           </a>
               <div class="version">
-                0.4.20
+                0.4.21
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -125,16 +125,16 @@ C-14    5.0 Ci
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filepath</strong> (<em>str</em><em> or </em><em>pathlib.Path</em>) – Name or path of the file to read in.</p></li>
-<li><p><strong>inventory_type</strong> (<em>str</em><em>, </em><em>optional</em>) – The type of inventory you want to create. Either “Inventory” (default) for a normal
-precision (SciPy) inventory, or “InventoryHP” for a high precision (SymPy) inventory.</p></li>
+<li><p><strong>inventory_type</strong> (<em>str</em><em>, </em><em>optional</em>) – The type of inventory you want to create. Either ‘Inventory’ (default) for a normal
+precision (SciPy) inventory, or ‘InventoryHP’ for a high precision (SymPy) inventory.</p></li>
 <li><p><strong>units</strong> (<em>None</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – The units of all the nuclide quantities in the file. If a unit is specified on a row of the
 file in the third column, that unit will override this one. If <code class="docutils literal notranslate"><span class="pre">units</span> <span class="pre">=</span> <span class="pre">None</span></code> is
 specified (default) and there is no unit on the row, the default of the inventory
 constructor will be used (currently ‘Bq’).</p></li>
 <li><p><strong>decay_data</strong> (<em>None</em><em> or </em><a class="reference internal" href="decaydata.html#radioactivedecay.decaydata.DecayData" title="radioactivedecay.decaydata.DecayData"><em>DecayData</em></a><em>, </em><em>optional</em>) – The decay dataset to create the inventory with. If None is specified (default), the default
 of the inventory constructor will be used (which currently is the ICRP-107 dataset).</p></li>
-<li><p><strong>delimiter</strong> (<em>str</em><em>, </em><em>optional</em>) – The delimiter used to separate items in the file. Default is comma (“,”, CSV format).
-Ex. if <code class="docutils literal notranslate"><span class="pre">delimiter</span> <span class="pre">=</span> <span class="pre">&quot;</span>&#160; <span class="pre">&quot;</span></code> (tab) will attempt to read a TSV file.</p></li>
+<li><p><strong>delimiter</strong> (<em>str</em><em>, </em><em>optional</em>) – The delimiter used to separate items in the file. Default is comma (‘,’, CSV format).
+Ex. if <code class="docutils literal notranslate"><span class="pre">delimiter</span> <span class="pre">=</span> <span class="pre">'</span>&#160; <span class="pre">'</span></code> (tab) will attempt to read a TSV file.</p></li>
 <li><p><strong>skip_rows</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of rows to ignore at the start of the file. Default is 0. Use this parameter
 to ignore a header row if the file has one (e.g. <code class="docutils literal notranslate"><span class="pre">nuclide,quantity,unit</span></code>).</p></li>
 <li><p><strong>encoding</strong> (<em>str</em><em>, </em><em>optional</em>) – Encoding of the file. Default is ‘utf-8’.</p></li>
@@ -161,7 +161,7 @@ to ignore a header row if the file has one (e.g. <code class="docutils literal n
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, JAEA.</p>
+    <p>&#169; Copyright 2023, JAEA.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

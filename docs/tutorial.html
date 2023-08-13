@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutorial &mdash; radioactivedecay 0.4.20 documentation</title>
+  <title>Tutorial &mdash; radioactivedecay 0.4.21 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             radioactivedecay
           </a>
               <div class="version">
-                0.4.20
+                0.4.21
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -60,6 +60,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#adding-and-removing-nuclides-from-inventories">Adding and removing nuclides from inventories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#inventory-arithmetic">Inventory arithmetic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#multiplication-and-division-on-inventories">Multiplication and division on inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-results-to-a-file">Writing results to a file</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="plotting.html">Plotting</a></li>
@@ -467,6 +468,24 @@ constant as follows:</p>
 </pre></div>
 </div>
 </section>
+<section id="writing-results-to-a-file">
+<h2>Writing results to a file<a class="headerlink" href="#writing-results-to-a-file" title="Permalink to this heading"></a></h2>
+<p>Similar to <code class="docutils literal notranslate"><span class="pre">rd.read_csv()</span></code>, inventory objects have a <code class="docutils literal notranslate"><span class="pre">.to_csv()</span></code> method for
+writing out the contents of an inventory to a CSV-type file. The user specifies
+the filename, the units to be used, whether the units should be written into
+the file (via the third column), the delimiter e.g. comma for a CSV file,
+tab (<code class="docutils literal notranslate"><span class="pre">'\t'</span></code>) for a TSV file, and the header line for the file:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;Cs-137&#39;</span><span class="p">:</span> <span class="mf">1.02</span><span class="p">,</span> <span class="s1">&#39;Sr-90&#39;</span><span class="p">:</span> <span class="mf">3.05</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;test_output.csv&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;mBq&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="n">write_units</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;nuclide&quot;</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>This produces a file named “test_output.csv” containing:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nuclide|amount|units
+Cs-137|1020.0|mBq
+Sr-90|3050.0|mBq
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -480,7 +499,7 @@ constant as follows:</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, JAEA.</p>
+    <p>&#169; Copyright 2023, JAEA.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
