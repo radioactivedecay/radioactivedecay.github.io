@@ -11,11 +11,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=ea0ce697"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -93,9 +93,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-radioactivedecay.nuclide">
-<span id="nuclide"></span><h1>nuclide<a class="headerlink" href="#module-radioactivedecay.nuclide" title="Permalink to this heading"></a></h1>
-<p>The nuclide module defines the <code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> class. Each <code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> instance
+  <section id="nuclide">
+<h1>nuclide<a class="headerlink" href="#nuclide" title="Link to this heading"></a></h1>
+<p id="module-radioactivedecay.nuclide">The nuclide module defines the <code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> class. Each <code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> instance
 represents one nuclide, and can be contructed from a nuclide string or
 <cite>zzzaaassss</cite> canonical id. The class properties provide an easy way of
 extracting atomic number and mass information, as well as a clean name string.
@@ -109,10 +109,10 @@ as <code class="docutils literal notranslate"><span class="pre">rd</span></code>
 </pre></div>
 </div>
 <section id="id1">
-<h2>Nuclide<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<h2>Nuclide<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.nuclide.</span></span><span class="sig-name descname"><span class="pre">Nuclide</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nuclide:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_data:</span> <span class="pre">~radioactivedecay.decaydata.DecayData</span> <span class="pre">=</span> <span class="pre">Decay</span> <span class="pre">dataset:</span> <span class="pre">icrp107_ame2020_nubase2020</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contains</span> <span class="pre">SymPy</span> <span class="pre">data:</span> <span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">radioactivedecay.nuclide.</span></span><span class="sig-name descname"><span class="pre">Nuclide</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nuclide:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_data:</span> <span class="pre">~radioactivedecay.decaydata.DecayData</span> <span class="pre">=</span> <span class="pre">Decay</span> <span class="pre">dataset:</span> <span class="pre">icrp107_ame2020_nubase2020</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contains</span> <span class="pre">SymPy</span> <span class="pre">data:</span> <span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> instances serve as name and atomic number/mass parsing
 objects for any nuclide or element.</p>
 <dl class="field-list simple">
@@ -126,7 +126,7 @@ objects for any nuclide or element.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.nuclide">
-<span class="sig-name descname"><span class="pre">nuclide</span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.nuclide" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">nuclide</span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.nuclide" title="Link to this definition"></a></dt>
 <dd><p>Nuclide name string.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -137,7 +137,7 @@ objects for any nuclide or element.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.decay_data">
-<span class="sig-name descname"><span class="pre">decay_data</span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.decay_data" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">decay_data</span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.decay_data" title="Link to this definition"></a></dt>
 <dd><p>Decay dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -159,7 +159,7 @@ objects for any nuclide or element.</p>
 </div>
 <dl class="py property">
 <dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.A">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">A</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.A" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">A</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.A" title="Link to this definition"></a></dt>
 <dd><p>Returns the mass number of the nuclide.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -179,7 +179,7 @@ objects for any nuclide or element.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.Z">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Z</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.Z" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Z</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.Z" title="Link to this definition"></a></dt>
 <dd><p>Returns the atomic number of the nuclide.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -199,7 +199,7 @@ objects for any nuclide or element.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.atomic_mass">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">atomic_mass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.atomic_mass" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">atomic_mass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.atomic_mass" title="Link to this definition"></a></dt>
 <dd><p>Returns the atomic mass of the nuclide, in g/mol.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -222,7 +222,7 @@ objects for any nuclide or element.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.branching_fractions">
-<span class="sig-name descname"><span class="pre">branching_fractions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.branching_fractions" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">branching_fractions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.branching_fractions" title="Link to this definition"></a></dt>
 <dd><p>Returns the branching fractions to the direct progeny of a
 radionuclide.</p>
 <dl class="field-list simple">
@@ -243,7 +243,7 @@ radionuclide.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.decay_modes">
-<span class="sig-name descname"><span class="pre">decay_modes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.decay_modes" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">decay_modes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.decay_modes" title="Link to this definition"></a></dt>
 <dd><p>Returns the decay modes for a radionuclide, as defined in the
 decay dataset. Note: the decay mode strings returned are not
 lists of all the different radiation types emitted during the
@@ -268,7 +268,7 @@ type (e.g. ‘α’, ‘β-’ or ‘IT’).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.half_life">
-<span class="sig-name descname"><span class="pre">half_life</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'s'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.half_life" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">half_life</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'s'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.half_life" title="Link to this definition"></a></dt>
 <dd><p>Returns the half-life of a nuclide as a float in your chosen
 units, or as a human-readable string with appropriate units.</p>
 <dl class="field-list simple">
@@ -301,7 +301,7 @@ half-life in human-readable units.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.id">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.id" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.id" title="Link to this definition"></a></dt>
 <dd><p>Returns the canonical nuclide id, in zzzaaassss form. Ground state is 0000, first excited
 state (“m”) is 0001, second (“n”) is 0002, etc.</p>
 <dl class="field-list simple">
@@ -325,7 +325,7 @@ state (“m”) is 0001, second (“n”) is 0002, etc.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Figure</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs_draw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs_edge_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Figure</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Axes</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.plot" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Figure</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs_draw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs_edge_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Figure</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Axes</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.plot" title="Link to this definition"></a></dt>
 <dd><p>Plots a diagram of the decay chain of a radionuclide. Then
 creates a NetworkX DiGraph and plot of it using NetworkX’s
 Matplotlib-based plotting functionality.</p>
@@ -362,7 +362,7 @@ diagram, try increasing this parameter to e.g. 0.66.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.progeny">
-<span class="sig-name descname"><span class="pre">progeny</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.progeny" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">progeny</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.progeny" title="Link to this definition"></a></dt>
 <dd><p>Returns list of the direct progeny of the nuclide.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -382,7 +382,7 @@ diagram, try increasing this parameter to e.g. 0.66.</p></li>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="radioactivedecay.nuclide.Nuclide.state">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.state" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#radioactivedecay.nuclide.Nuclide.state" title="Link to this definition"></a></dt>
 <dd><p>Returns the metastable state character, i.e. ‘’ for ground state, ‘m’ for first metastable
 state, ‘n’ for second metastable state, etc..</p>
 <dl class="field-list simple">

@@ -11,11 +11,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=ea0ce697"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -93,16 +93,16 @@
            <div itemprop="articleBody">
              
   <section id="tutorial">
-<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this heading"></a></h1>
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Link to this heading"></a></h1>
 <section id="importing-the-package-in-python">
-<h2>Importing the package in Python<a class="headerlink" href="#importing-the-package-in-python" title="Permalink to this heading"></a></h2>
+<h2>Importing the package in Python<a class="headerlink" href="#importing-the-package-in-python" title="Link to this heading"></a></h2>
 <p>Import the <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> package by:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">radioactivedecay</span> <span class="k">as</span> <span class="nn">rd</span>
 </pre></div>
 </div>
 </section>
 <section id="creating-inventories-of-nuclides">
-<h2>Creating inventories of nuclides<a class="headerlink" href="#creating-inventories-of-nuclides" title="Permalink to this heading"></a></h2>
+<h2>Creating inventories of nuclides<a class="headerlink" href="#creating-inventories-of-nuclides" title="Link to this heading"></a></h2>
 <p>Create an inventory of nuclides as follows:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv_t0</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;U-238&#39;</span><span class="p">:</span> <span class="mf">99.274</span><span class="p">,</span> <span class="s1">&#39;U-235&#39;</span><span class="p">:</span> <span class="mf">0.720</span><span class="p">,</span> <span class="s1">&#39;U-234&#39;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">},</span> <span class="s1">&#39;mol&#39;</span><span class="p">)</span>
 </pre></div>
@@ -167,7 +167,7 @@ He-3|1|mol
 </div>
 </section>
 <section id="radioactive-decay-calculations">
-<h2>Radioactive decay calculations<a class="headerlink" href="#radioactive-decay-calculations" title="Permalink to this heading"></a></h2>
+<h2>Radioactive decay calculations<a class="headerlink" href="#radioactive-decay-calculations" title="Link to this heading"></a></h2>
 <p>Use <code class="docutils literal notranslate"><span class="pre">decay()</span></code> to perform a radioactive decay calculation on the natural
 uranium inventory:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv_t1</span> <span class="o">=</span> <span class="n">inv_t0</span><span class="o">.</span><span class="n">decay</span><span class="p">(</span><span class="mf">1E9</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
@@ -202,7 +202,7 @@ days, years, kiloyears, megayears, gigayears, terayears and petayears,
 respectively. In the above case we decayed for one billion years.</p>
 </section>
 <section id="high-numerical-precision-radioactive-decay-calculations">
-<h2>High numerical precision radioactive decay calculations<a class="headerlink" href="#high-numerical-precision-radioactive-decay-calculations" title="Permalink to this heading"></a></h2>
+<h2>High numerical precision radioactive decay calculations<a class="headerlink" href="#high-numerical-precision-radioactive-decay-calculations" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">InventoryHP</span></code> class can be used for high numerical precision
 calculations. This class uses SymPy arbitrary-precision numerical calculation
 routines. The <code class="docutils literal notranslate"><span class="pre">InventoryHP.decay()</span></code> method can give more accurate decay
@@ -236,7 +236,7 @@ to the <code class="docutils literal notranslate"><span class="pre">Inventory</s
 </div>
 </section>
 <section id="calculating-total-number-of-decays">
-<h2>Calculating total number of decays<a class="headerlink" href="#calculating-total-number-of-decays" title="Permalink to this heading"></a></h2>
+<h2>Calculating total number of decays<a class="headerlink" href="#calculating-total-number-of-decays" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">cumulative_decays()</span></code> method can be used to calculate the total number
 of decays that occur for each radionuclide over a decay period. With a normal
 precision <code class="docutils literal notranslate"><span class="pre">Inventory</span></code>:</p>
@@ -257,7 +257,7 @@ yttrium-90, decayed over the million year time period.</p>
 decays of stable nuclides (as these are all zero).</p>
 </section>
 <section id="nuclide-name-formatting-and-metastable-states">
-<h2>Nuclide name formatting and metastable states<a class="headerlink" href="#nuclide-name-formatting-and-metastable-states" title="Permalink to this heading"></a></h2>
+<h2>Nuclide name formatting and metastable states<a class="headerlink" href="#nuclide-name-formatting-and-metastable-states" title="Link to this heading"></a></h2>
 <p>Nuclides can be specified in four equivalent ways. These are all
 equivalent ways of creating an inventory of radon-222:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;Rn-222&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
@@ -289,7 +289,7 @@ metastable states, respectively:</p>
 <p>Note canonical ids are also used by <a class="reference external" href="https://pyne.io/usersguide/nucname.html">PyNE</a>.</p>
 </section>
 <section id="fetching-atomic-and-decay-data">
-<h2>Fetching atomic and decay data<a class="headerlink" href="#fetching-atomic-and-decay-data" title="Permalink to this heading"></a></h2>
+<h2>Fetching atomic and decay data<a class="headerlink" href="#fetching-atomic-and-decay-data" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> class can be used to obtain atomic data for any specific nuclide,
 and decay data for radionuclides. They are built similarly to inventories:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Nuclide</span><span class="p">(</span><span class="s1">&#39;Rn-222&#39;</span><span class="p">)</span>
@@ -381,7 +381,7 @@ data in ICRP-107, which is the default dataset in <code class="docutils literal 
 </div>
 </section>
 <section id="adding-and-removing-nuclides-from-inventories">
-<h2>Adding and removing nuclides from inventories<a class="headerlink" href="#adding-and-removing-nuclides-from-inventories" title="Permalink to this heading"></a></h2>
+<h2>Adding and removing nuclides from inventories<a class="headerlink" href="#adding-and-removing-nuclides-from-inventories" title="Link to this heading"></a></h2>
 <p>It is easy to add nuclides to an <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> using the <code class="docutils literal notranslate"><span class="pre">add()</span></code> method:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;H-3&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;Be-10&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">activities</span><span class="p">()</span>
@@ -437,7 +437,7 @@ the <code class="docutils literal notranslate"><span class="pre">Inventory</span
 dataset of the <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> will be used instead.</p>
 </section>
 <section id="inventory-arithmetic">
-<h2>Inventory arithmetic<a class="headerlink" href="#inventory-arithmetic" title="Permalink to this heading"></a></h2>
+<h2>Inventory arithmetic<a class="headerlink" href="#inventory-arithmetic" title="Link to this heading"></a></h2>
 <p>You can add the contents of different inventories together to create a new
 inventory:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv1</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;H-3&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
@@ -455,7 +455,7 @@ inventory:</p>
 </div>
 </section>
 <section id="multiplication-and-division-on-inventories">
-<h2>Multiplication and division on inventories<a class="headerlink" href="#multiplication-and-division-on-inventories" title="Permalink to this heading"></a></h2>
+<h2>Multiplication and division on inventories<a class="headerlink" href="#multiplication-and-division-on-inventories" title="Link to this heading"></a></h2>
 <p>You can multiply or divide the amounts of all nuclides in an inventory by a
 constant as follows:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;Sr-90&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;Cs-137&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span> <span class="s1">&#39;num&#39;</span><span class="p">)</span>
@@ -469,7 +469,7 @@ constant as follows:</p>
 </div>
 </section>
 <section id="writing-results-to-a-file">
-<h2>Writing results to a file<a class="headerlink" href="#writing-results-to-a-file" title="Permalink to this heading"></a></h2>
+<h2>Writing results to a file<a class="headerlink" href="#writing-results-to-a-file" title="Link to this heading"></a></h2>
 <p>Similar to <code class="docutils literal notranslate"><span class="pre">rd.read_csv()</span></code>, inventory objects have a <code class="docutils literal notranslate"><span class="pre">.to_csv()</span></code> method for
 writing out the contents of an inventory to a CSV-type file. The user specifies
 the filename, the units to be used, whether the units should be written into
