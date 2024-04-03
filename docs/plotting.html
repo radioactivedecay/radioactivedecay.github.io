@@ -150,6 +150,25 @@ with your own Matplotlib parameters, e.g. to save a PNG image:</p>
 </div>
 <p>For more information on handling the figure and axes objects, see the
 <a class="reference external" href="https://matplotlib.org/contents.html">Matplotlib documentation</a>.</p>
+<p>To control which progeny are plotted, the <code class="docutils literal notranslate"><span class="pre">calculate_decay_data()</span></code> method can
+be use to extract the data into a pandas dataframe which can be filtered as required
+then plotted directly. As the plot method of a dataframe is a <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/visualization.html#basic-plotting-plot">wrapper around Matplotlib</a>,
+the returned axes object can be used and manipulated in the usual way (see the
+<a class="reference external" href="https://matplotlib.org/contents.html">Matplotlib documentation</a>).</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;U-238&#39;</span><span class="p">:</span> <span class="mf">2000.0</span><span class="p">,</span> <span class="s1">&#39;U-235&#39;</span><span class="p">:</span> <span class="mf">3000.0</span><span class="p">,</span> <span class="s1">&#39;U-234&#39;</span><span class="p">:</span> <span class="mf">1500.0</span><span class="p">},</span> <span class="s1">&#39;num&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">inv</span><span class="o">.</span><span class="n">calculate_decay_data</span><span class="p">(</span><span class="n">time_period</span><span class="o">=</span><span class="mf">1E9</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">decay_units</span><span class="o">=</span><span class="s1">&#39;num&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Number of Particles&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/U_decay.png"><img alt="_images/U_decay.png" src="_images/U_decay.png" style="width: 450px;" /></a>
+<p>We can remove the progency we are not interested in and replot.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filtered_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filtered_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Number of Particles&#39;</span><span class="p">)</span>
+<span class="go"># This could have been done in a single statement, but has been split for demonstration purposes</span>
+<span class="go"># df.loc[:, df.max() &gt; 100].plot(ylabel=&#39;Number of Particles&#39;)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/U_decay_filtered.png"><img alt="_images/U_decay_filtered.png" src="_images/U_decay_filtered.png" style="width: 450px;" /></a>
 </section>
 </section>
 

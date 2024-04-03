@@ -340,6 +340,93 @@ nuclide</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.inventory.Inventory.decay_time_series">
+<span class="sig-name descname"><span class="pre">decay_time_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Bq'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npoints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">501</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.inventory.Inventory.decay_time_series" title="Link to this definition"></a></dt>
+<dd><p>Returns a list, dict tuple with the initial isotope and all decay progeny decayed for the amount of time specified by
+time_period. The list contains the time data from the decay calculations, and the dict has the isotope as the key,
+with decay data contained in a list for the value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time_period</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>np.ndarray</em><em>]</em>) – Time to decay the chain for. If a float is given, &lt;time_scale&gt; and &lt;npoints&gt; is used to create an evenly spaced array of numbers.
+If an numpy ndarray is provided, the values contained within are used and &lt;npoints&gt; is ignored.</p></li>
+<li><p><strong>time_units</strong> (<em>str</em><em>, </em><em>optional</em>) – Units for time series. Options are ‘ps’, ‘ns’, ‘μs’, ‘us’, ‘ms’, ‘s’, ‘m’, ‘h’, ‘d’, ‘y’,
+‘ky’, ‘My’, ‘By’, ‘Gy’, ‘Ty’, ‘Py’, and common spelling variations. Default is ‘s’, i.e.
+seconds.</p></li>
+<li><p><strong>time_scale</strong> (<em>str</em><em>, </em><em>optional</em>) – The time axis scale type to apply (‘linear’ or ‘log’, default is ‘linear’).</p></li>
+<li><p><strong>decay_units</strong> (<em>str</em><em>, </em><em>optional</em>) – Units to use for the decayed values e.g. ‘Bq’, ‘kBq’, ‘Ci’, ‘g’, ‘mol’, ‘num’,
+‘activity_frac’, ‘mass_frac’, ‘mol_frac’. Default is ‘Bq’.</p></li>
+<li><p><strong>npoints</strong> (<em>None</em><em> or </em><em>int</em><em>, </em><em>optional</em>) – Number of time points used to plot graph (default is 501 for normal precision decay
+calculations, or 51 for high precision decay calculations).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>List[float]</em> – The time points of the decayed data</p></li>
+<li><p><em>Dict[str, List[float]]</em> – The isotopes as the key with the decay values as a list of floats</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the decay_units parameter is invalid.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;C-14&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">inv</span><span class="o">.</span><span class="n">calculate_decay_data</span><span class="p">(</span><span class="n">time_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;ky&quot;</span><span class="p">,</span> <span class="n">decay_units</span><span class="o">=</span><span class="s2">&quot;mass_frac&quot;</span><span class="p">,</span> <span class="n">npoints</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span>
+<span class="go">[0.0, 3.3333333333333335, 6.666666666666667, 10.0]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span>
+<span class="go">{&#39;C-14&#39;: [1.0, 0.6667465897861368, 0.4445504227269143, 0.2964018201597633], &#39;N-14&#39;: [0.0, 0.3332534102138631, 0.5554495772730857, 0.7035981798402366]}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.inventory.Inventory.decay_time_series_pandas">
+<span class="sig-name descname"><span class="pre">decay_time_series_pandas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Bq'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npoints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">501</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#radioactivedecay.inventory.Inventory.decay_time_series_pandas" title="Link to this definition"></a></dt>
+<dd><p>Returns a dataframe with the initial isotope and all decay progeny decayed for the amount of time specified by
+time_period.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time_period</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>np.ndarray</em><em>]</em>) – Time to decay the chain for. If a float is given, &lt;time_scale&gt; and &lt;npoints&gt; is used to create an evenly spaced array of numbers.
+If an numpy ndarray is provided, the values contained within are used and &lt;npoints&gt; is ignored.</p></li>
+<li><p><strong>time_units</strong> (<em>str</em><em>, </em><em>optional</em>) – Units for time series. Options are ‘ps’, ‘ns’, ‘μs’, ‘us’, ‘ms’, ‘s’, ‘m’, ‘h’, ‘d’, ‘y’,
+‘ky’, ‘My’, ‘By’, ‘Gy’, ‘Ty’, ‘Py’, and common spelling variations. Default is ‘s’, i.e.
+seconds.</p></li>
+<li><p><strong>time_scale</strong> (<em>str</em><em>, </em><em>optional</em>) – The time axis scale type to apply (‘linear’ or ‘log’, default is ‘linear’).</p></li>
+<li><p><strong>decay_units</strong> (<em>str</em><em>, </em><em>optional</em>) – Units to use for the decayed values e.g. ‘Bq’, ‘kBq’, ‘Ci’, ‘g’, ‘mol’, ‘num’,
+‘activity_frac’, ‘mass_frac’, ‘mol_frac’. Default is ‘Bq’.</p></li>
+<li><p><strong>npoints</strong> (<em>None</em><em> or </em><em>int</em><em>, </em><em>optional</em>) – Number of time points used to plot graph (default is 501 for normal precision decay
+calculations, or 51 for high precision decay calculations).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pandas DataFrame with the data of the decayed Inventory. Each isotope is its own column, with a row for
+each time increment. The time column is set as the index.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the decay_units parameter is invalid.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;C-14&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">decay_data_as_dataframe</span><span class="p">(</span><span class="n">time_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;ky&#39;</span><span class="p">,</span> <span class="n">decay_units</span><span class="o">=</span><span class="s1">&#39;mass_frac&#39;</span><span class="p">,</span> <span class="n">npoints</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">               C-14      N-14</span>
+<span class="go">Time (ky)</span>
+<span class="go">0.000000   1.000000  0.000000</span>
+<span class="go">3.333333   0.666747  0.333253</span>
+<span class="go">6.666667   0.444550  0.555450</span>
+<span class="go">10.000000  0.296402  0.703598</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="radioactivedecay.inventory.Inventory.half_lives">
 <span class="sig-name descname"><span class="pre">half_lives</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'s'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.inventory.Inventory.half_lives" title="Link to this definition"></a></dt>
 <dd><p>Returns dictionary of half-lives of the nuclides in the inventory in your chosen time
@@ -859,6 +946,93 @@ nuclide</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;C-14&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;K-40&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">decay_modes</span><span class="p">()</span>
 <span class="go">{&#39;C-14&#39;: [&#39;β-&#39;], &#39;K-40&#39;: [&#39;β-&#39;, &#39;β+ &amp; EC&#39;])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.decay_time_series">
+<span class="sig-name descname"><span class="pre">decay_time_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Bq'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npoints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">501</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.decay_time_series" title="Link to this definition"></a></dt>
+<dd><p>Returns a list, dict tuple with the initial isotope and all decay progeny decayed for the amount of time specified by
+time_period. The list contains the time data from the decay calculations, and the dict has the isotope as the key,
+with decay data contained in a list for the value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time_period</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>np.ndarray</em><em>]</em>) – Time to decay the chain for. If a float is given, &lt;time_scale&gt; and &lt;npoints&gt; is used to create an evenly spaced array of numbers.
+If an numpy ndarray is provided, the values contained within are used and &lt;npoints&gt; is ignored.</p></li>
+<li><p><strong>time_units</strong> (<em>str</em><em>, </em><em>optional</em>) – Units for time series. Options are ‘ps’, ‘ns’, ‘μs’, ‘us’, ‘ms’, ‘s’, ‘m’, ‘h’, ‘d’, ‘y’,
+‘ky’, ‘My’, ‘By’, ‘Gy’, ‘Ty’, ‘Py’, and common spelling variations. Default is ‘s’, i.e.
+seconds.</p></li>
+<li><p><strong>time_scale</strong> (<em>str</em><em>, </em><em>optional</em>) – The time axis scale type to apply (‘linear’ or ‘log’, default is ‘linear’).</p></li>
+<li><p><strong>decay_units</strong> (<em>str</em><em>, </em><em>optional</em>) – Units to use for the decayed values e.g. ‘Bq’, ‘kBq’, ‘Ci’, ‘g’, ‘mol’, ‘num’,
+‘activity_frac’, ‘mass_frac’, ‘mol_frac’. Default is ‘Bq’.</p></li>
+<li><p><strong>npoints</strong> (<em>None</em><em> or </em><em>int</em><em>, </em><em>optional</em>) – Number of time points used to plot graph (default is 501 for normal precision decay
+calculations, or 51 for high precision decay calculations).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>List[float]</em> – The time points of the decayed data</p></li>
+<li><p><em>Dict[str, List[float]]</em> – The isotopes as the key with the decay values as a list of floats</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the decay_units parameter is invalid.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;C-14&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">inv</span><span class="o">.</span><span class="n">calculate_decay_data</span><span class="p">(</span><span class="n">time_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;ky&quot;</span><span class="p">,</span> <span class="n">decay_units</span><span class="o">=</span><span class="s2">&quot;mass_frac&quot;</span><span class="p">,</span> <span class="n">npoints</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span>
+<span class="go">[0.0, 3.3333333333333335, 6.666666666666667, 10.0]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span>
+<span class="go">{&#39;C-14&#39;: [1.0, 0.6667465897861368, 0.4445504227269143, 0.2964018201597633], &#39;N-14&#39;: [0.0, 0.3332534102138631, 0.5554495772730857, 0.7035981798402366]}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="radioactivedecay.inventory.InventoryHP.decay_time_series_pandas">
+<span class="sig-name descname"><span class="pre">decay_time_series_pandas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Bq'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npoints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">501</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#radioactivedecay.inventory.InventoryHP.decay_time_series_pandas" title="Link to this definition"></a></dt>
+<dd><p>Returns a dataframe with the initial isotope and all decay progeny decayed for the amount of time specified by
+time_period.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time_period</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>np.ndarray</em><em>]</em>) – Time to decay the chain for. If a float is given, &lt;time_scale&gt; and &lt;npoints&gt; is used to create an evenly spaced array of numbers.
+If an numpy ndarray is provided, the values contained within are used and &lt;npoints&gt; is ignored.</p></li>
+<li><p><strong>time_units</strong> (<em>str</em><em>, </em><em>optional</em>) – Units for time series. Options are ‘ps’, ‘ns’, ‘μs’, ‘us’, ‘ms’, ‘s’, ‘m’, ‘h’, ‘d’, ‘y’,
+‘ky’, ‘My’, ‘By’, ‘Gy’, ‘Ty’, ‘Py’, and common spelling variations. Default is ‘s’, i.e.
+seconds.</p></li>
+<li><p><strong>time_scale</strong> (<em>str</em><em>, </em><em>optional</em>) – The time axis scale type to apply (‘linear’ or ‘log’, default is ‘linear’).</p></li>
+<li><p><strong>decay_units</strong> (<em>str</em><em>, </em><em>optional</em>) – Units to use for the decayed values e.g. ‘Bq’, ‘kBq’, ‘Ci’, ‘g’, ‘mol’, ‘num’,
+‘activity_frac’, ‘mass_frac’, ‘mol_frac’. Default is ‘Bq’.</p></li>
+<li><p><strong>npoints</strong> (<em>None</em><em> or </em><em>int</em><em>, </em><em>optional</em>) – Number of time points used to plot graph (default is 501 for normal precision decay
+calculations, or 51 for high precision decay calculations).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pandas DataFrame with the data of the decayed Inventory. Each isotope is its own column, with a row for
+each time increment. The time column is set as the index.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the decay_units parameter is invalid.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;C-14&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span><span class="o">.</span><span class="n">decay_data_as_dataframe</span><span class="p">(</span><span class="n">time_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;ky&#39;</span><span class="p">,</span> <span class="n">decay_units</span><span class="o">=</span><span class="s1">&#39;mass_frac&#39;</span><span class="p">,</span> <span class="n">npoints</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">               C-14      N-14</span>
+<span class="go">Time (ky)</span>
+<span class="go">0.000000   1.000000  0.000000</span>
+<span class="go">3.333333   0.666747  0.333253</span>
+<span class="go">6.666667   0.444550  0.555450</span>
+<span class="go">10.000000  0.296402  0.703598</span>
 </pre></div>
 </div>
 </dd></dl>
