@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Overview &mdash; radioactivedecay 0.4.22 documentation</title>
+  <title>Overview &mdash; radioactivedecay 0.5.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,8 +15,8 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=ddf46cfd"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/documentation_options.js?v=1dd76d02"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -37,7 +37,7 @@
             radioactivedecay
           </a>
               <div class="version">
-                0.4.22
+                0.5.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -109,10 +109,10 @@ Atomic Mass Data Center (AME2020 and Nubase 2020 evaluations)
 <a class="reference internal" href="#refs"><span class="std std-ref">[2]</span></a>, <a class="reference internal" href="#refs"><span class="std std-ref">[3]</span></a> and <a class="reference internal" href="#refs"><span class="std std-ref">[4]</span></a>. It solves the radioactive
 decay differential equations analytically using basic linear algebra operations
 <a class="reference internal" href="#refs"><span class="std std-ref">[5]</span></a>.</p>
-<p>In order to use <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code>, you will need Python 3.6+ with the
-Matplotlib, NetworkX, NumPy, SciPy, Setuptools and SymPy packages installed.
-The code is platform independent and has been tested on Windows, MacOS and
-Linux systems.</p>
+<p>In order to use <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code>, you will need Python 3.8+ with the
+Matplotlib, NetworkX, NumPy, Pandas, SciPy, Setuptools and SymPy packages
+installed. The code is platform independent and has been tested on Windows,
+MacOS and Linux systems.</p>
 </section>
 <section id="quick-start">
 <h2>Quick start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h2>
@@ -125,8 +125,8 @@ Linux systems.</p>
 </pre></div>
 </div>
 <p>Either command will attempt to install the dependencies (Matplotlib, NetworkX,
-NumPy, SciPy, Setuptooks &amp; SymPy) if they are not already present in the
-environment.</p>
+NumPy, Pandas, SciPy, Setuptooks &amp; SymPy) if they are not already present in
+the environment.</p>
 <p>Import the <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> package and decay a simple inventory using:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">radioactivedecay</span> <span class="k">as</span> <span class="nn">rd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv_t0</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;H-3&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span>
@@ -193,14 +193,15 @@ the method described in ref. <a class="reference internal" href="#refs"><span cl
 <a class="reference internal" href="theory.html"><span class="doc">theory docpage</span></a> for
 more details. It calls NumPy <a class="reference internal" href="#refs"><span class="std std-ref">[6]</span></a> and SciPy <a class="reference internal" href="#refs"><span class="std std-ref">[7]</span></a> for
 the matrix operations. There is also a high numerical precision decay
-calculation mode based on SymPy <a class="reference internal" href="#refs"><span class="std std-ref">[8]</span></a> routines.</p>
+calculation mode based on SymPy <a class="reference internal" href="#refs"><span class="std std-ref">[8]</span></a> routines. Decay time series
+data can be output as a Pandas <a class="reference internal" href="#refs"><span class="std std-ref">[9]</span></a> dataframes.</p>
 <p>The <a class="reference external" href="https://github.com/radioactivedecay/datasets">datasets repo</a>
 on GitHub contains a Jupyter Notebook for creating the
 <a class="reference external" href="https://github.com/radioactivedecay/datasets/blob/main/icrp107_ame2020_nubase2020/icrp107_dataset.ipynb">ICRP-107 decay dataset</a>.
 Notebooks with cross-checks of decay calculation results against
 <a class="reference external" href="https://github.com/radioactivedecay/comparisons/blob/main/pyne/rd_pyne_truncated_compare.ipynb">PyNE</a>
-<a class="reference internal" href="#refs"><span class="std std-ref">[9]</span></a> and <a class="reference external" href="https://github.com/radioactivedecay/comparisons/blob/main/radiological_toolbox/radiological_toolbox_compare.ipynb">Radiological Toolbox</a>
-<a class="reference internal" href="#refs"><span class="std std-ref">[10]</span></a> are held in the <a class="reference external" href="https://github.com/radioactivedecay/comparisons">comparisons repo</a>.</p>
+<a class="reference internal" href="#refs"><span class="std std-ref">[10]</span></a> and <a class="reference external" href="https://github.com/radioactivedecay/comparisons/blob/main/radiological_toolbox/radiological_toolbox_compare.ipynb">Radiological Toolbox</a>
+<a class="reference internal" href="#refs"><span class="std std-ref">[11]</span></a> are held in the <a class="reference external" href="https://github.com/radioactivedecay/comparisons">comparisons repo</a>.</p>
 </section>
 <section id="limitations">
 <h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading"></a></h2>
@@ -233,7 +234,7 @@ ICRP-107 decay data.</p></li>
 <li><p>There are a few instances where minor decay pathways were not included in
 ICRP-107, e.g. the decay pathways for At-219-&gt; Rn-219 (β ~3%), Es-250 -&gt;
 Bk-246 (α ~1.5%), and U-228 -&gt; Pa-228 (ε ~2.5%). For more
-details see refs. <a class="reference internal" href="#refs"><span class="std std-ref">[11]</span></a> and <a class="reference internal" href="#refs"><span class="std std-ref">[12]</span></a> on the creation of
+details see refs. <a class="reference internal" href="#refs"><span class="std std-ref">[12]</span></a> and <a class="reference internal" href="#refs"><span class="std std-ref">[13]</span></a> on the creation of
 the ICRP-107 dataset.</p></li>
 </ul>
 </section>
@@ -266,6 +267,7 @@ calculations. <em>Journal of Open Source Software</em>, <strong>7</strong> (71),
 <li><p><a class="reference external" href="https://alexmalins.com">Alex Malins</a></p></li>
 <li><p><a class="reference external" href="https://github.com/lemointm">Thom Lemoine</a></p></li>
 <li><p><a class="reference external" href="https://bgameiro.me/">Bernardo Gameiro</a></p></li>
+<li><p><a class="reference external" href="https://github.com/php1ic">Ian Cullen</a></p></li>
 </ul>
 </section>
 <section id="contributing">
@@ -305,12 +307,12 @@ on GitHub</a>.</p>
 <p>Thanks also to:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/bjodah">Björn Dahlgren</a> (creator of the batemaneq
-Python package <a class="reference internal" href="#refs"><span class="std std-ref">[13]</span></a>)</p></li>
+Python package <a class="reference internal" href="#refs"><span class="std std-ref">[14]</span></a>)</p></li>
 <li><p><a class="reference external" href="https://github.com/scopatz">Anthony Scopatz</a> and the PyNE project
 <a class="reference internal" href="#refs"><span class="std std-ref">[9]</span></a></p></li>
 <li><p><a class="reference external" href="https://github.com/jtmorrell">Jonathan Morrell</a> (creator of the <a class="reference external" href="https://github.com/jtmorrell/npat">NPAT</a> and <a class="reference external" href="https://github.com/jtmorrell/npat">Curie</a> packages)</p></li>
 <li><p><a class="reference external" href="https://www.researchgate.net/profile/Austin-Ladshaw">Austin Ladshaw</a> &amp;
-collaborators (creators of <a class="reference external" href="https://bitbucket.org/gitecosystem/ecosystem">IBIS</a> <a class="reference internal" href="#refs"><span class="std std-ref">[14]</span></a>)</p></li>
+collaborators (creators of <a class="reference external" href="https://bitbucket.org/gitecosystem/ecosystem">IBIS</a> <a class="reference internal" href="#refs"><span class="std std-ref">[15]</span></a>)</p></li>
 <li><p><a class="reference external" href="https://github.com/wcjohns">Will Johnson</a> &amp; collaborators (creators of
 <a class="reference external" href="https://github.com/sandialabs/SandiaDecay">SandiaDecay</a>)</p></li>
 </ul>
@@ -327,6 +329,7 @@ collaborators (creators of <a class="reference external" href="https://bitbucket
 <li><p>CR Harris et al. Nat. 585, 357-362 (2020). DOI: <a class="reference external" href="https://doi.org/10.1038/s41586-020-2649-2">10.1038/s41586-020-2649-2</a></p></li>
 <li><p>P Virtanen et al. Nat. Methods 17, 261-272 (2020). DOI: <a class="reference external" href="https://doi.org/10.1038/s41592-019-0686-2">10.1038/s41592-019-0686-2</a></p></li>
 <li><p>A Meurer et al. PeerJ Comp. Sci. 3, e103 (2017). DOI: <a class="reference external" href="https://doi.org/10.7717/peerj-cs.103">10.7717/peerj-cs.103</a></p></li>
+<li><p>The pandas development team (2020). DOI: <a class="reference external" href="https://doi.org/10.5281/zenodo.3509134">10.5281/zenodo.3509134</a></p></li>
 <li><p>PyNE: The Nuclear Engineering Toolkit. <a class="reference external" href="https://pyne.io/">https://pyne.io/</a></p></li>
 <li><p>KF Eckerman, AL Sjoreen &amp; C Sun, Radiological Toolbox, Oak Ridge National Laboratory. <a class="reference external" href="https://www.ornl.gov/crpk/software">https://www.ornl.gov/crpk/software</a></p></li>
 <li><p>A Endo, Y Yamaguchi &amp; KF Eckerman, JAERI 1347 (2005). DOI: <a class="reference external" href="https://doi.org/10.11484/jaeri-1347">10.11484/jaeri-1347</a></p></li>

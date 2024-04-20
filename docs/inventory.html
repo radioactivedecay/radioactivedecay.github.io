@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>inventory &mdash; radioactivedecay 0.4.22 documentation</title>
+  <title>inventory &mdash; radioactivedecay 0.5.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,8 +15,8 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=ddf46cfd"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/documentation_options.js?v=1dd76d02"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -37,7 +37,7 @@
             radioactivedecay
           </a>
               <div class="version">
-                0.4.22
+                0.5.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -373,7 +373,7 @@ calculations, or 51 for high precision decay calculations).</p></li>
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;C-14&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">inv</span><span class="o">.</span><span class="n">calculate_decay_data</span><span class="p">(</span><span class="n">time_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;ky&quot;</span><span class="p">,</span> <span class="n">decay_units</span><span class="o">=</span><span class="s2">&quot;mass_frac&quot;</span><span class="p">,</span> <span class="n">npoints</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">inv</span><span class="o">.</span><span class="n">decay_time_series_pandas</span><span class="p">(</span><span class="n">time_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;ky&quot;</span><span class="p">,</span> <span class="n">decay_units</span><span class="o">=</span><span class="s2">&quot;mass_frac&quot;</span><span class="p">,</span> <span class="n">npoints</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">time</span>
 <span class="go">[0.0, 3.3333333333333335, 6.666666666666667, 10.0]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span>
@@ -984,7 +984,7 @@ calculations, or 51 for high precision decay calculations).</p></li>
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;C-14&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">inv</span><span class="o">.</span><span class="n">calculate_decay_data</span><span class="p">(</span><span class="n">time_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;ky&quot;</span><span class="p">,</span> <span class="n">decay_units</span><span class="o">=</span><span class="s2">&quot;mass_frac&quot;</span><span class="p">,</span> <span class="n">npoints</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">inv</span><span class="o">.</span><span class="n">decay_time_series_pandas</span><span class="p">(</span><span class="n">time_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;ky&quot;</span><span class="p">,</span> <span class="n">decay_units</span><span class="o">=</span><span class="s2">&quot;mass_frac&quot;</span><span class="p">,</span> <span class="n">npoints</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">time</span>
 <span class="go">[0.0, 3.3333333333333335, 6.666666666666667, 10.0]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span>
