@@ -1,23 +1,21 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Overview &mdash; radioactivedecay 0.5.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+  <title>Overview &mdash; radioactivedecay 0.6.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=b9afe91b"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8fa8b3e9"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -36,9 +34,6 @@
           <a href="index.html" class="icon icon-home">
             radioactivedecay
           </a>
-              <div class="version">
-                0.5.1
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -109,7 +104,7 @@ Atomic Mass Data Center (AME2020 and Nubase 2020 evaluations)
 <a class="reference internal" href="#refs"><span class="std std-ref">[2]</span></a>, <a class="reference internal" href="#refs"><span class="std std-ref">[3]</span></a> and <a class="reference internal" href="#refs"><span class="std std-ref">[4]</span></a>. It solves the radioactive
 decay differential equations analytically using basic linear algebra operations
 <a class="reference internal" href="#refs"><span class="std std-ref">[5]</span></a>.</p>
-<p>In order to use <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code>, you will need Python 3.8+ with the
+<p>In order to use <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code>, you will need Python 3.9+ with the
 Matplotlib, NetworkX, NumPy, Pandas, SciPy, Setuptools and SymPy packages
 installed. The code is platform independent and has been tested on Windows,
 MacOS and Linux systems.</p>
@@ -128,7 +123,7 @@ MacOS and Linux systems.</p>
 NumPy, Pandas, SciPy, Setuptooks &amp; SymPy) if they are not already present in
 the environment.</p>
 <p>Import the <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> package and decay a simple inventory using:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">radioactivedecay</span> <span class="k">as</span> <span class="nn">rd</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">radioactivedecay</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv_t0</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">Inventory</span><span class="p">({</span><span class="s1">&#39;H-3&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">},</span> <span class="s1">&#39;Bq&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv_t1</span> <span class="o">=</span> <span class="n">inv_t0</span><span class="o">.</span><span class="n">decay</span><span class="p">(</span><span class="mf">12.32</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inv_t1</span><span class="o">.</span><span class="n">activities</span><span class="p">()</span>
@@ -161,7 +156,8 @@ atoms. Use the <code class="docutils literal notranslate"><span class="pre">unit
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inv_t0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/H-3_decay.png"><img alt="_images/H-3_decay.png" src="_images/H-3_decay.png" style="width: 450px;" /></a>
+<a class="reference internal image-reference" href="_images/H-3_decay.png"><img alt="_images/H-3_decay.png" src="_images/H-3_decay.png" style="width: 450px;" />
+</a>
 <p>The graph shows the decay of H-3 over a 100 year period.</p>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">Nuclide</span></code> class to fetch decay and atomic data about a particular
 nuclide and to draw diagrams of its decay chain:</p>
@@ -183,7 +179,8 @@ nuclide and to draw diagrams of its decay chain:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">nuc</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/H-3_chain.png"><img alt="_images/H-3_chain.png" src="_images/H-3_chain.png" style="width: 100px;" /></a>
+<a class="reference internal image-reference" href="_images/H-3_chain.png"><img alt="_images/H-3_chain.png" src="_images/H-3_chain.png" style="width: 100px;" />
+</a>
 </section>
 <section id="how-it-works">
 <h2>How it works<a class="headerlink" href="#how-it-works" title="Link to this heading"></a></h2>

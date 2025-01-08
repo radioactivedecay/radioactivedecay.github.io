@@ -1,23 +1,21 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>utils &mdash; radioactivedecay 0.5.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+  <title>utils &mdash; radioactivedecay 0.6.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=b9afe91b"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8fa8b3e9"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -35,9 +33,6 @@
           <a href="index.html" class="icon icon-home">
             radioactivedecay
           </a>
-              <div class="version">
-                0.5.1
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -107,7 +102,7 @@
 <p>The utils module contains functions to parse nuclide strings and manipulate lists and dictionaries.</p>
 <p>The docstring code examples assume that <code class="docutils literal notranslate"><span class="pre">radioactivedecay</span></code> has been imported
 as <code class="docutils literal notranslate"><span class="pre">rd</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">radioactivedecay</span> <span class="k">as</span> <span class="nn">rd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">radioactivedecay</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rd</span>
 </pre></div>
 </div>
 <dl class="py exception">
@@ -150,7 +145,7 @@ as <code class="docutils literal notranslate"><span class="pre">rd</span></code>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="radioactivedecay.utils.add_dictionaries">
-<span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">add_dictionaries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict_a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.utils.add_dictionaries" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">add_dictionaries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict_a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.utils.add_dictionaries" title="Link to this definition"></a></dt>
 <dd><p>Adds together two dictionaries of nuclide strings and associated quantities. Supports both
 floats or SymPy quantities.</p>
 <dl class="field-list simple">
@@ -268,7 +263,7 @@ atomic metastable state.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="radioactivedecay.utils.get_metastable_chars">
-<span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">get_metastable_chars</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.utils.get_metastable_chars" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">get_metastable_chars</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.utils.get_metastable_chars" title="Link to this definition"></a></dt>
 <dd><p>Returns list of allowed metastable state characters. Currently up to sixth metastable state is
 supported, based on the existence of sixth metastable state isomers in NUBASE2020, e.g.
 Lu-174x.</p>
@@ -372,7 +367,7 @@ function works for both radioactive and stable nuclides.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="radioactivedecay.utils.sort_dictionary_alphabetically">
-<span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">sort_dictionary_alphabetically</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_inv_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.utils.sort_dictionary_alphabetically" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">sort_dictionary_alphabetically</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_inv_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.utils.sort_dictionary_alphabetically" title="Link to this definition"></a></dt>
 <dd><p>Sorts a dictionary alphabetically by its keys.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -395,7 +390,7 @@ as values.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="radioactivedecay.utils.sort_list_according_to_dataset">
-<span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">sort_list_according_to_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.utils.sort_list_according_to_dataset" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">radioactivedecay.utils.</span></span><span class="sig-name descname"><span class="pre">sort_list_according_to_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#radioactivedecay.utils.sort_list_according_to_dataset" title="Link to this definition"></a></dt>
 <dd><p>Sorts a list of nuclides based on their order of appearence in the decay dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
